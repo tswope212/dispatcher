@@ -1,4 +1,7 @@
 Dispatcher::Application.routes.draw do
+  resources :dispatches
+
+
   resources :tasks
 
 

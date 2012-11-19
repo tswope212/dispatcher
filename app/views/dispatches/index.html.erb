@@ -1,0 +1,27 @@
+<h1>Listing dispatches</h1>
+
+<table>
+  <tr>
+    <th>Team</th>
+    <th>Task</th>
+    <th>Dispatcher</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @dispatches.each do |dispatch| %>
+  <tr>
+    <td><%= link_to_name dispatch.team %></td>
+    <td><%= link_to_name dispatch.task %></td>
+    <td><%= link_to_name dispatch.person %></td>
+    <td><%= link_to 'Show', dispatch %></td>
+    <td><%= link_to 'Edit', edit_dispatch_path(dispatch) %></td>
+    <td><%= link_to 'Destroy', dispatch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Dispatch', new_dispatch_path %>

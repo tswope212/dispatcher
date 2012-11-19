@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Team:</b>
+  <%= link_to_name @dispatch.team %>
+</p>
+
+<p>
+  <b>Task:</b>
+  <%= link_to_name @dispatch.task %>
+</p>
+
+<p>
+  <b>Person:</b>
+  <%= link_to_name @dispatch.person %>
+</p>
+
+
+<%= link_to 'Edit', edit_dispatch_path(@dispatch) %> |
+<%= link_to 'Back', dispatches_path %>
