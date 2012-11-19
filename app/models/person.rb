@@ -8,4 +8,8 @@ class Person < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :primary_phone_number, :date_of_birth
   # attr_accessible :title, :body
+  
+  def name
+    "#{first_name} #{last_name}"
+  end
 end

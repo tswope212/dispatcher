@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121119014155) do
+ActiveRecord::Schema.define(:version => 20121119021604) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "street_number"
@@ -60,6 +60,25 @@ ActiveRecord::Schema.define(:version => 20121119014155) do
   add_index "people", ["email"], :name => "index_people_on_email", :unique => true
   add_index "people", ["reset_password_token"], :name => "index_people_on_reset_password_token", :unique => true
 
+  create_table "roles", :force => true do |t|
+    t.integer  "person_id"
+    t.integer  "team_id"
+    t.integer  "skill_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "roles", ["person_id"], :name => "index_roles_on_person_id"
+  add_index "roles", ["skill_id"], :name => "index_roles_on_skill_id"
+  add_index "roles", ["team_id"], :name => "index_roles_on_team_id"
+
+  create_table "skills", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "streets", :force => true do |t|
     t.string   "name"
     t.integer  "city_id"
@@ -68,6 +87,15 @@ ActiveRecord::Schema.define(:version => 20121119014155) do
   end
 
   add_index "streets", ["city_id"], :name => "index_streets_on_city_id"
+
+  create_table "teams", :force => true do |t|
+    t.string   "name"
+    t.integer  "person_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "teams", ["person_id"], :name => "index_teams_on_person_id"
 
   create_table "units", :force => true do |t|
     t.string   "name"

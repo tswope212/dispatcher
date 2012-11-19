@@ -1,4 +1,13 @@
 Dispatcher::Application.routes.draw do
+  resources :skills
+
+
+  resources :roles
+
+
+  resources :teams
+
+
   devise_for :people
   resources :people
 
