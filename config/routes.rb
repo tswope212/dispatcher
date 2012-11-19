@@ -1,4 +1,10 @@
 Dispatcher::Application.routes.draw do
+  resources :addresses
+
+
+  resources :streets
+
+
   resources :neighborhoods
 
 

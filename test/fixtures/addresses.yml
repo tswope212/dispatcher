@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  street_number: 1
+  street: 
+
+two:
+  street_number: 1
+  street: 
