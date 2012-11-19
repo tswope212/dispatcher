@@ -7,11 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% unless current_person %>
+    <%= link_to 'sign in', new_person_session_path %>
+    <%= link_to 'sign up', new_person_registration_path %>
+  <% else %>
+    <%= link_to 'update my contact info', edit_person_path(current_person) %>
+    <%= link_to 'sign out', destroy_person_session_path, :method => :delete %>
+  <% end %>
+<br>
 <%= link_to 'cities', cities_path %>
 <%= link_to 'neighborhoods', neighborhoods_path %>
 <%= link_to 'streets', streets_path %>
 <%= link_to 'addresses', addresses_path %>
 <%= link_to 'units', units_path %>
+<%= link_to 'people', people_path %>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 <%= yield %>

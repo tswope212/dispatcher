@@ -1,4 +1,7 @@
 Dispatcher::Application.routes.draw do
+  devise_for :people
+  resources :people
+
   resources :units
 
 
@@ -12,6 +15,8 @@ Dispatcher::Application.routes.draw do
 
 
   resources :cities
+  
+  root :to => 'cities#index'
 
 
   # The priority is based upon order of creation:
