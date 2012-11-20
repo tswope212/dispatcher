@@ -1,4 +1,10 @@
 Dispatcher::Application.routes.draw do
+  resources :operations_centers
+
+
+  resources :assignments
+
+
   resources :aptitudes
 
 

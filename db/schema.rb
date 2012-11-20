@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121120001740) do
+ActiveRecord::Schema.define(:version => 20121120003550) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "street_number"
@@ -33,6 +33,16 @@ ActiveRecord::Schema.define(:version => 20121120001740) do
 
   add_index "aptitudes", ["person_id"], :name => "index_aptitudes_on_person_id"
   add_index "aptitudes", ["skill_id"], :name => "index_aptitudes_on_skill_id"
+
+  create_table "assignments", :force => true do |t|
+    t.integer  "operations_center_id"
+    t.integer  "task_id"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
+
+  add_index "assignments", ["operations_center_id"], :name => "index_assignments_on_operations_center_id"
+  add_index "assignments", ["task_id"], :name => "index_assignments_on_task_id"
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -61,6 +71,16 @@ ActiveRecord::Schema.define(:version => 20121120001740) do
 
   add_index "neighborhoods", ["city_id"], :name => "index_neighborhoods_on_city_id"
 
+  create_table "operations_centers", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "unit_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "operations_centers", ["unit_id"], :name => "index_operations_centers_on_unit_id"
+
   create_table "people", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -77,10 +97,17 @@ ActiveRecord::Schema.define(:version => 20121120001740) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
+    t.string   "authentication_token"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
   end
 
+  add_index "people", ["authentication_token"], :name => "index_people_on_authentication_token", :unique => true
+  add_index "people", ["confirmation_token"], :name => "index_people_on_confirmation_token", :unique => true
   add_index "people", ["email"], :name => "index_people_on_email", :unique => true
   add_index "people", ["reset_password_token"], :name => "index_people_on_reset_password_token", :unique => true
 

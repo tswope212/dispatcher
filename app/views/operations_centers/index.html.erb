@@ -1,0 +1,27 @@
+<h1>Listing operations_centers</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Unit</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @operations_centers.each do |operations_center| %>
+  <tr>
+    <td><%= operations_center.name %></td>
+    <td><%= operations_center.description %></td>
+    <td><%= link_to_name operations_center.unit %></td>
+    <td><%= link_to 'Show', operations_center %></td>
+    <td><%= link_to 'Edit', edit_operations_center_path(operations_center) %></td>
+    <td><%= link_to 'Destroy', operations_center, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Operations center', new_operations_center_path %>

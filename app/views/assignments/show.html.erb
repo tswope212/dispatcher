@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Operations Center:</b>
+  <%= link_to_name @assignment.operations_center %>
+</p>
+
+<p>
+  <b>Task:</b>
+  <%= link_to_name @assignment.task %>
+</p>
+
+
+<%= link_to 'Edit', edit_assignment_path(@assignment) %> |
+<%= link_to 'Back', assignments_path %>
