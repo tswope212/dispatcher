@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  person: 
+  skill: 
+  level: 1
+  description: MyText
+
+two:
+  person: 
+  skill: 
+  level: 1
+  description: MyText

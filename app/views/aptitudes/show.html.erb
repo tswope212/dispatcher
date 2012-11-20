@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Person:</b>
+  <%= link_to_name @aptitude.person %>
+</p>
+
+<p>
+  <b>Skill:</b>
+  <%= link_to_name @aptitude.skill %>
+</p>
+
+<p>
+  <b>Level:</b>
+  <%= @aptitude.level %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @aptitude.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_aptitude_path(@aptitude) %> |
+<%= link_to 'Back', aptitudes_path %>

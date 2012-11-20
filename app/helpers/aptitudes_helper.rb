@@ -1,0 +1,2 @@
+module AptitudesHelper
+end

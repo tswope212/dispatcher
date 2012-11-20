@@ -1,0 +1,33 @@
+<%= form_for(@aptitude) do |f| %>
+  <% if @aptitude.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@aptitude.errors.count, "error") %> prohibited this aptitude from being saved:</h2>
+
+      <ul>
+      <% @aptitude.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :person_id %><br />
+    <%= f.select :person_id, options_from_collection_for_select(Person.all, :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :skill_id %><br />
+    <%= f.select :skill_id, options_from_collection_for_select(Skill.all, :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :level %><br />
+    <%= f.number_field :level %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,4 +1,7 @@
 Dispatcher::Application.routes.draw do
+  resources :aptitudes
+
+
   resources :dispatches
 
 
