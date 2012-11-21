@@ -4,7 +4,7 @@ class Address < ActiveRecord::Base
   has_many :units
   has_many :tasks, :through => :units
   belongs_to :neighborhood
-  attr_accessible :street_number, :street_id, :zip_code
+  attr_accessible :street_number, :street_id, :zip_code, :neighborhood_id
   
   acts_as_gmappable
 

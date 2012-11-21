@@ -1,7 +1,7 @@
 Thanks, we've saved the details of your request.  We will contact you by email or phone when we have information for you.
 
 Can you specify which neighborhood you are in?
-<%= form_for @unit do |f| %>
-  <%= f.select :neighborhood_id, options_from_collection_for_select(@unit.city.neighborhoods.all, :id, :name), :include_blank => true %>
+<%= form_for @address do |f| %>
+  <%= f.select :neighborhood_id, options_from_collection_for_select(@address.city.neighborhoods.all, :id, :name), :include_blank => true %>
   <%= f.submit %>
 <% end %>
