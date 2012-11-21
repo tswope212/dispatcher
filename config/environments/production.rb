@@ -55,7 +55,7 @@ Dispatcher::Application.configure do
     :password => ENV['EMAIL_PASSWORD'],
     :address => 'smtp.disasterdispatcher.net',
     :domain => 'smtp.disasterdispatcher.net',
-    :authentication => :plain,
+    :authentication => :login,
     :port => 587,
     :enable_starttls_auto => false
   }
