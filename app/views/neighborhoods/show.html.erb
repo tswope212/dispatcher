@@ -18,5 +18,7 @@
   <% end %>
 </div>
 
+<%#= gmaps({:map_options => {:auto_zoom => false, :zoom => 14}, :markers => (@units.map do |u| {:data => u.address.to_gmaps4rails})}) %>
+
 <%= link_to 'Edit', edit_neighborhood_path(@neighborhood) %> |
 <%= link_to 'Back', neighborhoods_path %>
