@@ -1,7 +1,7 @@
 <%= @team_admin.name %> (<%= @team_admin.phone_number %>) has requested access to the dispatcher.
 <br>
-<%= link_to 'authorize', authorize_team_admin_path(@team_admin, :auth_token => TeamAdmin.taylor.authentication_token)  %>
+<%= link_to 'authorize', authorize_team_admin_url(@team_admin, :auth_token => TeamAdmin.taylor.authentication_token)  %>
 <br>
-<%= link_to 'deauthorize', deauthorize_team_admin_path(@team_admin, :auth_token => TeamAdmin.taylor.authentication_token) %>
+<%= link_to 'deauthorize', deauthorize_team_admin_url(@team_admin, :auth_token => TeamAdmin.taylor.authentication_token) %>
 <br>
 Keep this message in case they need to be deauthorized for any reason.
