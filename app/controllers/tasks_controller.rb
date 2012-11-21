@@ -1,4 +1,17 @@
 class TasksController < ApplicationController
+  def registration
+    
+  end
+  
+  def intake
+    @person = Person.create :email => params[:email], :password => params[:password], :password_confirmation => params[:password_confirmation], :first_name => params[:first_name], :last_name => params[:last_name], :primary_phone_number => params[:primary_phone_number]
+    @city = City.find_or_create_by_name params[:city]
+    @street = @city.streets.find_or_create_by_name params[:street_name]
+    @address = @street.addresses.find_or_create_by_street_number params[:street_number]
+    @unit = @address.units.find_or_create_by_name params[:unit_name]
+    @task = @unit.tasks.create :name => params[:task_name], :description => params[:task_description]
+  end
+
   # GET /tasks
   # GET /tasks.json
   def index

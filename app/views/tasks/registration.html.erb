@@ -1,0 +1,32 @@
+<%= form_tag request_task_path do %>
+  <%= text_field_tag :first_name %>
+  <%= label_tag :first_name %><br>
+  <%= text_field_tag :last_name %>
+  <%= label_tag :last_name %><br>
+  <%= text_field_tag :primary_phone_number %>
+  <%= label_tag :primary_phone_number %><br>
+  <%= email_field_tag :email %>
+  <%= label_tag :email %><br>
+  <%= password_field_tag :password %>
+  <%= label_tag :password, 'Please Choose a Password' %><br>
+  <%= password_field_tag :password_confirmation %>
+  <%= label_tag :password_confirmation, 'Please Confirm the Password' %><hr>
+  Note: please put your street number and street name in the two separate boxes.  If your home has a unit number or name, put it in the third box.  Thanks for your cooperation!<br>
+  <%= text_field_tag :street_number %>
+  <%= label_tag :street_number, 'Street Number' %><br>
+  <%= text_field_tag :street_name %>
+  <%= label_tag :street_name %><br>
+  <%= text_field_tag :unit_name %>
+  <%= label_tag :unit_name, 'Unit Number/Unit Name' %><hr>
+  <%= text_field_tag :city %>
+  <%= label_tag :city %><br>
+  <%= text_field_tag :zip_code %>
+  <%= label_tag :zip_code %><hr>
+  <%= text_field_tag :task_name %>
+  <%= label_tag :task_name, 'Please summarize the first thing you would like help with.' %><br>
+  <%= text_area_tag :task_description %>
+  <%= label_tag :task_description, 'Details should be provided here.' %><br>
+  
+  <%= submit_tag 'Submit Information' %>
+  
+<% end %>

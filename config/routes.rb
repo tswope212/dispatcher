@@ -1,4 +1,7 @@
 Dispatcher::Application.routes.draw do
+  
+  match '/registration' => 'tasks#registration', :as => 'assistance_registration'
+  match '/request' => 'tasks#intake', :as => 'request_task', :via => :post
   resources :operations_centers
 
 
