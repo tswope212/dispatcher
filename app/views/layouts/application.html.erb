@@ -14,6 +14,7 @@
     <%= render 'shared/resource_links' %>
   <% elsif current_team_admin %>
     <%= link_to 'sign out', destroy_team_admin_session_path, :method => :delete %>
+    <%= render 'shared/resource_links' %>
   <% else %>
     <%= link_to 'sign up as a team leader', new_team_admin_registration_path %>
     <%= link_to 'sign in', new_team_admin_session_path %>

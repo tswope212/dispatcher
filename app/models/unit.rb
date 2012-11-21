@@ -1,5 +1,7 @@
 class Unit < ActiveRecord::Base
   belongs_to :address
+  has_one :city, :through => :address
+  has_one :neighborhood, :through => :address
   has_many :tasks
   attr_accessible :name, :address_id
   
