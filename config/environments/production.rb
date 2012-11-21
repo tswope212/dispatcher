@@ -53,11 +53,11 @@ Dispatcher::Application.configure do
   config.action_mailer.smtp_settings = {
     :user_name => ENV['EMAIL_ADDRESS'],
     :password => ENV['EMAIL_PASSWORD'],
-    :address => 'smtp.disasterdispatcher.net',
-    :domain => 'smtp.disasterdispatcher.net',
-    :authentication => :login,
+    :address => 'smtp.gmail.com',
+    :domain => 'disasterdispatcher.herokuapp.com',
+    :authentication => :plain,
     :port => 587,
-    :enable_starttls_auto => false
+    :enable_starttls_auto => true
   }
 
   config.action_mailer.default_url_options = { :host => 'disasterdispatcher.herokuapp.com' }
