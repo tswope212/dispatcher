@@ -10,6 +10,10 @@ class TeamAdmin < ActiveRecord::Base
   
   after_create :send_activation_message
   
+  def name
+    "#{first_name} #{last_name}"
+  end
+  
   def send_activation_message
     TaylorMailer.activation_authorization(self).deliver
   end
