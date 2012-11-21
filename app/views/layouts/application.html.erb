@@ -15,6 +15,7 @@
   <% elsif current_team_admin %>
     <%= link_to 'sign out', destroy_team_admin_session_path, :method => :delete %>
   <% else %>
+    <%= link_to 'sign up as a team leader', new_team_admin_registration_path %>
     <%= link_to 'sign up to receive assistance', assistance_registration_path %>
     <hr>
     <%= link_to 'sign in', new_person_session_path %>

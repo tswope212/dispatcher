@@ -1,4 +1,5 @@
 class TeamAdminsController < ApplicationController
+  before_filter :authenticate_taylor!, :only => [:activate, :deactivate]
   # GET /team_admins
   # GET /team_admins.json
   def index
@@ -91,5 +92,10 @@ class TeamAdminsController < ApplicationController
       format.html { redirect_to team_admins_url }
       format.json { head :no_content }
     end
+  end
+  
+  private
+  def authenticate_taylor!
+    current_team_admin == TeamAdmin.taylor
   end
 end
