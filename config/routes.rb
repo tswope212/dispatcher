@@ -3,8 +3,8 @@ Dispatcher::Application.routes.draw do
   devise_for :team_admins, :controllers => { :registrations => :team_admin_registrations }
   resources :team_admins do
     member do
-      get 'authorize'
-      get 'deauthorize'
+      get 'activate'
+      get 'deactivate'
     end
   end
 
