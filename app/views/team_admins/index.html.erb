@@ -1,0 +1,21 @@
+<h1>Listing team_admins</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @team_admins.each do |team_admin| %>
+  <tr>
+    <td><%= link_to 'Show', team_admin %></td>
+    <td><%= link_to 'Edit', edit_team_admin_path(team_admin) %></td>
+    <td><%= link_to 'Destroy', team_admin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Team admin', new_team_admin_path %>

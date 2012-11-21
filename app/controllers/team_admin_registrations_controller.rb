@@ -1,0 +1,2 @@
+class TeamAdminRegistrationsController < Devise::RegistrationsController
+end

@@ -1,0 +1,17 @@
+<%= form_for TeamAdmin.new do |f| %>
+  <%= f.email_field :email %>
+  <%= f.label :email %><br>
+  <%= f.password_field :password %>
+  <%= f.label :password %><br>
+  <%= f.password_field :password_confirmation %>
+  <%= f.label :password_confirmation %><br>
+  <%= f.text_field :first_name %>
+  <%= f.label :first_name %><br>
+  <%= f.text_field :last_name %>
+  <%= f.label :last_name %><br>
+  <%= f.text_field :phone_number %>
+  <%= f.label :phone_number %><br>
+  <%= f.text_area :personal_statement %>
+  <%= f.label :personal_statement %><br>
+  <%= f.submit 'Submit Information' %>
+<% end %>

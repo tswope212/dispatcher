@@ -1,5 +1,13 @@
 Dispatcher::Application.routes.draw do
   
+  devise_for :team_admins, :controllers => { :registrations => :team_admin_registrations }
+  resources :team_admins do
+    member do
+      get 'authorize'
+      get 'deauthorize'
+    end
+  end
+
   match '/registration' => 'tasks#registration', :as => 'assistance_registration'
   match '/request' => 'tasks#intake', :as => 'request_task', :via => :post
   resources :operations_centers
