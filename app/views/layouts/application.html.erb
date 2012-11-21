@@ -16,10 +16,12 @@
     <%= link_to 'sign out', destroy_team_admin_session_path, :method => :delete %>
   <% else %>
     <%= link_to 'sign up as a team leader', new_team_admin_registration_path %>
+    <%= link_to 'sign in', new_team_admin_session_path %>
+    <hr>
     <%= link_to 'sign up to receive assistance', assistance_registration_path %>
     <hr>
-    <%= link_to 'sign in', new_person_session_path %>
     <%= link_to 'sign up to offer help', new_person_registration_path %>
+    <%= link_to 'sign in', new_person_session_path %>
   <% end %>
 <br>
 

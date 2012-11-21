@@ -3,7 +3,13 @@ class Unit < ActiveRecord::Base
   has_many :tasks
   attr_accessible :name, :address_id
   
+  before_create :populate_default_unit_name
+  
   def full_name
     "#{name} at #{address.name}"
+  end
+  
+  def populate_default_unit_name
+    self.name = 'Main Unit' if name.blank?
   end
 end
