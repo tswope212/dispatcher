@@ -15,7 +15,7 @@
   <%= text_field_tag :street_number %>
   <%= label_tag :street_number, 'Street Number' %><br>
   <%= text_field_tag :street_name %>
-  <%= label_tag :street_name %><br>
+  <%= label_tag :street_name %>(Please use capitalized and abbreviated street types: Rd, Ave, Ln, Pl, etc)<br>
   <%= text_field_tag :unit_name %>
   <%= label_tag :unit_name, 'Unit Number/Unit Name' %><hr>
   <%= select_tag :city_id, options_from_collection_for_select(City.all, :id, :name), :include_blank => true %>
