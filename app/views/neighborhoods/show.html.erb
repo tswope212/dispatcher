@@ -10,6 +10,13 @@
   <%= link_to @neighborhood.city.name, @neighborhood.city %>
 </p>
 
+<div id="units">
+  <% @units.each do |unit| %>
+    <%= div_for unit do %>
+      <%= link_to_name unit %>
+    <% end %>
+  <% end %>
+</div>
 
 <%= link_to 'Edit', edit_neighborhood_path(@neighborhood) %> |
 <%= link_to 'Back', neighborhoods_path %>

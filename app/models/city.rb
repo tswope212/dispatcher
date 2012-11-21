@@ -1,4 +1,5 @@
 class City < ActiveRecord::Base
+  has_many :neighborhoods
   has_many :streets
   has_many :addresses, :through => :streets
   has_many :units, :through => :addresses
