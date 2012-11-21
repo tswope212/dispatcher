@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   
   def intake
     @person = Person.create :email => params[:email], :password => params[:password], :password_confirmation => params[:password_confirmation], :first_name => params[:first_name], :last_name => params[:last_name], :primary_phone_number => params[:primary_phone_number]
-    @city = City.find_or_create_by_name params[:city]
+    @city = City.find params[:city_id]
     @street = @city.streets.find_or_create_by_name params[:street_name]
     @address = @street.addresses.find_or_create_by_street_number :street_number => params[:street_number], :zip_code => params[:zip_code]
     @unit = @address.units.find_or_create_by_name params[:unit_name]

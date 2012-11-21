@@ -18,8 +18,8 @@
   <%= label_tag :street_name %><br>
   <%= text_field_tag :unit_name %>
   <%= label_tag :unit_name, 'Unit Number/Unit Name' %><hr>
-  <%= text_field_tag :city %>
-  <%= label_tag :city %><br>
+  <%= select_tag :city_id, options_from_collection_for_select(City.all, :id, :name), :include_blank => true %>
+  <%= label_tag :city_id %><br>
   <%= text_field_tag :zip_code %>
   <%= label_tag :zip_code %><hr>
   <%= text_field_tag :task_name %>
