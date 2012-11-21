@@ -1,10 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
-  <%= @city.name %>
+  <b><%= @city.name %></b>
 </p>
 
+<div id="addresses">
+  <% @addresses.each do |address| %>
+    <%= div_for address do %>
+      <%= link_to_name address %>
+      <% address.tasks.each do |task| %>
+        <%= div_for task do %>
+          <%= link_to_name task %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
 
 <%= link_to 'Edit', edit_city_path(@city) %> |
 <%= link_to 'Back', cities_path %>

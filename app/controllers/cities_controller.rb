@@ -14,6 +14,7 @@ class CitiesController < ApplicationController
   # GET /cities/1.json
   def show
     @city = City.find(params[:id])
+    @addresses = @city.addresses
 
     respond_to do |format|
       format.html # show.html.erb
