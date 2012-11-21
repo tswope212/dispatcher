@@ -9,6 +9,12 @@
   <b>Street:</b>
   <%= @address.street.name %>
 </p>
+
+<p>
+  <b>Zip:</b>
+  <%= @address.zip_code %>
+</p>
+
 <%= gmaps(:markers => {:data => @address.to_gmaps4rails}, :map_options => {:auto_zoom => false, :zoom => 14, :detect_location => true}) %>
 
 <%= link_to 'Edit', edit_address_path(@address) %> |

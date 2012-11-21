@@ -20,7 +20,8 @@
   <%= link_to_name @task.unit %>
   <%= link_to_name @task.address %>
 </p>
-<%= gmaps4rails(@task.address.to_gmaps4rails) %>
+<%= gmaps(:markers => {:data => @task.address.to_gmaps4rails}, :map_options => {:auto_zoom => false, :zoom => 14, :detect_location => true}) %>
+
 <p>
   <b>Scheduled start:</b>
   <%= @task.scheduled_start %>

@@ -11,16 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121121214054) do
+ActiveRecord::Schema.define(:version => 20121121222156) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "street_number"
     t.integer  "street_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.float    "latitude"
     t.float    "longitude"
     t.boolean  "gmaps"
+    t.string   "zip_code"
+    t.integer  "neighborhood_id"
   end
 
   add_index "addresses", ["street_id"], :name => "index_addresses_on_street_id"

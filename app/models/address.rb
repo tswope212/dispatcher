@@ -3,12 +3,13 @@ class Address < ActiveRecord::Base
   has_one :city, :through => :street
   has_many :units
   has_many :tasks, :through => :units
-  attr_accessible :street_number, :street_id
+  belongs_to :neighborhood
+  attr_accessible :street_number, :street_id, :zip_code
   
   acts_as_gmappable
 
   def gmaps4rails_address
-    "#{street_number} #{street.name}, #{city.name}"
+    "#{street_number} #{street.name}, #{city.name} #{zip_code}"
   end
   
   def name

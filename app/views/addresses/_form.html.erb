@@ -19,6 +19,10 @@
     <%= f.label :street %><br />
     <%= f.select :street_id, options_from_collection_for_select(Street.all, :id, :name) %>
   </div>
+  <div class="field">
+    <%= f.label :zip_code %><br>
+    <%= f.text_field :zip_code %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
