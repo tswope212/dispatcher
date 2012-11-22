@@ -2,10 +2,10 @@
 
 <table>
   <tr>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>Phone #</th>
-    <th>Email</th>
+    <th><%= link_to 'First Name', :sort => 'first_name' %></th>
+    <th><%= link_to 'Last Name', :sort => 'last_name' %></th>
+    <th><%= link_to 'Phone #', :sort => 'phone' %></th>
+    <th><%= link_to 'Email', :sort => 'email' %></th>
   </tr>
 
 <% @people.each do |person| %>
