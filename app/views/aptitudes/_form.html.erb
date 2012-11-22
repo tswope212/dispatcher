@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :skill_id %><br />
-    <%= f.select :skill_id, options_from_collection_for_select(Skill.all, :id, :name) %>
+    <%= f.select :skill_id, options_from_collection_for_select(Skill.alphabetical, :id, :name) %>
   </div>
   <div class="field">
     <%= f.label :level %><br />
