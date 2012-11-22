@@ -16,7 +16,7 @@
     <%= link_to 'sign out', destroy_team_admin_session_path, :method => :delete %>
     <%= render 'shared/resource_links' %>
   <% else %>
-    <%= link_to 'sign up as a team leader', new_team_admin_registration_path %>
+    <%= link_to 'sign up as a site admin', new_team_admin_registration_path %>
     <%= link_to 'sign in', new_team_admin_session_path %>
     <hr>
     <%= link_to 'sign up to receive assistance', assistance_registration_path %>
