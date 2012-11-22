@@ -2,7 +2,7 @@ class OperationsCentersController < ApplicationController
   # GET /operations_centers
   # GET /operations_centers.json
   def index
-    @operations_centers = OperationsCenter.all
+    @operations_centers = OperationsCenter.alphabetical
 
     respond_to do |format|
       format.html # index.html.erb

@@ -2,7 +2,7 @@ class StreetsController < ApplicationController
   # GET /streets
   # GET /streets.json
   def index
-    @streets = Street.all
+    @streets = Street.alphabetical
 
     respond_to do |format|
       format.html # index.html.erb
