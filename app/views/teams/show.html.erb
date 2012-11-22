@@ -10,6 +10,12 @@
   <%= @team.person.name %>
 </p>
 
+<% @team.roles.each do |role| %>
+  <%= div_for role do %>
+    <%= role.person.name %>
+    (<%= role.skill.name %>)
+  <% end %>
+<% end %>
 
 <%= link_to 'Edit', edit_team_path(@team) %> |
 <%= link_to 'Back', teams_path %>
