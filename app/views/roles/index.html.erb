@@ -12,9 +12,9 @@
 
 <% @roles.each do |role| %>
   <tr>
-    <td><%= role.person.name %></td>
-    <td><%= role.team.name %></td>
-    <td><%= role.skill.name %></td>
+    <td><%= link_to_name role.person %></td>
+    <td><%= link_to_name role.team %></td>
+    <td><%= link_to_name role.skill %></td>
     <td><%= link_to 'Show', role %></td>
     <td><%= link_to 'Edit', edit_role_path(role) %></td>
     <td><%= link_to 'Destroy', role, method: :delete, data: { confirm: 'Are you sure?' } %></td>

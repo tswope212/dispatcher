@@ -2,18 +2,17 @@
 
 <table>
   <tr>
-    <th><%= link_to 'First Name', :sort => 'first_name' %></th>
-    <th><%= link_to 'Last Name', :sort => 'last_name' %></th>
+    <th><%= link_to 'First', :sort => 'first_name' %>/
+    <%= link_to 'Last', :sort => 'last_name' %></th>
     <th><%= link_to 'Phone #', :sort => 'phone' %></th>
     <th><%= link_to 'Email', :sort => 'email' %></th>
   </tr>
 
 <% @people.each do |person| %>
   <tr>
-    <td><%= person.first_name %></td>
-    <td><%= person.last_name %></td>
+    <td><%= link_to_name person %></td>
     <td><%= person.primary_phone_number %></td>
-    <td><%= person.email %></td>
+    <td><%= mail_to person.email %></td>
   </tr>
 <% end %>
 </table>

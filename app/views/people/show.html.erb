@@ -1,5 +1,22 @@
 <p id="notice"><%= notice %></p>
 
+<%= @person.name %><br>
+<%= mail_to @person.email %><br>
+<%= @person.primary_phone_number %><br>
 
+<% @person.aptitudes.each do |aptitude| %>
+  <%= div_for aptitude do %>
+    <%= link_to_name aptitude.skill %>
+    (<%= aptitude.level %>)
+  <% end %>
+<% end %>
+
+On team(s):
+<% @person.roles.each do |role| %>
+  <%= div_for role do %>
+    <%= link_to_name role.team %>
+    (<%= link_to_name role.skill %>)
+  <% end %>
+<% end %>
 <%= link_to 'Edit', edit_person_path(@person) %> |
 <%= link_to 'Back', people_path %>

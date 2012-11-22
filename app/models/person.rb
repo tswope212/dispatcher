@@ -1,4 +1,8 @@
 class Person < ActiveRecord::Base
+  has_many :aptitudes
+  has_many :skills, :through => :aptitudes
+  has_many :roles
+  has_many :teams, :through => :roles
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -15,5 +19,9 @@ class Person < ActiveRecord::Base
   scope :alphabetical_by_email, :order => :email
   def name
     "#{first_name} #{last_name}"
+  end
+  
+  def aptitude_at_skill skill
+    aptitudes.find_by_skill_id(skill.id).andand.level.to_i
   end
 end

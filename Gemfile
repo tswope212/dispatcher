@@ -10,6 +10,7 @@ group :development do
 end
 gem 'devise'
 gem 'gmaps4rails'
+gem 'andand'
 gem 'pg'
 
 # Gems used only for assets and not required
