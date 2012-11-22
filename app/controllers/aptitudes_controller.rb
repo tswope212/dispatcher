@@ -2,7 +2,11 @@ class AptitudesController < ApplicationController
   # GET /aptitudes
   # GET /aptitudes.json
   def index
-    @aptitudes = Aptitude.all
+    @aptitudes = if params[:sort] == 'skill'
+      Aptitude.by_skill
+    else
+      Aptitude.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb

@@ -1,5 +1,8 @@
 Dispatcher::Application.routes.draw do
   
+  resources :deployments
+
+
   devise_for :team_admins, :controllers => { :registrations => :team_admin_registrations }
   resources :team_admins do
     member do

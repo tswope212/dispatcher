@@ -10,6 +10,21 @@
   <%= @skill.description %>
 </p>
 
+People with this skill:<br>
+<% @skill.aptitudes.each do |aptitude| %>
+  <%= div_for aptitude do %>
+    <%= link_to_name aptitude.person %>
+    (<%= link_to aptitude.level, aptitude %>)
+  <% end %>
+<% end %>
+
+Teams with this skill:<br>
+<% @skill.roles.each do |role| %>
+  <%= div_for role do %>
+    <%= link_to_name role.team %>
+    (<%= link_to_name role.person %>)
+  <% end %>
+<% end %>
 
 <%= link_to 'Edit', edit_skill_path(@skill) %> |
 <%= link_to 'Back', skills_path %>

@@ -1,0 +1,33 @@
+<%= form_for(@deployment) do |f| %>
+  <% if @deployment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@deployment.errors.count, "error") %> prohibited this deployment from being saved:</h2>
+
+      <ul>
+      <% @deployment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :city_id %><br />
+    <%= f.select :city_id, options_from_collection_for_select(City.alphabetical, :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :team_id %><br />
+    <%= f.select :team_id, options_from_collection_for_select(Team.alphabetical, :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :start_time %><br />
+    <%= f.datetime_select :start_time %>
+  </div>
+  <div class="field">
+    <%= f.label :end_time %><br />
+    <%= f.datetime_select :end_time %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

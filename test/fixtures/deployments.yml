@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  city: 
+  team: 
+  start_time: 2012-11-22 09:37:59
+  end_time: 2012-11-22 09:37:59
+
+two:
+  city: 
+  team: 
+  start_time: 2012-11-22 09:37:59
+  end_time: 2012-11-22 09:37:59

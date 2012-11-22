@@ -1,0 +1,29 @@
+<h1>Listing deployments</h1>
+
+<table>
+  <tr>
+    <th>City</th>
+    <th>Team</th>
+    <th>Start time</th>
+    <th>End time</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @deployments.each do |deployment| %>
+  <tr>
+    <td><%= link_to_name deployment.city %></td>
+    <td><%= link_to_name deployment.team %></td>
+    <td><%= deployment.start_time %></td>
+    <td><%= deployment.end_time %></td>
+    <td><%= link_to 'Show', deployment %></td>
+    <td><%= link_to 'Edit', edit_deployment_path(deployment) %></td>
+    <td><%= link_to 'Destroy', deployment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Deployment', new_deployment_path %>

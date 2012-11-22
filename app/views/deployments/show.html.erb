@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>City:</b>
+  <%= link_to_name @deployment.city %>
+</p>
+
+<p>
+  <b>Team:</b>
+  <%= link_to_name @deployment.team %>
+</p>
+
+<p>
+  <b>Start time:</b>
+  <%= @deployment.start_time %>
+</p>
+
+<p>
+  <b>End time:</b>
+  <%= @deployment.end_time %>
+</p>
+
+
+<%= link_to 'Edit', edit_deployment_path(@deployment) %> |
+<%= link_to 'Back', deployments_path %>

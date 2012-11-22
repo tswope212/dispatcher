@@ -12,8 +12,8 @@
 
 <% @team.roles.each do |role| %>
   <%= div_for role do %>
-    <%= role.person.name %>
-    (<%= role.skill.name %> - <%= role.person.aptitude_at_skill(role.skill)%>)
+    <%= link_to_name role.person %>
+    (<%= link_to_name role.skill %> - <%= role.person.aptitude_at_skill(role.skill)%>)
   <% end %>
 <% end %>
 
