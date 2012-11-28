@@ -8,7 +8,7 @@
   </head>
   <body>
     <div id="frame">
-      <div id="content-area">
+      
         <% if current_person %>
           <%= link_to current_person.email, edit_person_path(current_person) %>
           <%= link_to 'sign out', destroy_person_session_path, :method => :delete %>
@@ -24,13 +24,16 @@
         <% end %>
         <%= clearfix %>
         <br>
-
+      <div id="content-area">
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
         <%= yield %>
         <%= yield :scripts %>
       </div>
+      <footer>
+		855-SIYELLO      	
+      </footer>
     </div>
-    855-SIYELLO
+ 
   </body>
 </html>
