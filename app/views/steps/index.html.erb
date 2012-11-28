@@ -15,6 +15,7 @@
     <td><%= link_to_name step.phase_template %></td>
     <td><%= link_to_name step.task %></td>
     <td><%= step.position %></td>
+    <td><%= link_to 'up', move_up_step_path(step), :method => :put %>
     <td><%= link_to 'Show', step %></td>
     <td><%= link_to 'Edit', edit_step_path(step) %></td>
     <td><%= link_to 'Destroy', step, method: :delete, data: { confirm: 'Are you sure?' } %></td>

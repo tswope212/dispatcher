@@ -2,7 +2,7 @@ class StepsController < ApplicationController
   # GET /steps
   # GET /steps.json
   def index
-    @steps = Step.all
+    @steps = Step.collated.ordered
 
     respond_to do |format|
       format.html # index.html.erb
@@ -67,6 +67,12 @@ class StepsController < ApplicationController
         format.json { render json: @step.errors, status: :unprocessable_entity }
       end
     end
+  end
+  
+  def move_up
+    @step = Step.find params[:id]
+    @step.andand.move_higher
+    redirect_to :action => :index
   end
 
   # DELETE /steps/1

@@ -3,7 +3,11 @@ Dispatcher::Application.routes.draw do
   resources :jobs
 
 
-  resources :steps
+  resources :steps do
+    member do
+      put 'move_up'
+    end
+  end
 
 
   resources :phase_templates
