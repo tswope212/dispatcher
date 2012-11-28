@@ -15,4 +15,8 @@ class Address < ActiveRecord::Base
   def name
     "#{street_number} #{street.name}"
   end
+  
+  def full
+    "#{name}\n#{city.name}\n#{zip_code}"
+  end
 end

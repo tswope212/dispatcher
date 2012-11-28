@@ -11,6 +11,10 @@ class Unit < ActiveRecord::Base
     "#{name} at #{address.name}"
   end
   
+  def full_address
+    "#{name}\n#{address.full}"
+  end
+  
   def populate_default_unit_name
     self.name = 'Main Unit' if name.blank?
   end

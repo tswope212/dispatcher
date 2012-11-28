@@ -1,4 +1,5 @@
 class UnitsController < ApplicationController
+  before_filter :authenticate_team_admin!, :only => [:index, :edit, :update, :destroy]
   # GET /units
   # GET /units.json
   def index

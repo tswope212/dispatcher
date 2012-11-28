@@ -1,4 +1,4 @@
-<h1>Listing dispatches</h1>
+<h1>Teams dispatched to jobs:</h1>
 
 <table>
   <tr>
@@ -16,8 +16,10 @@
     <td><%= link_to_name dispatch.job %></td>
     <td><%= link_to_name dispatch.person %></td>
     <td><%= link_to 'Show', dispatch %></td>
-    <td><%= link_to 'Edit', edit_dispatch_path(dispatch) %></td>
-    <td><%= link_to 'Destroy', dispatch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% if current_team_admin %>
+      <td><%= link_to 'Edit', edit_dispatch_path(dispatch) %></td>
+      <td><%= link_to 'Destroy', dispatch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>

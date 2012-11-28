@@ -1,4 +1,4 @@
-<h1>Listing skills</h1>
+<h1>Skills</h1>
 
 <table>
   <tr>
@@ -13,8 +13,10 @@
   <tr>
     <td><%= link_to_name skill %></td>
     <td><%= skill.description %></td>
-    <td><%= link_to 'Edit', edit_skill_path(skill) %></td>
-    <td><%= link_to 'Destroy', skill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% if current_team_admin %>
+      <td><%= link_to 'Edit', edit_skill_path(skill) %></td>
+      <td><%= link_to 'Destroy', skill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
