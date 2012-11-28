@@ -9,6 +9,7 @@
   <body>
     <div id="frame">
       <div id="header">
+      	<%= image_tag asset_path "titleimage_disdisp.gif" %>
         <% if current_person %>
           <%= link_to current_person.email, edit_person_path(current_person) %>
           <%= link_to 'sign out', destroy_person_session_path, :method => :delete %>
