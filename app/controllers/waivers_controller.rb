@@ -1,4 +1,5 @@
 class WaiversController < ApplicationController
+  before_filter :authenticate_team_admin!, :except => :index
   # GET /waivers
   # GET /waivers.json
   def index

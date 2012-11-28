@@ -1,4 +1,5 @@
 class AddressesController < ApplicationController
+  before_filter :authenticate_team_admin!
   # GET /addresses
   # GET /addresses.json
   def index

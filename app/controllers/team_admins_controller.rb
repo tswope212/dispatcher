@@ -1,5 +1,6 @@
 class TeamAdminsController < ApplicationController
   before_filter :authenticate_taylor!, :only => [:activate, :deactivate]
+  before_filter :authenticate_team_admin!
   # GET /team_admins
   # GET /team_admins.json
   def index

@@ -1,4 +1,6 @@
 class StreetsController < ApplicationController
+  before_filter :authenticate_team_admin!, :only => [:edit, :update, :destroy]
+  before_filter :authenticate_person!, :only => [:show, :index]
   # GET /streets
   # GET /streets.json
   def index

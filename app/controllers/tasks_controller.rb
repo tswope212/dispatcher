@@ -1,4 +1,6 @@
 class TasksController < ApplicationController
+  before_filter :authenticate_team_admin!, :only => [:new, :edit, :create, :update, :destroy]
+  before_filter :authenticate_person, :only => [:show, :index]
   def registration
     
   end

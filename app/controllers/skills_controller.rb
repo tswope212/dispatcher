@@ -1,4 +1,6 @@
 class SkillsController < ApplicationController
+  before_filter :authenticate_team_admin!, :only => [:edit, :update, :destroy]
+  before_filter :authenticate_person!, :only => [:show, :index]
   # GET /skills
   # GET /skills.json
   def index

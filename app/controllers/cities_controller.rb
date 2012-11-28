@@ -1,4 +1,5 @@
 class CitiesController < ApplicationController
+  before_filter :authenticate_team_admin!, :only => [:new, :edit, :create, :update, :destroy]
   # GET /cities
   # GET /cities.json
   def index

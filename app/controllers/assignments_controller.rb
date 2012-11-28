@@ -1,4 +1,5 @@
 class AssignmentsController < ApplicationController
+  before_filter :authenticate_team_admin!
   # GET /assignments
   # GET /assignments.json
   def index

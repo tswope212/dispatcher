@@ -1,5 +1,6 @@
 class RolesController < ApplicationController
-  before_filter :authenticate_person!, :only => :join
+  before_filter :authenticate_team_admin!, :only => [:new, :edit, :update, :destroy]
+  before_filter :authenticate_person!, :only => [:show, :index, :join]
   # GET /roles
   # GET /roles.json
   def index

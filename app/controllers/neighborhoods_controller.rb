@@ -1,4 +1,6 @@
 class NeighborhoodsController < ApplicationController
+  before_filter :authenticate_team_admin!, :only => [:edit, :update, :destroy]
+  before_filter :authenticate_person!, :only => [:show, :index]
   # GET /neighborhoods
   # GET /neighborhoods.json
   def index
