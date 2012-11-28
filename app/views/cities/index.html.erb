@@ -1,7 +1,7 @@
 <table>
 <% @cities.each do |city| %>
   <tr>
-    <td><%= link_to_name city %></td>
+    <td class="city-name"><%= link_to_name city %></td>
     <% if current_team_admin %>
       <td><%= link_to 'Edit', edit_city_path(city) %></td>
       <td><%= link_to 'Destroy', city, method: :delete, data: { confirm: 'Are you sure?' } %></td>
