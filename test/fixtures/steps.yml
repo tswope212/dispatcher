@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  phase_template_belongs_to: MyString
+  task: 
+  position: 1
+
+two:
+  phase_template_belongs_to: MyString
+  task: 
+  position: 1

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121128005629) do
+ActiveRecord::Schema.define(:version => 20121128032809) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "street_number"
@@ -41,13 +41,13 @@ ActiveRecord::Schema.define(:version => 20121128005629) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "operations_center_id"
-    t.integer  "task_id"
+    t.integer  "job_id"
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
   end
 
+  add_index "assignments", ["job_id"], :name => "index_assignments_on_job_id"
   add_index "assignments", ["operations_center_id"], :name => "index_assignments_on_operations_center_id"
-  add_index "assignments", ["task_id"], :name => "index_assignments_on_task_id"
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -69,15 +69,26 @@ ActiveRecord::Schema.define(:version => 20121128005629) do
 
   create_table "dispatches", :force => true do |t|
     t.integer  "team_id"
-    t.integer  "task_id"
+    t.integer  "job_id"
     t.integer  "person_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
+  add_index "dispatches", ["job_id"], :name => "index_dispatches_on_job_id"
   add_index "dispatches", ["person_id"], :name => "index_dispatches_on_person_id"
-  add_index "dispatches", ["task_id"], :name => "index_dispatches_on_task_id"
   add_index "dispatches", ["team_id"], :name => "index_dispatches_on_team_id"
+
+  create_table "jobs", :force => true do |t|
+    t.integer  "task_id"
+    t.integer  "unit_id"
+    t.datetime "scheduled_start"
+    t.datetime "scheduled_end"
+    t.datetime "actual_start"
+    t.datetime "actual_end"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
   create_table "neighborhoods", :force => true do |t|
     t.string   "name"
@@ -128,6 +139,12 @@ ActiveRecord::Schema.define(:version => 20121128005629) do
   add_index "people", ["email"], :name => "index_people_on_email", :unique => true
   add_index "people", ["reset_password_token"], :name => "index_people_on_reset_password_token", :unique => true
 
+  create_table "phase_templates", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "roles", :force => true do |t|
     t.integer  "person_id"
     t.integer  "team_id"
@@ -158,6 +175,17 @@ ActiveRecord::Schema.define(:version => 20121128005629) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "steps", :force => true do |t|
+    t.integer  "phase_template_id"
+    t.integer  "task_id"
+    t.integer  "position"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  add_index "steps", ["phase_template_id"], :name => "index_steps_on_phase_template_id"
+  add_index "steps", ["task_id"], :name => "index_steps_on_task_id"
+
   create_table "streets", :force => true do |t|
     t.string   "name"
     t.integer  "city_id"
@@ -170,18 +198,9 @@ ActiveRecord::Schema.define(:version => 20121128005629) do
   create_table "tasks", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "person_id"
-    t.integer  "unit_id"
-    t.datetime "scheduled_start"
-    t.datetime "scheduled_end"
-    t.datetime "actual_start"
-    t.datetime "actual_end"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
-
-  add_index "tasks", ["person_id"], :name => "index_tasks_on_person_id"
-  add_index "tasks", ["unit_id"], :name => "index_tasks_on_unit_id"
 
   create_table "team_admins", :force => true do |t|
     t.string   "first_name"

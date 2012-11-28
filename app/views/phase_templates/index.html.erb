@@ -1,0 +1,23 @@
+<h1>Listing phase_templates</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @phase_templates.each do |phase_template| %>
+  <tr>
+    <td><%= phase_template.name %></td>
+    <td><%= link_to 'Show', phase_template %></td>
+    <td><%= link_to 'Edit', edit_phase_template_path(phase_template) %></td>
+    <td><%= link_to 'Destroy', phase_template, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Phase template', new_phase_template_path %>

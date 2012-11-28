@@ -4,12 +4,6 @@
   <tr>
     <th>Name</th>
     <th>Description</th>
-    <th>Person</th>
-    <th>Unit</th>
-    <th>Scheduled start</th>
-    <th>Scheduled end</th>
-    <th>Actual start</th>
-    <th>Actual end</th>
     <th></th>
     <th></th>
     <th></th>
@@ -19,12 +13,6 @@
   <tr>
     <td><%= task.name %></td>
     <td><%= task.description %></td>
-    <td><%= link_to_name task.person %></td>
-    <td><%= link_to_name task.unit %></td>
-    <td><%= task.scheduled_start %></td>
-    <td><%= task.scheduled_end %></td>
-    <td><%= task.actual_start %></td>
-    <td><%= task.actual_end %></td>
     <td><%= link_to 'Show', task %></td>
     <td><%= link_to 'Edit', edit_task_path(task) %></td>
     <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>

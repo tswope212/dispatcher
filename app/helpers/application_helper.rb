@@ -5,10 +5,15 @@ module ApplicationHelper
     end
   end
 
-
   def text_to_html text
     @renderer ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML.new)
 
     @renderer.render(text).html_safe
+  end
+  
+  def clearfix
+    content_tag :div, :class => 'clearboth' do
+    
+    end
   end
 end

@@ -16,8 +16,8 @@
     <%= f.select :team_id, options_from_collection_for_select(Team.all, :id, :name) %>
   </div>
   <div class="field">
-    <%= f.label :task_id %><br />
-    <%= f.select :task_id, options_from_collection_for_select(Task.all, :id, :name) %>
+    <%= f.label :job_id %><br />
+    <%= f.select :job_id, options_from_collection_for_select(Job.all, :id, :name) %>
   </div>
   <div class="actions">
     <%= f.submit 'Dispatch Team' %>

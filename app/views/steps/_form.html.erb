@@ -1,0 +1,25 @@
+<%= form_for(@step) do |f| %>
+  <% if @step.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@step.errors.count, "error") %> prohibited this step from being saved:</h2>
+
+      <ul>
+      <% @step.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :phase_template_id %><br />
+    <%= f.select :phase_template_id, options_from_collection_for_select(PhaseTemplate.all, :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :task_id %><br />
+    <%= f.select :task_id, options_from_collection_for_select(Task.all, :id, :name) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

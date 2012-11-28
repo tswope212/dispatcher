@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dispatcher</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div id="frame">
+      <div id="content-area">
+        <% if current_person %>
+          <%= link_to current_person.email, edit_person_path(current_person) %>
+          <%= link_to 'sign out', destroy_person_session_path, :method => :delete %>
+          <hr>
+          <%= render 'shared/person_resource_links' %>
+        <% elsif current_team_admin %>
+          <%= link_to 'sign out', destroy_team_admin_session_path, :method => :delete %>
+          <%= render 'shared/resource_links' %>
+        <% else %>
+          <%= link_to 'sign up to receive assistance', assistance_registration_path, :class => 'right tab' %>
+          <%= link_to 'sign up to offer help', new_person_registration_path, :class => 'right tab' %>
+          <%= link_to 'sign in', new_person_session_path, :class => 'right tab' %>
+        <% end %>
+        <%= clearfix %>
+        <br>
+
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <%= yield %>
+        <%= yield :scripts %>
+      </div>
+    </div>
+  </body>
+</html>

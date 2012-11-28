@@ -1,5 +1,14 @@
 Dispatcher::Application.routes.draw do
   
+  resources :jobs
+
+
+  resources :steps
+
+
+  resources :phase_templates
+
+
   resources :signatures
 
 

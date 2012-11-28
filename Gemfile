@@ -11,6 +11,7 @@ end
 gem 'devise'
 gem 'gmaps4rails'
 gem 'redcarpet'
+gem 'acts_as_list'
 gem 'andand'
 gem 'pg'
 

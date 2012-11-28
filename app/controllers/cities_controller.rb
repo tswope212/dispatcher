@@ -5,7 +5,7 @@ class CitiesController < ApplicationController
     @cities = City.alphabetical
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html { render :layout => 'front' }
       format.json { render json: @cities }
     end
   end

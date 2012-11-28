@@ -3,7 +3,7 @@
 <table>
   <tr>
     <th>OperationsCenter</th>
-    <th>Task</th>
+    <th>Job</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,7 +12,7 @@
 <% @assignments.each do |assignment| %>
   <tr>
     <td><%= link_to_name assignment.operations_center %></td>
-    <td><%= link_to_name assignment.task %></td>
+    <td><%= link_to_name assignment.job %></td>
     <td><%= link_to 'Show', assignment %></td>
     <td><%= link_to 'Edit', edit_assignment_path(assignment) %></td>
     <td><%= link_to 'Destroy', assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>

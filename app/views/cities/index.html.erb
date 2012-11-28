@@ -1,23 +1,15 @@
-<h1>Listing cities</h1>
-
 <table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @cities.each do |city| %>
   <tr>
-    <td><%= city.name %></td>
-    <td><%= link_to 'Show', city %></td>
-    <td><%= link_to 'Edit', edit_city_path(city) %></td>
-    <td><%= link_to 'Destroy', city, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to_name city %></td>
+    <% if current_team_admin %>
+      <td><%= link_to 'Edit', edit_city_path(city) %></td>
+      <td><%= link_to 'Destroy', city, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New City', new_city_path %>
+<%= link_to 'New City', new_city_path if current_team_admin %>
