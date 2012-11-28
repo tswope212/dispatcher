@@ -54,7 +54,11 @@ Dispatcher::Application.routes.draw do
   resources :skills
 
 
-  resources :roles
+  resources :roles do
+    member do
+      post :join
+    end
+  end
 
 
   resources :teams do

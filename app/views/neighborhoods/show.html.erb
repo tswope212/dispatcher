@@ -10,6 +10,14 @@
   <%= link_to @neighborhood.city.name, @neighborhood.city %>
 </p>
 
+<div id="jobs">
+  <% @jobs.each do |job| %>
+    <%= div_for job do %>
+      <%= link_to_name job %>
+    <% end %>
+  <% end %>
+</div>
+
 <div id="units">
   <% @units.each do |unit| %>
     <%= div_for unit do %>

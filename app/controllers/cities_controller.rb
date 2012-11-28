@@ -15,6 +15,7 @@ class CitiesController < ApplicationController
   def show
     @city = City.find(params[:id])
     @addresses = @city.addresses
+    @neighborhoods = @city.neighborhoods
 
     respond_to do |format|
       format.html # show.html.erb

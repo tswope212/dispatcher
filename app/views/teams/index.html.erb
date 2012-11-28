@@ -1,3 +1,10 @@
+<% if current_person %>
+  <h1>My <%= pluralize(current_person.teams.count, 'Team') %></h1>
+  <% current_person.teams.each do |team| %>
+    <%= link_to_name team %>
+  <% end %>
+<% end %>
+
 <h1>Volunteer Teams</h1>
 
 <table>
@@ -15,6 +22,8 @@
     <% if current_team_admin %>
       <td><%= link_to 'Edit', edit_team_path(team) %></td>
       <td><%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% else %>
+      <td><%= link_to 'join team', join_role_path(team), :method => :post %></td>
     <% end %>
   </tr>
 <% end %>

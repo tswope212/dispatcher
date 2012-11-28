@@ -4,11 +4,19 @@
   <b><%= @city.name %></b>
 </p>
 
+<div id="neighborhoods">
+  <% @neighborhoods.each do |neighborhood| %>
+    <%= div_for neighborhood do %>
+      <%= link_to_name neighborhood %>
+    <% end %>
+  <% end %>
+</div>
+
 <div id="addresses">
   <% @addresses.each do |address| %>
     <%= div_for address do %>
       <%= link_to_name address %>
-      <% address.tasks.each do |task| %>
+      <% address.jobs.each do |task| %>
         <%= div_for task do %>
           <%= link_to_name task %>
         <% end %>
@@ -17,5 +25,7 @@
   <% end %>
 </div>
 
-<%= link_to 'Edit', edit_city_path(@city) %> |
-<%= link_to 'Back', cities_path %>
+<% if current_team_admin %>
+  <%= link_to 'Edit', edit_city_path(@city) %> |
+  <%= link_to 'Back', cities_path %>
+<% end %>

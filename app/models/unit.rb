@@ -2,7 +2,7 @@ class Unit < ActiveRecord::Base
   belongs_to :address
   has_one :city, :through => :address
   has_one :neighborhood, :through => :address
-  has_many :tasks
+  has_many :jobs
   attr_accessible :name, :address_id
   
   before_create :populate_default_unit_name

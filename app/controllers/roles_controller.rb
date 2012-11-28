@@ -1,4 +1,5 @@
 class RolesController < ApplicationController
+  before_filter :authenticate_person!, :only => :join
   # GET /roles
   # GET /roles.json
   def index
@@ -51,6 +52,11 @@ class RolesController < ApplicationController
         format.json { render json: @role.errors, status: :unprocessable_entity }
       end
     end
+  end
+  
+  def join
+    @role = current_person.roles.new :team_id => params[:team_id]
+    render :action => :new
   end
 
   # PUT /roles/1
