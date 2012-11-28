@@ -1,0 +1,29 @@
+<%= form_for(@waiver) do |f| %>
+  <% if @waiver.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@waiver.errors.count, "error") %> prohibited this waiver from being saved:</h2>
+
+      <ul>
+      <% @waiver.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :text %><br />
+    <%= f.text_area :text %>
+  </div>
+  <div class="field">
+    <%= f.label :signature_type %><br />
+    <%= f.select :signature_type, Signature.signature_types %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

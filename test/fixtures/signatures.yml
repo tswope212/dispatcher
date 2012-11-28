@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  waiver: 
+  signatory_type: MyString
+  signatory_id: 1
+
+two:
+  waiver: 
+  signatory_type: MyString
+  signatory_id: 1

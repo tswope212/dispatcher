@@ -10,6 +10,7 @@ group :development do
 end
 gem 'devise'
 gem 'gmaps4rails'
+gem 'redcarpet'
 gem 'andand'
 gem 'pg'
 

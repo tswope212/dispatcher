@@ -1,5 +1,13 @@
 Dispatcher::Application.routes.draw do
   
+  resources :signatures
+
+
+  resources :waivers do
+    resources :signatures
+  end
+
+
   resources :deployments
 
 

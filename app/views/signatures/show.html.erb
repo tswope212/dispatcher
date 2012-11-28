@@ -1,0 +1,23 @@
+<p>
+  <b>Waiver:</b>
+  <%= link_to_name @signature.waiver %>
+</p>
+
+<p>
+  <b>Signatory type:</b>
+  <%= @signature.signatory_type %>
+</p>
+
+<p>
+  <b>Signatory:</b>
+  <%= link_to_name @signature.signatory %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @signature.content %>
+</p>
+
+
+<%= link_to 'Edit', edit_signature_path(@signature) %> |
+<%= link_to 'Back', signatures_path %>

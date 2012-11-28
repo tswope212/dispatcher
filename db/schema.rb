@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121122143759) do
+ActiveRecord::Schema.define(:version => 20121128005629) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "street_number"
@@ -140,6 +140,17 @@ ActiveRecord::Schema.define(:version => 20121122143759) do
   add_index "roles", ["skill_id"], :name => "index_roles_on_skill_id"
   add_index "roles", ["team_id"], :name => "index_roles_on_team_id"
 
+  create_table "signatures", :force => true do |t|
+    t.integer  "waiver_id"
+    t.string   "signatory_type"
+    t.integer  "signatory_id"
+    t.string   "content"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "signatures", ["waiver_id"], :name => "index_signatures_on_waiver_id"
+
   create_table "skills", :force => true do |t|
     t.string   "name"
     t.text     "description"
@@ -220,5 +231,13 @@ ActiveRecord::Schema.define(:version => 20121122143759) do
   end
 
   add_index "units", ["address_id"], :name => "index_units_on_address_id"
+
+  create_table "waivers", :force => true do |t|
+    t.string   "name"
+    t.text     "text"
+    t.string   "signature_type"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
 end

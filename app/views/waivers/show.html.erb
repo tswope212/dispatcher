@@ -1,0 +1,20 @@
+<p>
+  <b>Name:</b>
+  <%= @waiver.name %>
+</p>
+
+<p>
+  <b>Text:</b>
+  <%= @waiver.text %>
+</p>
+
+<p>
+  <b>Signature type:</b>
+  <%= @waiver.signature_type %>
+</p>
+
+<%= link_to 'sign this waiver', new_waiver_signature_path(@waiver) %>
+
+
+<%= link_to 'Edit', edit_waiver_path(@waiver) %> |
+<%= link_to 'Back', waivers_path %>
