@@ -1,4 +1,6 @@
 class SignaturesController < ApplicationController
+  before_filter :authenticate_person!, :only => :new
+  before_filter :authenticate_team_admin!, :only => [:index, :show, :edit, :update, :destroy]
   # GET /signatures
   # GET /signatures.json
   def index
@@ -45,7 +47,7 @@ class SignaturesController < ApplicationController
 
     respond_to do |format|
       if @signature.save
-        format.html { redirect_to @signature, notice: 'Signature was successfully created.' }
+        format.html { redirect_to root_url, notice: 'We received your signature.' }
         format.json { render json: @signature, status: :created, location: @signature }
       else
         format.html { render action: "new" }

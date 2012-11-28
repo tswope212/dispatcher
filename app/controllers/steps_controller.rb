@@ -24,7 +24,7 @@ class StepsController < ApplicationController
   # GET /steps/new
   # GET /steps/new.json
   def new
-    @step = Step.new
+    @step = Step.new :phase_template_id => params[:phase_template_id]
 
     respond_to do |format|
       format.html # new.html.erb

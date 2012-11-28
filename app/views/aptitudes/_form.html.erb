@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :person_id %><br />
-    <%= f.select :person_id, options_from_collection_for_select(Person.all, :id, :name) %>
+    <%= f.select :person_id, options_from_collection_for_select(Person.all, :id, :name, @aptitude.person_id) %>
   </div>
   <div class="field">
     <%= f.label :skill_id %><br />
-    <%= f.select :skill_id, options_from_collection_for_select(Skill.alphabetical, :id, :name) %>
+    <%= f.select :skill_id, options_from_collection_for_select(Skill.alphabetical, :id, :name, @aptitude.skill_id) %>
   </div>
   <div class="field">
     <%= f.label :level %><br />

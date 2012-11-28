@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :waiver_id %><br />
-    <%= f.select :waiver_id, options_from_collection_for_select(Waiver.all, :id, :name) %>
+    <%= f.select :waiver_id, options_from_collection_for_select(Waiver.all, :id, :name, @signature.waiver_id) %>
   </div>
   <div id="waiver_text">
     <%= text_to_html @signature.waiver.text %>

@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :team_id %><br />
-    <%= f.select :team_id, options_from_collection_for_select(Team.all, :id, :name) %>
+    <%= f.select :team_id, options_from_collection_for_select(Team.all, :id, :name, @dispatch.team_id) %>
   </div>
   <div class="field">
     <%= f.label :job_id %><br />
-    <%= f.select :job_id, options_from_collection_for_select(Job.all, :id, :name) %>
+    <%= f.select :job_id, options_from_collection_for_select(Job.all, :id, :name, @dispatch.job_id) %>
   </div>
   <div class="actions">
     <%= f.submit 'Dispatch Team' %>

@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :address %><br />
-    <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :name) %>
+    <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :name, @unit.address_id) %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -24,7 +24,7 @@ class RolesController < ApplicationController
   # GET /roles/new
   # GET /roles/new.json
   def new
-    @role = Role.new
+    @role = Role.new :team_id => params[:team_id]
 
     respond_to do |format|
       format.html # new.html.erb

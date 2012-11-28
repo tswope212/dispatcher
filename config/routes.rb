@@ -10,7 +10,9 @@ Dispatcher::Application.routes.draw do
   end
 
 
-  resources :phase_templates
+  resources :phase_templates do
+    resources :steps
+  end
 
 
   resources :signatures
@@ -55,7 +57,9 @@ Dispatcher::Application.routes.draw do
   resources :roles
 
 
-  resources :teams
+  resources :teams do
+    resources :roles
+  end
 
 
   devise_for :people, :controllers => { :registrations => :registrations }

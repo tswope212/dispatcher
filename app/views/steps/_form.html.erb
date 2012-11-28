@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :phase_template_id %><br />
-    <%= f.select :phase_template_id, options_from_collection_for_select(PhaseTemplate.all, :id, :name) %>
+    <%= f.select :phase_template_id, options_from_collection_for_select(PhaseTemplate.all, :id, :name, @step.phase_template_id) %>
   </div>
   <div class="field">
     <%= f.label :task_id %><br />
-    <%= f.select :task_id, options_from_collection_for_select(Task.all, :id, :name) %>
+    <%= f.select :task_id, options_from_collection_for_select(Task.all, :id, :name, @step.task_id) %>
   </div>
   <div class="actions">
     <%= f.submit %>

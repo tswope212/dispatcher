@@ -13,13 +13,17 @@
   <tr>
     <td><%= link_to_name waiver %></td>
     <td><%= waiver.text %></td>
-    <td><%= waiver.signature_type %></td>
-    <td><%= link_to 'Edit', edit_waiver_path(waiver) %></td>
-    <td><%= link_to 'Destroy', waiver, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% if current_team_admin %>
+      <td><%= waiver.signature_type %></td>
+      <td><%= link_to 'Edit', edit_waiver_path(waiver) %></td>
+      <td><%= link_to 'Destroy', waiver, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% else %>
+      <td><%= link_to 'sign this waiver', new_waiver_signature_path(waiver) %>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Waiver', new_waiver_path %>
+<%= link_to 'New Waiver', new_waiver_path if current_team_admin %>

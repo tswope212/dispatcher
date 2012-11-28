@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :city_id %><br />
-    <%= f.select :city_id, options_from_collection_for_select(City.alphabetical, :id, :name) %>
+    <%= f.select :city_id, options_from_collection_for_select(City.alphabetical, :id, :name, @deployment.city_id) %>
   </div>
   <div class="field">
     <%= f.label :team_id %><br />
-    <%= f.select :team_id, options_from_collection_for_select(Team.alphabetical, :id, :name) %>
+    <%= f.select :team_id, options_from_collection_for_select(Team.alphabetical, :id, :name, @deployment.team_id) %>
   </div>
   <div class="field">
     <%= f.label :start_time %><br />

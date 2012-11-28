@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :unit_id %><br />
-    <%= f.select :unit_id, options_from_collection_for_select(Unit.all, :id, :name) %>
+    <%= f.select :unit_id, options_from_collection_for_select(Unit.all, :id, :name, @operations_center.unit_id) %>
   </div>
   <div class="actions">
     <%= f.submit %>

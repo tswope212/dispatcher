@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :person_id, 'Primary Team Leader' %><br />
-    <%= f.select :person_id, options_from_collection_for_select(Person.all, :id, :name) %>
+    <%= f.select :person_id, options_from_collection_for_select(Person.all, :id, :name, @team.person_id) %>
   </div>
   <div class="actions">
     <%= f.submit %>

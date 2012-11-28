@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :operations_center_id %><br />
-    <%= f.select :operations_center_id, options_from_collection_for_select(OperationsCenter.all, :id, :name) %>
+    <%= f.select :operations_center_id, options_from_collection_for_select(OperationsCenter.all, :id, :name, @assignment.operations_center_id) %>
   </div>
   <div class="field">
     <%= f.label :job_id %><br />
-    <%= f.select :job_id, options_from_collection_for_select(Job.all, :id, :name) %>
+    <%= f.select :job_id, options_from_collection_for_select(Job.all, :id, :name, @assignment.job_id) %>
   </div>
   <div class="actions">
     <%= f.submit %>
