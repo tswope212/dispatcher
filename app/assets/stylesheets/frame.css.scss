@@ -15,6 +15,7 @@
 
 #content-area {
 	margin: 60px;
+	margin-top: 0px;
 	background-color: white;
 	border: 1px solid black;
 	border-radius: 9px;
@@ -27,5 +28,9 @@
 
 footer {
   text-align: center;
-  font-style: bold;
+  font-weight: bold;
 }
+.header {
+  margin: 60px;
+  margin-bottom:0px;
+  }
