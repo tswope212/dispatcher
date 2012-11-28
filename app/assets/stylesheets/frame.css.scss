@@ -21,11 +21,15 @@
 	background-color: white;
 	border: 1px solid black;
 	border-radius: 9px;
+	max-width: 720px;
+	background-image: url(/assets/Irene19.jpg);
 }
 
 #frame {
 	height: 100%;
 	background-color: #FFFF00;
+	max-width: 760px;
+	display: inline-block;
 }
 
 footer {
@@ -36,3 +40,6 @@ footer {
   margin: 20px;
   margin-bottom:0px;
   }
+body {
+  text-align: center;
+}
