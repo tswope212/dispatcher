@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Task:</b>
+  <%= link_to_name @task_waiver.task %>
+</p>
+
+<p>
+  <b>Waiver:</b>
+  <%= link_to_name @task_waiver.waiver %>
+</p>
+
+<p>
+  <b>Assigned by:</b>
+  <%= link_to_name @task_waiver.team_admin %>
+</p>
+
+
+<%= link_to 'Edit', edit_task_waiver_path(@task_waiver) %> |
+<%= link_to 'Back', task_waivers_path %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121128032809) do
+ActiveRecord::Schema.define(:version => 20121202223607) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "street_number"
@@ -194,6 +194,18 @@ ActiveRecord::Schema.define(:version => 20121128032809) do
   end
 
   add_index "streets", ["city_id"], :name => "index_streets_on_city_id"
+
+  create_table "task_waivers", :force => true do |t|
+    t.integer  "task_id"
+    t.integer  "waiver_id"
+    t.integer  "team_admin_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "task_waivers", ["task_id"], :name => "index_task_waivers_on_task_id"
+  add_index "task_waivers", ["team_admin_id"], :name => "index_task_waivers_on_team_admin_id"
+  add_index "task_waivers", ["waiver_id"], :name => "index_task_waivers_on_waiver_id"
 
   create_table "tasks", :force => true do |t|
     t.string   "name"

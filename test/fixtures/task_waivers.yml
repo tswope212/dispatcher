@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  task: 
+  waiver: 
+  team_admin: 
+
+two:
+  task: 
+  waiver: 
+  team_admin: 

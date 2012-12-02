@@ -1,5 +1,8 @@
 Dispatcher::Application.routes.draw do
   
+  resources :task_waivers
+
+
   resources :jobs
 
 
