@@ -46,7 +46,7 @@ class RolesController < ApplicationController
 
     respond_to do |format|
       if @role.save
-        format.html { redirect_to @role, notice: 'Role was successfully created.' }
+        format.html { redirect_to @role.team, notice: "#{@role.person.name} has joined #{@role.team.name}" }
         format.json { render json: @role, status: :created, location: @role }
       else
         format.html { render action: "new" }

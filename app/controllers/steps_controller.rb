@@ -46,7 +46,7 @@ class StepsController < ApplicationController
 
     respond_to do |format|
       if @step.save
-        format.html { redirect_to @step, notice: 'Step was successfully created.' }
+        format.html { redirect_to @step.phase_template, notice: 'Step was successfully added.' }
         format.json { render json: @step, status: :created, location: @step }
       else
         format.html { render action: "new" }

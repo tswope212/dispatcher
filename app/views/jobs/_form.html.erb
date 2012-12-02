@@ -19,6 +19,22 @@
     <%= f.label :unit_id %><br />
     <%= f.select :unit_id, options_from_collection_for_select(Unit.all, :id, :name, @job.unit_id) %>
   </div>
+  <div class="field">
+    <%= f.label :scheduled_start %>
+    <%= f.datetime_select :scheduled_start %>
+  </div>
+  <div class="field">
+    <%= f.label :scheduled_end %>
+    <%= f.datetime_select :scheduled_end %>
+  </div>
+  <div class="field">
+    <%= f.label :actual_start %>
+    <%= f.datetime_select :actual_start, :include_blank => true %>
+  </div>
+  <div class="field">
+    <%= f.label :actual_end %>
+    <%= f.datetime_select :actual_end, :include_blank => true %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

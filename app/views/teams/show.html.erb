@@ -10,6 +10,14 @@
   <%= @team.person.name %>
 </p>
 
+<% @team.dispatches.incomplete.each do |dispatch| %>
+  <%= div_for dispatch do |dispatch| %>
+    <%= dispatch.job.scheduled_start.strftime("%I:%M %p on %A, %b %d") %>
+    <%= link_to_name dispatch %>
+    (<%= link_to_name dispatch.job %>)
+  <% end %>
+<% end %>
+
 <% @team.roles.each do |role| %>
   <%= div_for role do %>
     <%= link_to_name role.person %>
