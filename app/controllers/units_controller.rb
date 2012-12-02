@@ -38,6 +38,19 @@ class UnitsController < ApplicationController
   def edit
     @unit = Unit.find(params[:id])
   end
+  
+  def phase
+    @unit = Unit.find params[:id]
+  end
+
+  def apply
+    @unit = Unit.find params[:unit_id]
+    @phase_template = PhaseTemplate.find params[:phase_template_id]
+    @phase_template.steps.each do |step|
+      @unit.jobs.create :task_id => step.task_id
+    end
+    redirect_to @unit
+  end
 
   # POST /units
   # POST /units.json

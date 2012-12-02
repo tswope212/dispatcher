@@ -1,0 +1,39 @@
+<%= div_for @unit do %>
+  <%= @unit.name %><br>
+  Existing jobs(complete):
+  <% @unit.jobs.complete.each do |job| %>
+    <%= div_for job do %>
+      <%= link_to_name job %>
+    <% end %>
+  <% end %>
+
+  Existing jobs(started):
+  <% @unit.jobs.incomplete.each do |job| %>
+    <%= div_for job do %>
+      <%= link_to_name job %>
+    <% end %>
+  <% end %>
+  
+  Existing jobs(unstarted):
+  <% @unit.jobs.unstarted.each do |job| %>
+    <%= div_for job do %>
+      <%= link_to_name job %>
+    <% end %>
+  <% end %>
+<% end %>
+
+Phases
+<% PhaseTemplate.alphabetical.each do |phase| %>
+  <%= div_for phase do %>
+    <%= link_to_name phase %>
+    <%= link_to 'apply', phase_template_unit_apply_path(phase, @unit), :method => :post %>
+    <ol>
+      <% phase.steps.each do |step| %>
+        <li>
+          <%= link_to_name step %>
+          <%= link_to 'apply', jobs_path(:job => {:task_id => step.task_id, :unit_id => @unit.id}), :method => :post %>
+        </li>
+      <% end %>
+    </ol>
+  <% end %>
+<% end %>

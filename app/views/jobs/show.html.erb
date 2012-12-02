@@ -9,11 +9,11 @@
 </p>
 <p>
   <b>Scheduled Start:</b>
-  <%= @job.scheduled_start.strftime("%I:%M %p on %A, %b %d") %>
+  <%= @job.scheduled_start.andand.strftime("%I:%M %p on %A, %b %d") %>
 </p>
 <p>
   <b>Scheduled End:</b>
-  <%= @job.scheduled_end.strftime("%I:%M %p on %A, %b %d") %>
+  <%= @job.scheduled_end.andand.strftime("%I:%M %p on %A, %b %d") %>
 </p>
 
 <%= link_to 'Edit', edit_job_path(@job) %> |

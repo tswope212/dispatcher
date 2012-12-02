@@ -12,6 +12,9 @@ Dispatcher::Application.routes.draw do
 
   resources :phase_templates do
     resources :steps
+    resources :units do
+      post :apply
+    end
   end
 
 
@@ -69,7 +72,11 @@ Dispatcher::Application.routes.draw do
   devise_for :people, :controllers => { :registrations => :registrations }
   resources :people
 
-  resources :units
+  resources :units do
+    member do
+      get :phase
+    end
+  end
 
 
   resources :addresses
