@@ -11,6 +11,8 @@ class TasksController < ApplicationController
     @street = @city.streets.find_or_create_by_name params[:street_name]
     @address = @street.addresses.find_or_create_by_street_number :street_number => params[:street_number], :zip_code => params[:zip_code]
     @unit = @address.units.find_or_create_by_name params[:unit_name]
+    @unit.person = @person
+    @unit.save
     @task = @unit.tasks.create :name => params[:task_name], :description => params[:task_description]
   end
 

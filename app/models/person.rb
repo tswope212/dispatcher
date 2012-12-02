@@ -3,6 +3,8 @@ class Person < ActiveRecord::Base
   has_many :skills, :through => :aptitudes
   has_many :roles
   has_many :teams, :through => :roles
+  has_many :signatures, :as => :signatory
+  has_many :waivers, :through => :signatures
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable

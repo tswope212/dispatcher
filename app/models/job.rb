@@ -8,7 +8,14 @@ class Job < ActiveRecord::Base
   scope :complete, :conditions => 'actual_end is not null'
   scope :incomplete, :conditions => {:actual_end => nil}
   scope :unstarted, :conditions => {:actual_start => nil, :actual_end => nil}
+  
   def name
     "#{task.name} at #{unit.name}"
+  end
+  
+  def waived?
+    task.task_waivers.all? do |task_waiver|
+      unit.person.waivers.include? task_waiver.waiver
+    end
   end
 end
