@@ -1,10 +1,10 @@
-<h1>Listing jobs</h1>
+<h1>Jobs</h1>
 
 <table>
   <tr>
     <th>Task</th>
     <th>Unit</th>
-    <th></th>
+    <th>Team(s)</th>
     <th></th>
     <th></th>
   </tr>
@@ -12,7 +12,11 @@
 <% @jobs.each do |job| %>
   <tr>
     <td><%= link_to_name job.task %></td>
-    <td><%= link_to_name job.unit %></td>
+    <td><%= link_to job.unit.full_address, job.unit %></td>
+    <td>
+      <%= job.teams.map { |team| link_to_name team }.join.html_safe %>
+      <%= link_to 'dispatch a team', new_dispatch_path(:job_id => job.id) %>
+    </td>
     <td><%= link_to 'Show', job %></td>
     <td><%= link_to 'Edit', edit_job_path(job) %></td>
     <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>

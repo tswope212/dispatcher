@@ -26,7 +26,7 @@ class DispatchesController < ApplicationController
   # GET /dispatches/new
   # GET /dispatches/new.json
   def new
-    @dispatch = Dispatch.new
+    @dispatch = Dispatch.new :job_id => params[:job_id]
 
     respond_to do |format|
       format.html # new.html.erb
@@ -47,7 +47,7 @@ class DispatchesController < ApplicationController
 
     respond_to do |format|
       if @dispatch.save
-        format.html { redirect_to @dispatch, notice: 'Dispatch was successfully created.' }
+        format.html { redirect_to jobs_path, notice: "#{@dispatch.team.name} dispatched." }
         format.json { render json: @dispatch, status: :created, location: @dispatch }
       else
         format.html { render action: "new" }
