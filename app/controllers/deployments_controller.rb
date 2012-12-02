@@ -26,7 +26,7 @@ class DeploymentsController < ApplicationController
   # GET /deployments/new
   # GET /deployments/new.json
   def new
-    @deployment = Deployment.new
+    @deployment = Deployment.new :city_id => params[:city_id]
 
     respond_to do |format|
       format.html # new.html.erb

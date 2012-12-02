@@ -81,7 +81,10 @@ Dispatcher::Application.routes.draw do
   resources :neighborhoods
 
 
-  resources :cities
+  resources :cities do
+    resources :teams
+    resources :deployments
+  end
   
   root :to => 'cities#index'
 

@@ -4,7 +4,11 @@ class TeamsController < ApplicationController
   # GET /teams
   # GET /teams.json
   def index
-    @teams = Team.alphabetical
+    @teams = if params[:city_id]
+      City.find(params[:city_id]).teams.alphabetical
+    else
+      Team.alphabetical
+    end
 
     respond_to do |format|
       format.html # index.html.erb

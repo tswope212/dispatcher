@@ -2,7 +2,9 @@
 <% @cities.each do |city| %>
   <tr>
     <td><%= link_to_name city %></td>
+    <td><%= link_to pluralize(city.teams.count, 'team'), city_teams_path(city) %>
     <% if current_team_admin %>
+      <td><%= link_to 'deploy team', new_city_deployment_path(city) %></td>
       <td><%= link_to 'Edit', edit_city_path(city) %></td>
       <td><%= link_to 'Destroy', city, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     <% end %>

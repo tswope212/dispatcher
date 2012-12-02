@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <b>Task:</b>
   <%= link_to_name @job.task %>
@@ -9,7 +7,14 @@
   <b>Unit:</b>
   <%= link_to_name @job.unit %>
 </p>
-
+<p>
+  <b>Scheduled Start:</b>
+  <%= @job.scheduled_start.strftime("%I:%M %p on %A, %b %d") %>
+</p>
+<p>
+  <b>Scheduled End:</b>
+  <%= @job.scheduled_end.strftime("%I:%M %p on %A, %b %d") %>
+</p>
 
 <%= link_to 'Edit', edit_job_path(@job) %> |
 <%= link_to 'Back', jobs_path %>
