@@ -1,16 +1,14 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <b>Name:</b>
+  <b>Phase:</b>
   <%= @phase_template.name %>
 </p>
-
-<% @phase_template.steps.each do |step| %>
-  <%= div_for step do %>
-    <%= link_to_name step %>
+<ol>
+  <% @phase_template.steps.each do |step| %>
+    <%= div_for step do %>
+      <li><%= link_to_name step %></li>
+    <% end %>
   <% end %>
-<% end %>
-
+</ol>
 <%= link_to 'add step', new_phase_template_step_path(@phase_template) %> |
 <%= link_to 'Edit', edit_phase_template_path(@phase_template) %> |
 <%= link_to 'Back', phase_templates_path %>
