@@ -4,14 +4,11 @@
   <tr>
     <th>Name</th>
     <th>Description</th>
-    <th>Unit</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Address</th>
   </tr>
 
 <% @operations_centers.each do |operations_center| %>
-  <tr>
+  <tr class="<%= cycle('light-gray', 'white') %>">
     <td><%= link_to_name operations_center %></td>
     <td><%= operations_center.description %></td>
     <td><%= operations_center.unit.full_address %></td>

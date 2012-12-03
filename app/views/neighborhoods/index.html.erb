@@ -10,7 +10,7 @@
   </tr>
 
 <% @neighborhoods.each do |neighborhood| %>
-  <tr>
+  <tr class="<%= cycle('light-gray', 'white') %>">
     <td><%= link_to_name neighborhood %></td>
     <td><%= neighborhood.city.name %></td>
     <% if current_team_admin %>

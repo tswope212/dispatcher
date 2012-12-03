@@ -1,8 +1,8 @@
-<h1>Skills</h1>
+<h1 class='caps'>Skills</h1>
 
 <table>
-  <tr>
-    <th>Name</th>
+  <tr class='caps'>
+    <th>Skill</th>
     <th>Description</th>
     <th></th>
     <th></th>
@@ -10,7 +10,7 @@
   </tr>
 
 <% @skills.each do |skill| %>
-  <tr>
+  <tr class="<%= cycle('light-gray', 'white') %>">
     <td><%= link_to_name skill %></td>
     <td><%= skill.description %></td>
     <% if current_team_admin %>

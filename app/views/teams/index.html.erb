@@ -1,5 +1,5 @@
 <% if current_person %>
-  <h1>My <%= pluralize(current_person.teams.count, 'Team') %></h1>
+  <h1 class='caps'>My Teams</h1>
   <% current_person.teams.each do |team| %>
     <%= link_to_name team %>
   <% end %>
@@ -8,15 +8,15 @@
 <h1>Volunteer Teams</h1>
 
 <table>
-  <tr>
-    <th>Name</th>
-    <th>Primary Team Leader</th>
+  <tr class='caps'>
+    <th>Team</th>
+    <th>Team Leader</th>
     <th></th>
     <th></th>
   </tr>
 
 <% @teams.each do |team| %>
-  <tr>
+  <tr class="<%= cycle('light-gray', 'white') %>">
     <td><%= link_to_name team %></td>
     <td><%= link_to_name team.person %></td>
     <% if current_team_admin %>

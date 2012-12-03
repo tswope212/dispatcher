@@ -1,21 +1,21 @@
-<h1>Teams dispatched to jobs:</h1>
+<h1 class='caps'>Teams dispatched to jobs</h1>
 
 <table>
-  <tr>
+  <tr class='caps'>
+    <th>ID</th>
+    <th>Dispatcher</th>
     <th>Team</th>
     <th>Job</th>
-    <th>Dispatcher</th>
-    <th></th>
     <th></th>
     <th></th>
   </tr>
 
 <% @dispatches.each do |dispatch| %>
-  <tr>
+  <tr class="<%= cycle('light-gray', 'white') %>">
+    <td><%= link_to dispatch.id, dispatch %></td>
+    <td><%= link_to_name dispatch.person %></td>
     <td><%= link_to_name dispatch.team %></td>
     <td><%= link_to_name dispatch.job %></td>
-    <td><%= link_to_name dispatch.person %></td>
-    <td><%= link_to 'Show', dispatch %></td>
     <% if current_team_admin %>
       <td><%= link_to 'Edit', edit_dispatch_path(dispatch) %></td>
       <td><%= link_to 'Destroy', dispatch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
