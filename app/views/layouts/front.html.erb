@@ -5,37 +5,41 @@
     <%= stylesheet_link_tag    "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
+    <link href='http://fonts.googleapis.com/css?family=Gafata' rel='stylesheet' type='text/css'>
   </head>
   <body>
-    <div id="frame">
-      <div id="header">
-      	<%= image_tag asset_path "titleimage_disdisp.gif" %>
-        <% if current_person %>
-          <%= link_to current_person.email, edit_person_path(current_person) %>
-          <%= link_to 'sign out', destroy_person_session_path, :method => :delete %>
-          <hr>
-          <%= render 'shared/person_resource_links' %>
-        <% elsif current_team_admin %>
-          <%= link_to 'sign out', destroy_team_admin_session_path, :method => :delete %>
-          <%= render 'shared/resource_links' %>
-        <% else %>
-          <%= link_to 'sign up to receive assistance', assistance_registration_path, :class => 'right tab' %>
-          <%= link_to 'sign up to offer help', new_person_registration_path, :class => 'right tab' %>
-          <%= link_to 'sign in', new_person_session_path, :class => 'right tab' %>
-        <% end %>
-        <%= clearfix %>
-        <br>
+    <div id="background-holder">
+      <div id="frame">
+        <div id="header">
+        	<%= image_tag asset_path "titleimage_disdisp.gif" %>
+          <% if current_person %>
+            <div class="right">
+              <%= link_to current_person.email, edit_person_path(current_person), :class => 'right' %><br>
+              <%= link_to 'sign out', destroy_person_session_path, :method => :delete, :class => 'right' %>
+            </div>
+            <%= clearfix %>
+            <%= render 'shared/person_resource_links' %>
+          <% elsif current_team_admin %>
+            <%= link_to 'sign out', destroy_team_admin_session_path, :method => :delete %>
+            <%= render 'shared/resource_links' %>
+          <% else %>
+            <%= link_to 'sign up to receive assistance', assistance_registration_path, :class => 'right tab' %>
+            <%= link_to 'sign up to offer help', new_person_registration_path, :class => 'right tab' %>
+            <%= link_to 'sign in', new_person_session_path, :class => 'right tab' %>
+          <% end %>
+          <%= clearfix %>
+          <br>
+        </div>
+        <div id="content-area">
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+          <%= yield %>
+          <%= yield :scripts %>
+        </div>
+        <footer>
+  		info@disasterdispatcher.net      	
+        </footer>
       </div>
-      <div id="content-area">
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-        <%= yield %>
-        <%= yield :scripts %>
-      </div>
-      <footer>
-		info@disasterdispatcher.net      	
-      </footer>
     </div>
- 
   </body>
 </html>

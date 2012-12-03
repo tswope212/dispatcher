@@ -1,5 +1,5 @@
 class OperationsCentersController < ApplicationController
-  before_filter :authenticate_team_admin!, :only => [:edit, :update, :destroy]
+  before_filter :authenticate_team_admin!, :only => [:new, :create, :edit, :update, :destroy]
   before_filter :authenticate_person!, :only => [:show, :index]
   # GET /operations_centers
   # GET /operations_centers.json

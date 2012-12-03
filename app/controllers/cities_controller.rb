@@ -19,7 +19,7 @@ class CitiesController < ApplicationController
     @neighborhoods = @city.neighborhoods
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { render :layout => 'front' }
       format.json { render json: @city }
     end
   end

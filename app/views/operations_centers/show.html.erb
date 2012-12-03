@@ -1,20 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
-  <%= @operations_center.name %>
+  <b><%= @operations_center.name %></b>
 </p>
 
 <p>
-  <b>Description:</b>
   <%= @operations_center.description %>
 </p>
 
 <p>
-  <b>Unit:</b>
   <%= link_to @operations_center.unit.full_address, @operations_center.unit %>
 </p>
-
-
-<%= link_to 'Edit', edit_operations_center_path(@operations_center) %> |
-<%= link_to 'Back', operations_centers_path %>

@@ -1,10 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b><%= @city.name %></b>
+  <b class="caps"><%= @city.name %></b>
 </p>
 
-<div id="neighborhoods">
+<header class="caps">Neighborhoods</header>
+<div id="neighborhoods" class="light-gray">
   <% @neighborhoods.each do |neighborhood| %>
     <%= div_for neighborhood do %>
       <%= link_to_name neighborhood %>
@@ -12,15 +13,18 @@
   <% end %>
 </div>
 
+<header class="caps">Addresses</header>
 <div id="addresses">
   <% @addresses.each do |address| %>
     <%= div_for address do %>
       <%= link_to_name address %>
-      <% address.jobs.each do |task| %>
-        <%= div_for task do %>
-          <%= link_to_name task %>
+      <ol>
+        <% address.jobs.each do |task| %>
+          <%= div_for task do %>
+            <li><%= link_to_name task %></li>
+          <% end %>
         <% end %>
-      <% end %>
+      </ol>
     <% end %>
   <% end %>
 </div>
