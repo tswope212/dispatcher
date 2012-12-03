@@ -12,11 +12,17 @@
 	border-top-right-radius: 8px;
 	padding: 2px;
 	background-color: white;
-	&:hover{background-color: black;}
+	position: relative;
+	bottom: -18px;
+	right: 28px;
+	&:hover {
+		background-color: black;
+	}
 }
 
 #content-area {
 	margin: 20px;
+	margin-bottom: 3px;
 	margin-top: 0px;
 	background-color: white;
 	border: 1px solid black;
@@ -48,6 +54,7 @@
 footer {
   text-align: center;
   font-weight: bold;
+	margin-bottom: 5px;
 }
 
 .header {

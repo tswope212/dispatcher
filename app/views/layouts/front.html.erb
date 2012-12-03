@@ -11,7 +11,7 @@
     <div id="background-holder">
       <div id="frame">
         <div id="header">
-        	<%= image_tag asset_path "titleimage_disdisp.gif" %>
+        	<%= link_to image_tag(asset_path "titleimage_disdisp.gif"), root_url, :id => 'logo' %>
           <% if current_person %>
             <div class="right">
               <%= link_to current_person.email, edit_person_path(current_person), :class => 'right' %><br>

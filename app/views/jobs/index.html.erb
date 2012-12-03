@@ -1,7 +1,7 @@
-<h1>Jobs</h1>
+<h1 class='caps'>Jobs</h1>
 
 <table>
-  <tr>
+  <tr class="caps">
     <th>Task</th>
     <th>Unit</th>
     <th>Team(s)</th>
@@ -11,7 +11,7 @@
   </tr>
 
 <% @jobs.each do |job| %>
-  <tr>
+  <tr class="<%= cycle('light-gray', 'white') %>">
     <td><%= link_to_name job.task %></td>
     <td><%= link_to job.unit.full_address, job.unit %></td>
     <td>
