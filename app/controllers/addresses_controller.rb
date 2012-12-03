@@ -1,5 +1,5 @@
 class AddressesController < ApplicationController
-  before_filter :authenticate_team_admin!
+  before_filter :authenticate_team_admin!, :except => :update
   # GET /addresses
   # GET /addresses.json
   def index
@@ -61,7 +61,7 @@ class AddressesController < ApplicationController
 
     respond_to do |format|
       if @address.update_attributes(params[:address])
-        format.html { redirect_to @address, notice: 'Address was successfully updated.' }
+        format.html { redirect_to root_url, notice: 'Address was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

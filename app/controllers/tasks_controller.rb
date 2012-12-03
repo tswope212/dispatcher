@@ -13,7 +13,6 @@ class TasksController < ApplicationController
     @unit = @address.units.find_or_create_by_name params[:unit_name]
     @unit.person = @person
     @unit.save
-    @task = @unit.tasks.create :name => params[:task_name], :description => params[:task_description]
   end
 
   # GET /tasks
