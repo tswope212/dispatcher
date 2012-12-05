@@ -19,6 +19,47 @@
     <%= f.label :address %><br />
     <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :name, @unit.address_id) %>
   </div>
+  <div class="field">
+    <%= f.label :legal_needs %><br />
+    <%= f.text_field :legal_needs %>
+  </div>
+  <div class="field">
+    <%= f.label :medical_needs %><br />
+    <%= f.text_field :medical_needs %>
+  </div>
+  <div class="field">
+    <%= f.label :insurance_situation %><br />
+    <%= f.text_field :insurance_situation %>
+  </div>
+  <div class="field">
+    <%= f.label :fema_number %><br />
+    <%= f.text_field :fema_number %>
+  </div>
+  <div class="field">
+    <%= f.label :livable %><br />
+    <%= f.check_box :livable %>
+  </div>
+  <div class="field">
+    <%= f.label :needs_met %><br />
+    <%= f.check_box :needs_met %>
+  </div>
+  <div class="field">
+    <%= f.label :power_on %><br />
+    <%= f.check_box :power_on %>
+  </div>
+  <div class="field">
+    <%= f.label :heater_needed %><br />
+    <%= f.check_box :heater_needed %>
+  </div>
+  <div class="field">
+    <%= f.label :tenant_is_owner %><br />
+    <%= f.check_box :tenant_is_owner %>
+  </div>
+  <div class="field">
+    <%= f.label :rapid_response_contacted %><br />
+    <%= f.check_box :rapid_response_contacted %>
+  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

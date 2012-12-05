@@ -8,6 +8,56 @@
   <%= @unit.address.name %>
 </p>
 
+<p>
+  <b>Livable:</b>
+  <%= @unit.livable %>
+</p>
+
+<p>
+  <b>Tenant is owner:</b>
+  <%= @unit.tenant_is_owner %>
+</p>
+
+<p>
+  <b>Power is on:</b>
+  <%= @unit.power_on %>
+</p>
+
+<p>
+  <b>Needs are met:</b>
+  <%= @unit.needs_met %>
+</p>
+
+<p>
+  <b>Heater needed:</b>
+  <%= @unit.heater_needed %>
+</p>
+
+<p>
+  <b>Legal needs:</b>
+  <%= @unit.legal_needs %>
+</p>
+
+<p>
+  <b>Medical needs:</b>
+  <%= @unit.medical_needs %>
+</p>
+
+<p>
+  <b>Insurance situation:</b>
+  <%= @unit.insurance_situation %>
+</p>
+
+<p>
+  <b>Rapid Response contacted:</b>
+  <%= @unit.rapid_response_contacted %>
+</p>
+
+<p>
+  <b>FEMA id</b>
+  <%= @unit.fema_number %>
+</p>
+  
 <% @unit.jobs.each do |job| %>
   <%= div_for job do %>
     <%= link_to_name job %>
