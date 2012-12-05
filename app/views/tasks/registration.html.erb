@@ -11,17 +11,21 @@
   <%= label_tag :password, 'Please Choose a Password' %><br>
   <%= password_field_tag :password_confirmation %>
   <%= label_tag :password_confirmation, 'Please Confirm the Password' %><hr>
-  Note: please put your street number and street name in the two separate boxes.  If your home has a unit number or name, put it in the third box.  Thanks for your cooperation!<br>
-  <%= text_field_tag :street_number %>
-  <%= label_tag :street_number, 'Street Number' %><br>
-  <%= text_field_tag :street_name %>
-  <%= label_tag :street_name %>(Please use capitalized and abbreviated street types: Rd, Ave, Ln, Pl, etc)<br>
-  <%= text_field_tag :unit_name %>
-  <%= label_tag :unit_name, 'Unit Number/Unit Name' %><hr>
+  <%= text_field_tag :street_number, nil, :size => 3, :placeholder => '45' %>
+  <%= text_field_tag :street_name, nil, :placeholder => 'Newberry Ln' %>
+  <%= text_field_tag :unit_name, nil, :size => 5, :placeholder => 'Apt 2A' %><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<%= label_tag :street_number, '#' %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <%= label_tag :street_name, 'Street' %>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <%= label_tag :unit_name, 'Unit' %><br>
+  (Please capitalize and abbreviate street types: Rd, Ave, Ln, Pl, etc)<br>
+  <em>Note: please put your street number and street name in the two separate boxes.  If your home has a unit number or name, put it in the third box.  Thanks for your cooperation!</em><br>
+  
+  <hr>
   <%= select_tag :city_id, options_from_collection_for_select(City.alphabetical, :id, :name), :include_blank => true %>
   <%= label_tag :city_id %><br>
-  <%= text_field_tag :zip_code %>
-  <%= label_tag :zip_code %><hr>
+  <%= text_field_tag :zip_code, nil, :size => 6 %>
+  <%= label_tag :zip_code, 'zip code' %><hr>
   
   <%= submit_tag 'Submit Information' %>
   

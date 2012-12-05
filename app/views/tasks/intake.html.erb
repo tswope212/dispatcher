@@ -1,7 +1,19 @@
-Thanks, we've saved the details of your request.  We will contact you by email or phone when we have information for you.
+Thanks, we have saved the details of your request.  We will contact you by email or phone when we have information for you.
 
 Can you specify which neighborhood you are in?
-<%= form_for @address do |f| %>
-  <%= f.select :neighborhood_id, options_from_collection_for_select(@address.city.neighborhoods.alphabetical, :id, :name, @address.neighborhood_id), :include_blank => true %>
-  <%= f.submit %>
+<%= form_for @address, :url => legal_intake_path do |f| %>
+  <%= f.select :neighborhood_id, options_from_collection_for_select(@address.city.neighborhoods.alphabetical, :id, :name, @address.neighborhood_id), :include_blank => 'Choose Neighborhood' %><br>
+  Have your needs been met?
+  <%= radio_button_tag :needs_met, :yes %><%= label_tag :needs_met, :yes %>
+  <%= radio_button_tag :needs_met, :no %><%= label_tag :needs_met, :no %>
+  <br>
+  Is your power on?
+  <%= radio_button_tag :power, :yes %><%= label_tag :power, :yes %>
+  <%= radio_button_tag :power, :no %><%= label_tag :power, :no %>
+  <br>
+  Do you need a heater?
+  <%= radio_button_tag :heater, :yes %><%= label_tag :heater, :yes %>
+  <%= radio_button_tag :heater, :no %><%= label_tag :heater, :no %>
+  <br>
+  <%= f.submit 'Submit Information' %>
 <% end %>

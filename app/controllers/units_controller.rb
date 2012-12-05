@@ -1,6 +1,6 @@
 class UnitsController < ApplicationController
   before_filter :authenticate_team_admin!, :only => [:index, :edit, :update, :destroy]
-  before_filter :authenticate_person!, :only => [:show]
+  before_filter :check_authorization, :only => :show
   # GET /units
   # GET /units.json
   def index
@@ -94,5 +94,12 @@ class UnitsController < ApplicationController
       format.html { redirect_to units_url }
       format.json { head :no_content }
     end
+  end
+  
+  private
+  def check_authorization
+    @unit = Unit.find params[:id]
+    return true if @unit.person == current_person
+    return true if current_team_admin
   end
 end

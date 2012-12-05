@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121202232421) do
+ActiveRecord::Schema.define(:version => 20121205060513) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "street_number"
@@ -257,9 +257,19 @@ ActiveRecord::Schema.define(:version => 20121202232421) do
   create_table "units", :force => true do |t|
     t.string   "name"
     t.integer  "address_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
     t.integer  "person_id"
+    t.boolean  "needs_met"
+    t.boolean  "power_on"
+    t.boolean  "heater_needed"
+    t.text     "medical_needs"
+    t.text     "legal_needs"
+    t.string   "fema_number"
+    t.text     "insurance_situation"
+    t.boolean  "rapid_response_contacted"
+    t.boolean  "tenant_is_owner"
+    t.boolean  "livable"
   end
 
   add_index "units", ["address_id"], :name => "index_units_on_address_id"

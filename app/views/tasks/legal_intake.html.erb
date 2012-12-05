@@ -1,0 +1,27 @@
+<%= form_for @unit, :url => finish_intake_path do |f| %>
+  Is your home livable? &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <%= f.radio_button :livable, true %><%= f.label :livable, 'yes' %>
+  <%= f.radio_button :livable, false %><%= f.label :livable, 'no' %>
+  <br>
+  Do you own or rent? &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <%= f.radio_button :tenant_is_owner, true %><%= f.label :tenant_is_owner, 'own' %>
+  <%= f.radio_button :tenant_is_owner, false %><%= f.label :tenant_is_owner, 'rent' %>
+  <br>
+  Do you have legal needs? &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <%= f.text_area :legal_needs, :placeholder => 'Yes/No, Brief description, or detailed description of legal needs', :size => '40x3' %>
+  <br>
+  Do you have medical needs? &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <%= f.text_area :medical_needs, :placeholder => 'Yes/No, Brief description, or detailed description of medical needs', :size => '40x3' %>
+  <br>
+  Do you have a FEMA number/id?&nbsp;
+  <%= f.text_field :fema_number, :placeholder => '25-7073568', :size => 10 %>
+  <br>
+  Do you have insurance? &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <%= f.text_field :insurance_situation, :placeholder => 'Yes/No, brief or detailed', :size => 45 %>
+  <br>
+  Have you contacted Rapid Response/311?
+  <%= f.radio_button :rapid_response_contacted, true %><%= f.label :rapid_response_contacted, 'yes'%>
+  <%= f.radio_button :rapid_response_contacted, false %><%= f.label :rapid_response_contacted, 'no' %>
+  <br>
+  <%= f.submit 'Submit Information' %>
+<% end %>
