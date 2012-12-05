@@ -8,6 +8,6 @@ class Task < ActiveRecord::Base
   scope :alphabetical, :order => :name
   
   def self.common_tasks
-    alphabetical
+    all
   end
 end
