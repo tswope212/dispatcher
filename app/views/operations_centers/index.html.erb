@@ -11,7 +11,7 @@
   <tr class="<%= cycle('light-gray', 'white') %>">
     <td><%= link_to_name operations_center %></td>
     <td><%= operations_center.description %></td>
-    <td><%= operations_center.unit.full_address %></td>
+    <td><%= operations_center.unit.andand.full_address %></td>
     <% if current_team_admin %>
       <td><%= link_to 'Edit', edit_operations_center_path(operations_center) %></td>
       <td><%= link_to 'Destroy', operations_center, method: :delete, data: { confirm: 'Are you sure?' } %></td>
