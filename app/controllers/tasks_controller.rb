@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_filter :authenticate_team_admin!, :only => [:new, :edit, :create, :update, :destroy]
-  before_filter :authenticate_person!, :only => [:show, :index]
+  before_filter :direct_user, :only => [:show, :index]
   def registration
     
   end
@@ -116,5 +116,10 @@ class TasksController < ApplicationController
       format.html { redirect_to tasks_url }
       format.json { head :no_content }
     end
+  end
+  
+  private
+  def direct_user
+    return true if current_person || current_team_admin
   end
 end
