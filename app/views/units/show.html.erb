@@ -1,3 +1,19 @@
+<div id="requested_jobs">
+  <% @unit.jobs.each do |job| %>
+    <%= div_for job do %>
+      <%= link_to_name job %>
+    <% end %>
+  <% end %>
+</div>
+
+<div id="nominate_tasks">
+  <span id="instructions">If your home needs one or more of these jobs done, click on them (the page will reload each time).</span>
+  <% (Task.common_tasks - @unit.tasks).each do |task| %>
+    <%= link_to task.name, jobs_path(:job => {:task_id => task.id, :unit_id => @unit.id}), :method => :post %>
+  <% end %>
+</div>
+
+<%= clearfix %>
 <p>
   <b>Name:</b>
   <%= @unit.name %>

@@ -6,4 +6,8 @@ class Task < ActiveRecord::Base
   has_many :waivers, :through => :task_waivers
   attr_accessible :person_id, :unit_id, :actual_end, :actual_start, :description, :name, :scheduled_end, :scheduled_start
   scope :alphabetical, :order => :name
+  
+  def self.common_tasks
+    alphabetical
+  end
 end

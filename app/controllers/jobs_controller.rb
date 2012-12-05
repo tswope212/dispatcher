@@ -1,6 +1,7 @@
 class JobsController < ApplicationController
-  before_filter :authenticate_team_admin!, :only => [:new, :edit, :create, :update, :destroy]
+  before_filter :authenticate_team_admin!, :only => [:new, :edit, :update, :destroy]
   before_filter :authenticate_person!, :only => [:show, :index]
+  before_filter :authenticate_person_or_admin!, :only => :create
   # GET /jobs
   # GET /jobs.json
   def index
@@ -46,7 +47,7 @@ class JobsController < ApplicationController
 
     respond_to do |format|
       if @job.save
-        format.html { redirect_to @job.unit, notice: 'Job was successfully created.' }
+        format.html { redirect_to @job.unit, notice: "We have received your request for #{@job.task.name}." }
         format.json { render json: @job, status: :created, location: @job }
       else
         format.html { render action: "new" }
