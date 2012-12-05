@@ -13,7 +13,7 @@
 <% @addresses.each do |address| %>
   <tr>
     <td><%= address.street_number %></td>
-    <td><%= address.street.name %></td>
+    <td><%= link_to_name address.street %></td>
     <td><%= address.zip_code %></td>
     <td><%= link_to 'Show', address %></td>
     <td><%= link_to 'Edit', edit_address_path(address) %></td>

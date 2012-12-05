@@ -1,18 +1,16 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <b>Person:</b>
-  <%= @role.person.name %>
+  <%= link_to_name @role.person %>
 </p>
 
 <p>
   <b>Team:</b>
-  <%= @role.team.name %>
+  <%= link_to_name @role.team %>
 </p>
 
 <p>
   <b>Skill:</b>
-  <%= @role.skill.name %>
+  <%= link_to_name @role.skill %>
 </p>
 
 

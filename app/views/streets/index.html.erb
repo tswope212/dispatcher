@@ -11,8 +11,8 @@
 
 <% @streets.each do |street| %>
   <tr>
-    <td><%= street.name %></td>
-    <td><%= street.city.name %></td>
+    <td><%= link_to_name street %></td>
+    <td><%= link_to_name street.city %></td>
     <td><%= link_to 'Show', street %></td>
     <% if current_team_admin %>
       <td><%= link_to 'Edit', edit_street_path(street) %></td>
