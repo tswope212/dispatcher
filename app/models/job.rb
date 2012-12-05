@@ -15,7 +15,7 @@ class Job < ActiveRecord::Base
   
   def waived?
     task.task_waivers.all? do |task_waiver|
-      unit.person.waivers.include? task_waiver.waiver
+      unit.person.andand.waivers.andand.include? task_waiver.waiver
     end
   end
 end
