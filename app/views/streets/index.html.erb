@@ -1,4 +1,4 @@
-<h1>Listing streets</h1>
+<h1>Streets</h1>
 
 <table>
   <tr>
@@ -10,7 +10,7 @@
   </tr>
 
 <% @streets.each do |street| %>
-  <tr>
+  <tr class="<%= cycle 'light-gray', 'white' %>">
     <td><%= link_to_name street %></td>
     <td><%= link_to_name street.city %></td>
     <td><%= link_to 'Show', street %></td>

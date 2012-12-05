@@ -1,4 +1,4 @@
-<h1>Listing units</h1>
+<h1>Homes</h1>
 
 <table>
   <tr>
@@ -10,7 +10,7 @@
   </tr>
 
 <% @units.each do |unit| %>
-  <tr>
+  <tr class="<%= cycle 'light-gray', 'white' %>">
     <td><%= link_to_name unit %></td>
     <td><%= link_to_name unit.address %></td>
     <td><%= link_to 'Show', unit %></td>

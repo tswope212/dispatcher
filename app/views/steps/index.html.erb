@@ -11,7 +11,7 @@
   </tr>
 
 <% @steps.each do |step| %>
-  <tr>
+  <tr class="<%= cycle 'light-gray', 'white' %>">
     <td><%= link_to_name step.phase_template %></td>
     <td><%= link_to_name step.task %></td>
     <td><%= step.position %></td>

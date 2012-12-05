@@ -12,7 +12,7 @@
   </tr>
 
 <% @deployments.each do |deployment| %>
-  <tr>
+  <tr class="<%= cycle 'light-gray', 'white' %>">
     <td><%= link_to_name deployment.city %></td>
     <td><%= link_to_name deployment.team %></td>
     <td><%= deployment.start_time %></td>

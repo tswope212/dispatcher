@@ -8,7 +8,7 @@
   </tr>
 
 <% @team_admins.each do |team_admin| %>
-  <tr>
+  <tr class="<%= cycle 'light-gray', 'white' %>">
     <td><%= team_admin.name %></td>
     <td><%= team_admin.phone_number %></td>
     <td><%= team_admin.email %></td>

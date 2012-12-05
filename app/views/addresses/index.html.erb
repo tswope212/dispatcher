@@ -1,4 +1,4 @@
-<h1>Listing addresses</h1>
+<h1>Addresses</h1>
 
 <table>
   <tr>
@@ -11,7 +11,7 @@
   </tr>
 
 <% @addresses.each do |address| %>
-  <tr>
+  <tr class="<%= cycle 'light-gray', 'white' %>">
     <td><%= address.street_number %></td>
     <td><%= link_to_name address.street %></td>
     <td><%= address.zip_code %></td>

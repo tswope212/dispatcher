@@ -10,7 +10,7 @@
   </tr>
 
 <% @tasks.each do |task| %>
-  <tr>
+  <tr class="<%= cycle 'light-gray', 'white' %>">
     <td><%= task.name %></td>
     <td><%= task.description %></td>
     <td><%= link_to 'Show', task %></td>

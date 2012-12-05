@@ -13,8 +13,8 @@
         <div id="header">
         	<%= link_to image_tag(asset_path "titleimage_disdisp.gif"), root_url, :id => 'logo' %>
           <% if current_team_admin %>
-            <%= link_to 'sign out', destroy_team_admin_session_path, :method => :delete %>
-            <%= render 'shared/resource_links' %>
+            <%= link_to 'sign out', destroy_team_admin_session_path, :method => :delete %><br>
+            <%= render 'shared/resource_links_top' %>
           <% elsif current_person %>
             <div class="right">
               <%= link_to current_person.email, edit_person_path(current_person), :class => 'right' %><br>
@@ -38,6 +38,9 @@
         </div>
         <footer>
   		    <%= mail_to 'info@disasterdispatcher.net', 'info@disasterdispatcher.net', :style => 'text-decoration: none' %>
+  		    <% if current_team_admin %>
+            <%= render 'shared/resource_links_bottom' %>
+          <% end %>
         </footer>
       </div>
     </div>

@@ -10,7 +10,7 @@
   </tr>
 
 <% @assignments.each do |assignment| %>
-  <tr>
+  <tr class="<%= cycle 'light-gray', 'white' %>">
     <td><%= link_to_name assignment.operations_center %></td>
     <td><%= link_to_name assignment.job %></td>
     <td><%= link_to 'Show', assignment %></td>

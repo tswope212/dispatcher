@@ -9,7 +9,7 @@
   </tr>
 
 <% @phase_templates.each do |phase_template| %>
-  <tr>
+  <tr class="<%= cycle 'light-gray', 'white' %>">
     <td><%= phase_template.name %></td>
     <td><%= link_to 'Show', phase_template %></td>
     <td><%= link_to 'Edit', edit_phase_template_path(phase_template) %></td>

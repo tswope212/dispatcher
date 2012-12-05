@@ -1,6 +1,6 @@
 <table>
 <% @cities.each do |city| %>
-  <tr>
+  <tr class="<%= cycle 'light-gray', 'white' %>">
     <td class="city-name"><%= link_to_name city %></td>
     <td><%= link_to pluralize(city.teams.count, 'team'), city_teams_path(city) %></td>
     <% if current_team_admin %>

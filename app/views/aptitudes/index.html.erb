@@ -12,7 +12,7 @@
   </tr>
 
 <% @aptitudes.each do |aptitude| %>
-  <tr>
+  <tr class="<%= cycle('light-gray', 'white') %>">
     <td><%= link_to_name aptitude.person %></td>
     <td><%= link_to_name aptitude.skill %></td>
     <td><%= aptitude.level %></td>

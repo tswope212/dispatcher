@@ -11,7 +11,7 @@
   </tr>
 
 <% @signatures.each do |signature| %>
-  <tr>
+  <tr class="<%= cycle 'light-gray', 'white' %>">
     <td><%= link_to_name signature.waiver %></td>
     <td><%= signature.signatory_type %></td>
     <td><%= link_to_name signature.signatory %></td>

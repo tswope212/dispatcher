@@ -9,7 +9,7 @@
   </tr>
 
 <% @people.each do |person| %>
-  <tr>
+  <tr class="<%= cycle('light-gray', 'white') %>">
     <td><%= link_to_name person %></td>
     <td><%= person.primary_phone_number %></td>
     <td><%= mail_to person.email %></td>

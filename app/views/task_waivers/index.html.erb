@@ -10,7 +10,7 @@
   </tr>
 
 <% @task_waivers.each do |task_waiver| %>
-  <tr>
+  <tr class="<%= cycle 'light-gray', 'white' %>">
     <td><%= link_to_name task_waiver.task %></td>
     <td><%= link_to_name task_waiver.waiver %></td>
     <td><%= link_to 'Show', task_waiver %></td>
