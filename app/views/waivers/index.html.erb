@@ -12,7 +12,6 @@
 <% @waivers.each do |waiver| %>
   <tr>
     <td><%= link_to_name waiver %></td>
-    <td><%= waiver.text %></td>
     <% if current_team_admin %>
       <td><%= waiver.signature_type %></td>
       <td><%= link_to 'Edit', edit_waiver_path(waiver) %></td>

@@ -19,19 +19,17 @@
     <%= text_to_html @signature.waiver.text %>
   </div>
   
-  <% if @signature.waiver.signature_type == 'Acceptance Check Box' %>
-    <div class="field">
+  <div class="signature_instructions">
+    <% if @signature.waiver.signature_type == 'Acceptance Check Box' %>
       <%= f.label :content, 'Please check the box to indicate your acceptance of this agreement.' %>
       <%= f.check_box :content %>
-    </div>
-  <% elsif @signature.waiver.signature_type == 'E-Signature' %>
-    <div class="field">
+    <% elsif @signature.waiver.signature_type == 'E-Signature' %>
       <%= f.label :content, 'Please type your full name to complete the E-Signature' %><br>
       <%= f.text_field :content %>
-    </div>
-  <% elsif @signature.waiver.signature_type == 'Video of Verbal Agreement' %>
-    You should create a video wherein you give verbal consent to this agreement.
-  <% end %>
+    <% elsif @signature.waiver.signature_type == 'Video of Verbal Agreement' %>
+      You should create a video wherein you give verbal consent to this agreement.
+    <% end %>
+  </div>
   <div class="actions">
     <%= f.submit 'Sign Waiver' %>
   </div>
