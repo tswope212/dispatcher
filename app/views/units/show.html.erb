@@ -1,7 +1,11 @@
 <div id="requested_jobs">
   <% @unit.jobs.each do |job| %>
     <%= div_for job do %>
-      <%= link_to_name job %>
+      <% if current_team_admin %>
+        <%= link_to_name job %>
+      <% else %>
+        <%= job.name %>
+      <% end %>
     <% end %>
   <% end %>
 </div>
