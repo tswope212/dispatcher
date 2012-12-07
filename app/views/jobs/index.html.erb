@@ -13,7 +13,7 @@
 <% @jobs.each do |job| %>
   <tr class="<%= cycle('light-gray', 'white') %>">
     <td><%= link_to_name job.task %></td>
-    <td><%= link_to job.unit.full_address, job.unit %></td>
+    <td><%= link_to_name job.unit :full_address %></td>
     <td>
       <%= job.teams.map { |team| link_to_name team }.join.html_safe %>
       <%= link_to 'dispatch a team', new_dispatch_path(:job_id => job.id) %>
