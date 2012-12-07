@@ -10,7 +10,7 @@ class Job < ActiveRecord::Base
   scope :unstarted, :conditions => {:actual_start => nil, :actual_end => nil}
   
   def name
-    "#{task.name} at #{unit.name}"
+    "#{task.andand.name} at #{unit.andand.name}"
   end
   
   def waived?
