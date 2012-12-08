@@ -10,11 +10,11 @@ class Unit < ActiveRecord::Base
   before_create :populate_default_unit_name
   
   def full_name
-    "#{name} at #{address.name}"
+    "#{name} at #{address.andand.name}"
   end
   
   def full_address
-    "#{name}\n#{address.full}"
+    "#{name}\n#{address.andand.full}"
   end
   
   def populate_default_unit_name
