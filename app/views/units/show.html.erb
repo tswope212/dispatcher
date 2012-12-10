@@ -19,6 +19,16 @@
 
 <%= clearfix %>
 <p>
+  <b>Resident:</b>
+  <%= link_to_name @unit.person %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @unit.person.andand.primary_phone_number %>
+</p>  
+
+<p>
   <b>Name:</b>
   <%= @unit.name %>
 </p>
