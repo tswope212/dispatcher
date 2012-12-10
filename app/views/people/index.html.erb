@@ -13,6 +13,7 @@
     <td><%= link_to_name person %></td>
     <td><%= person.primary_phone_number %></td>
     <td><%= mail_to person.email %></td>
+    <td><%= link_to 'remove', person_path(person), :method => :delete, :confirm => "Ready to remove #{person.first_name}?" %></td>
   </tr>
 <% end %>
 </table>
