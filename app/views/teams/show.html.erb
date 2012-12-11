@@ -7,7 +7,7 @@
 
 <p>
   <b>Primary Team Leader:</b>
-  <%= @team.person.name %>
+  <%= link_to_name @team.person %>
 </p>
 
 <% @team.dispatches.incomplete.each do |dispatch| %>

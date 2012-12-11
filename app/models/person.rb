@@ -3,6 +3,7 @@ class Person < ActiveRecord::Base
   has_many :skills, :through => :aptitudes
   has_many :roles, :dependent => :destroy
   has_many :teams, :through => :roles
+  has_many :led_teams, :class_name => 'Team', :dependent => :nullify
   has_many :signatures, :as => :signatory, :dependent => :destroy
   has_many :waivers, :through => :signatures
   # Include default devise modules. Others available are:
@@ -24,6 +25,6 @@ class Person < ActiveRecord::Base
   end
   
   def aptitude_at_skill skill
-    aptitudes.find_by_skill_id(skill.id).andand.level.to_i
+    aptitudes.find_by_skill_id(skill.andand.id).andand.level.to_i
   end
 end
