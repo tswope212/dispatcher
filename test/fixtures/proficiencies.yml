@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  language: 
+  speaker_type: MyString
+  speaker_id: 1
+  level: 1
+
+two:
+  language: 
+  speaker_type: MyString
+  speaker_id: 1
+  level: 1

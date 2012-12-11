@@ -6,6 +6,8 @@ class Person < ActiveRecord::Base
   has_many :led_teams, :class_name => 'Team', :dependent => :nullify
   has_many :signatures, :as => :signatory, :dependent => :destroy
   has_many :waivers, :through => :signatures
+  has_many :proficiencies, :as => :speaker
+  has_many :languages, :through => :proficiencies
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable

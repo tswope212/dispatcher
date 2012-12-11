@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Language:</b>
+  <%= link_to_name @proficiency.language %>
+</p>
+
+<p>
+  <b>Speaker type:</b>
+  <%= @proficiency.speaker_type %>
+</p>
+
+<p>
+  <b>Speaker:</b>
+  <%= link_to_name @proficiency.speaker %>
+</p>
+
+<p>
+  <b>Level:</b>
+  <%= @proficiency.level %>
+</p>
+
+
+<%= link_to 'Edit', edit_proficiency_path(@proficiency) %> |
+<%= link_to 'Back', proficiencies_path %>

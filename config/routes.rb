@@ -1,5 +1,8 @@
 Dispatcher::Application.routes.draw do
   
+  resources :proficiencies
+
+
   resources :languages
 
 

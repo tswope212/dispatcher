@@ -1,0 +1,29 @@
+<h1>Listing proficiencies</h1>
+
+<table>
+  <tr>
+    <th>Language</th>
+    <th>Speaker type</th>
+    <th>Speaker</th>
+    <th>Level</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @proficiencies.each do |proficiency| %>
+  <tr>
+    <td><%= link_to_name proficiency.language %></td>
+    <td><%= proficiency.speaker_type %></td>
+    <td><%= link_to_name proficiency.speaker %></td>
+    <td><%= proficiency.level %></td>
+    <td><%= link_to 'Show', proficiency %></td>
+    <td><%= link_to 'Edit', edit_proficiency_path(proficiency) %></td>
+    <td><%= link_to 'Destroy', proficiency, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Proficiency', new_proficiency_path %>

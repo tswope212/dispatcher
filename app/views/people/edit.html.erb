@@ -2,5 +2,11 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @person %> |
-<%= link_to 'Back', people_path %>
+<div id="languages">
+  <h3>Language skills</h3>
+  <% @person.proficiencies.each do |proficiency| %>
+    <%= link_to proficiency.language.name, edit_proficiency_path(proficiency) %>
+    (<%= proficiency.level %>)
+  <% end %>
+  <%= link_to 'add a language', new_proficiency_path %>
+</div>

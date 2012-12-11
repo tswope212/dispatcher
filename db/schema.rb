@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121211070813) do
+ActiveRecord::Schema.define(:version => 20121211190544) do
 
   create_table "addresses", :force => true do |t|
     t.integer   "street_number"
@@ -93,6 +93,12 @@ ActiveRecord::Schema.define(:version => 20121211070813) do
   add_index "jobs", ["task_id"], :name => "index_jobs_on_task_id"
   add_index "jobs", ["unit_id"], :name => "index_jobs_on_unit_id"
 
+  create_table "languages", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "neighborhoods", :force => true do |t|
     t.string    "name"
     t.integer   "city_id"
@@ -147,6 +153,17 @@ ActiveRecord::Schema.define(:version => 20121211070813) do
     t.timestamp "created_at", :null => false
     t.timestamp "updated_at", :null => false
   end
+
+  create_table "proficiencies", :force => true do |t|
+    t.integer  "language_id"
+    t.string   "speaker_type"
+    t.integer  "speaker_id"
+    t.integer  "level"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "proficiencies", ["language_id"], :name => "index_proficiencies_on_language_id"
 
   create_table "residents", :force => true do |t|
     t.string    "first_name"
