@@ -12,7 +12,7 @@
 
 <p>
   <b>Scheduled Start:</b>
-  <%= @dispatch.job.scheduled_start.strftime("%I:%M %p on %A, %b %d") %>
+  <%= @dispatch.job.scheduled_start.andand.strftime("%I:%M %p on %A, %b %d") %>
 </p>
 
 <p>

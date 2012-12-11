@@ -1,5 +1,17 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <%= @resident.name %>
+</p>
+
+<p>
+  <%= mail_to @resident.email %>
+</p>
+
+<p>
+  <%= @resident.primary_phone_number %>
+</p>
+
 
 <%= link_to 'Edit', edit_resident_path(@resident) %> |
 <%= link_to 'Back', residents_path %>

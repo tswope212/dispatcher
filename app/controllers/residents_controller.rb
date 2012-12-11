@@ -1,4 +1,5 @@
 class ResidentsController < ApplicationController
+  before_filter :authenticate_team_admin!
   # GET /residents
   # GET /residents.json
   def index
