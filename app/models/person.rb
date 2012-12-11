@@ -27,4 +27,8 @@ class Person < ActiveRecord::Base
   def aptitude_at_skill skill
     aptitudes.find_by_skill_id(skill.andand.id).andand.level.to_i
   end
+  
+  def is_on_team? team
+    teams.include? team
+  end
 end

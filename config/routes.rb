@@ -6,7 +6,12 @@ Dispatcher::Application.routes.draw do
   resources :task_waivers
 
 
-  resources :jobs
+  resources :jobs do
+    member do
+      put :start
+      put :finish
+    end
+  end
 
 
   resources :steps do

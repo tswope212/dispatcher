@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
   before_filter :authenticate_team_admin!, :only => [:new, :edit, :update, :destroy]
-  before_filter :authenticate_person!, :only => [:show, :index]
+  before_filter :authenticate_person!, :only => [:show, :index, :start, :finish]
   before_filter :authenticate_person_or_admin!, :only => :create
   # GET /jobs
   # GET /jobs.json
@@ -70,6 +70,18 @@ class JobsController < ApplicationController
         format.json { render json: @job.errors, status: :unprocessable_entity }
       end
     end
+  end
+  
+  def start
+    @job = Job.find params[:id]
+    @job.update_attribute :actual_start, Time.now
+    redirect_to @job
+  end
+  
+  def finish
+    @job = Job.find params[:id]
+    @job.update_attribute :actual_end, Time.now
+    redirect_to @job
   end
 
   # DELETE /jobs/1

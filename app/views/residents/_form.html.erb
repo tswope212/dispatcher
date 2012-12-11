@@ -10,6 +10,32 @@
       </ul>
     </div>
   <% end %>
+  
+  <div class="field">
+    <%= f.text_field :first_name %>
+    <%= f.label :first_name %>
+  </div>
+  
+  <div class="field">
+    <%= f.text_field :last_name %>
+    <%= f.label :last_name %>
+  </div>
+  
+  <div class="field">
+    <%= f.text_field :email %>
+    <%= f.label :email %>
+  </div>
+  
+  <div class="field">
+    <%= f.password_field :password %>
+    <%= f.label :password, 'New Password' %>
+  </div>
+  
+  <div class="field">
+    <%= f.password_field :password_confirmation %>
+    <%= f.label :password_confirmation %>
+  </div>
+  
 
   <div class="actions">
     <%= f.submit %>

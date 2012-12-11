@@ -1,11 +1,21 @@
 <p>
   <b>Task:</b>
   <%= link_to_name @job.task %>
+  (<%= @job.completion_state %>)
 </p>
-
 <p>
   <b>Unit:</b>
   <%= link_to_name @job.unit %>
+</p>
+<p>
+  <b>Address:</b>
+  <%= link_to_name @job.address %>
+</p>
+<p>
+  <b>Teams:</b>
+  <% @job.teams.each do |team| %>
+    <%= link_to_name team %>
+  <% end %>
 </p>
 <p>
   <b>Scheduled Start:</b>
@@ -16,5 +26,13 @@
   <%= @job.scheduled_end.andand.strftime("%I:%M %p on %A, %b %d") %>
 </p>
 
-<%= link_to 'Edit', edit_job_path(@job) %> |
-<%= link_to 'Back', jobs_path %>
+<% if current_team_admin %>
+  <%= link_to 'Edit', edit_job_path(@job) %> |
+  <%= link_to 'Back', jobs_path %>
+<% else %>
+  <% if @job.actual_start.blank? %>
+    <%= link_to 'We have started this.', start_job_path(@job), :method => :put %>
+  <% elsif @job.actual_end.blank? %>
+    <%= link_to 'We have finished this.', finish_job_path(@job), :method => :put %>
+  <% end %>
+<% end %>

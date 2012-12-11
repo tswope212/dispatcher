@@ -1,6 +1,7 @@
 class Job < ActiveRecord::Base
   belongs_to :task
   belongs_to :unit
+  has_one :address, :through => :unit
   has_many :dispatches
   has_many :teams, :through => :dispatches
   attr_accessible :task_id, :unit_id, :scheduled_start, :scheduled_end, :actual_start, :actual_end
@@ -16,6 +17,16 @@ class Job < ActiveRecord::Base
   def waived?
     task.task_waivers.all? do |task_waiver|
       unit.andand.person.andand.waivers.andand.include? task_waiver.waiver
+    end
+  end
+  
+  def completion_state
+    if actual_start.blank?
+      'Unstarted'
+    elsif actual_end.blank?
+      'In Progress'
+    else
+      'Complete'
     end
   end
 end

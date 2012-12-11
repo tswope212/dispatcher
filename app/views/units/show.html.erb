@@ -35,7 +35,7 @@
 
 <p>
   <b>Address:</b>
-  <%= @unit.address.name %>
+  <%= @unit.address.andand.name %>
 </p>
 
 <p>
@@ -87,6 +87,11 @@
   <b>FEMA id</b>
   <%= @unit.fema_number %>
 </p>
+
+<p>
+  <b>Notes:</b>
+  <%= text_to_html @unit.note %>
+</p>
   
 <% @unit.jobs.each do |job| %>
   <%= div_for job do %>
@@ -97,7 +102,7 @@
 
 <%= link_to 'add phase of tasks', phase_unit_path(@unit) %>
 
-<%= gmaps(:markers => {:data => @unit.address.to_gmaps4rails}, :map_options => {:auto_zoom => false, :zoom => 14, :detect_location => true}) %>
+<%= gmaps(:markers => {:data => @unit.address.andand.to_gmaps4rails}, :map_options => {:auto_zoom => false, :zoom => 14, :detect_location => true}) %>
 
 
 <%= link_to 'Edit', edit_unit_path(@unit) %> |

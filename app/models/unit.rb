@@ -8,7 +8,7 @@ class Unit < ActiveRecord::Base
   has_many :jobs, :dependent => :destroy
   has_many :tasks, :through => :jobs
 
-  attr_accessible :name, :address_id, :livable, :tenant_is_owner, :legal_needs, :medical_needs, :fema_number, :insurance_situation, :rapid_response_contacted, :power_on, :heater_needed, :needs_met, :resident
+  attr_accessible :name, :address_id, :livable, :tenant_is_owner, :legal_needs, :medical_needs, :fema_number, :insurance_situation, :rapid_response_contacted, :power_on, :heater_needed, :needs_met, :resident, :note, :address
   
   before_create :populate_default_unit_name
   after_destroy :remove_orphaned_address_and_resident

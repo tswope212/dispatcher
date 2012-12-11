@@ -110,9 +110,12 @@ class UnitsController < ApplicationController
       street = Street.find_or_create_by_name street_name
       address = Address.find_or_create_by_street_number street_number, :street => street, :neighborhood => neighborhood
       unit['Contact Name'] =~ /([\w\s]+)\s+([\w\-]+)/
-      resident = Resident.create :first_name => $1, :last_name => $2, :email => "#{$1.andand.gsub(/\s/, '')}-#{$2.andand.gsub(/\s/, '')}-#{SecureRandom.urlsafe_base64(4)}@disasterdispatcher.net", :password => 'password', :password_confirmation => 'password', :primary_phone_number => unit['Phone']
-      unit = address.units.create :name => unit['Name'], :resident => resident, :power_on => (unit['Power On?'] == 'Yes'), :legal_needs => unit['Legal Assistance'], :heater_needed => (unit['Is a Heater Needed?'] == 'Yes'), :medical_needs => unit['Healthcare Needs'], :insurance_situation => unit['FEMA Visited House? What color tag? Insurance?']
+      first_name = $1
+      last_name = $2
+      resident = Resident.create :first_name => first_name, :last_name => last_name, :email => "#{first_name.andand.gsub(/\s/, '')}-#{last_name}-#{SecureRandom.urlsafe_base64(4)}@disasterdispatcher.net", :password => 'password', :password_confirmation => 'password', :primary_phone_number => unit['Phone']
+      unit = Unit.create :address => address, :name => unit['Name'], :resident => resident, :power_on => (unit['Power On?'] == 'Yes'), :legal_needs => unit['Legal Assistance'], :heater_needed => (unit['Is a Heater Needed?'] == 'Yes'), :medical_needs => unit['Healthcare Needs'], :insurance_situation => unit['FEMA Visited House? What color tag? Insurance?'], :note => "Category:#{unit['Category']}\nSpoke to Resident:#{unit['Spoke to Resident']}\nSupplies:#{unit['Supplies']}\nLabor:#{unit['Labor?']}\nPartnering with F2F:#{unit['Partnering with F2F']}\nComments:#{unit['Comments']}\nDate:#{unit['Date']}\nTime:#{unit['Time']}\nScheduling:#{unit['Scheduling']}\nHousing Assistance:#{unit['Housing Assistance']}\nCrew Leader:#{unit['Crew Leader']}"
     end
+    redirect_to :action => :index
   end
   
   private
