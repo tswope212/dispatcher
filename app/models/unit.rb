@@ -1,6 +1,6 @@
 class Unit < ActiveRecord::Base
   belongs_to :address
-  belongs_to :person
+  belongs_to :resident
 
   has_one :city, :through => :address
   has_one :neighborhood, :through => :address

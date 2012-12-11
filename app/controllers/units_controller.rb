@@ -99,7 +99,7 @@ class UnitsController < ApplicationController
   private
   def check_authorization
     @unit = Unit.find params[:id]
-    return true if @unit.person == current_person
+    return true if @unit.resident == current_resident
     return true if current_team_admin
   end
 end

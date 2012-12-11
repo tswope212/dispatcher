@@ -20,12 +20,12 @@
 <%= clearfix %>
 <p>
   <b>Resident:</b>
-  <%= link_to_name @unit.person %>
+  <%= link_to_name @unit.resident %>
 </p>
 
 <p>
   <b>Phone:</b>
-  <%= @unit.person.andand.primary_phone_number %>
+  <%= @unit.resident.andand.primary_phone_number %>
 </p>  
 
 <p>
