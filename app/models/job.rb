@@ -2,6 +2,8 @@ class Job < ActiveRecord::Base
   belongs_to :task
   belongs_to :unit
   has_one :address, :through => :unit
+  has_one :resident, :through => :unit
+  has_many :languages, :through => :resident
   has_many :dispatches
   has_many :teams, :through => :dispatches
   attr_accessible :task_id, :unit_id, :scheduled_start, :scheduled_end, :actual_start, :actual_end

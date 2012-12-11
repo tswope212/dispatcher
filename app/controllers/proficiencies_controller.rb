@@ -41,7 +41,8 @@ class ProficienciesController < ApplicationController
   # POST /proficiencies.json
   def create
     @proficiency = Proficiency.new(params[:proficiency])
-    if current_person
+    if params[:proficiency][:speaker_type] == 'Resident'
+    elsif current_person
       @proficiency.speaker = current_person
       if current_team_admin
         Proficiency.create :speaker => current_team_admin, :language => @proficiency.language, :level => @proficiency.level
