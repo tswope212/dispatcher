@@ -9,7 +9,9 @@
 
 <% @residents.each do |resident| %>
   <tr>
-    <td><%= link_to 'Show', resident %></td>
+    <td><%= link_to_name resident %></td>
+    <td><%= resident.primary_phone_number %></td>
+    <td><%= pluralize(resident.units.count, 'unit') %></td>
     <td><%= link_to 'Edit', edit_resident_path(resident) %></td>
     <td><%= link_to 'Destroy', resident, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
