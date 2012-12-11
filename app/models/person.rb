@@ -5,7 +5,6 @@ class Person < ActiveRecord::Base
   has_many :teams, :through => :roles
   has_many :signatures, :as => :signatory, :dependent => :destroy
   has_many :waivers, :through => :signatures
-  has_many :units, :dependent => :nullify
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
