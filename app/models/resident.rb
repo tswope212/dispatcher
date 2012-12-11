@@ -1,6 +1,6 @@
 class Resident < ActiveRecord::Base
   has_many :units
-  has_many :signatures, :as => :signatory
+  has_many :signatures, :as => :signatory, :dependent => :destroy
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
