@@ -31,4 +31,8 @@ class Person < ActiveRecord::Base
   def is_on_team? team
     teams.include? team
   end
+  
+  def has_signed_waiver? waiver
+    waivers.include? waiver
+  end
 end

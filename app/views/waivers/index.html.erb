@@ -3,8 +3,9 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Text</th>
-    <th>Signature type</th>
+    <% if current_team_admin %>
+      <th>Signature type</th>
+    <% end %>
     <th></th>
     <th></th>
   </tr>
@@ -16,8 +17,9 @@
       <td><%= waiver.signature_type %></td>
       <td><%= link_to 'Edit', edit_waiver_path(waiver) %></td>
       <td><%= link_to 'Destroy', waiver, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <% else %>
-      <td><%= link_to 'sign this waiver', new_waiver_signature_path(waiver) %>
+    <% end %>
+    <% if current_person %>
+      <td><%= link_to 'sign this waiver', new_waiver_signature_path(waiver) unless current_person.has_signed_waiver?(waiver) %></td>
     <% end %>
   </tr>
 <% end %>

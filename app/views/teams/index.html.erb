@@ -22,7 +22,8 @@
     <% if current_team_admin %>
       <td><%= link_to 'Edit', edit_team_path(team) %></td>
       <td><%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <% else %>
+    <% end %>
+    <% if current_person %>
       <td><%= link_to 'join team', join_role_path(team), :method => :post unless current_person.andand.is_on_team?(team) %></td>
     <% end %>
   </tr>
