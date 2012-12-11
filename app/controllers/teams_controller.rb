@@ -6,6 +6,8 @@ class TeamsController < ApplicationController
   def index
     @teams = if params[:city_id]
       City.find(params[:city_id]).teams.alphabetical
+    elsif params[:language_id]
+      Language.find(params[:language_id]).teams
     else
       Team.alphabetical
     end

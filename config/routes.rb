@@ -3,7 +3,9 @@ Dispatcher::Application.routes.draw do
   resources :proficiencies
 
 
-  resources :languages
+  resources :languages do
+    resources :teams
+  end
 
 
   devise_for :residents

@@ -23,6 +23,15 @@
   <% end %>
 <% end %>
 
+<div id="languages">
+  <h3>Languages Spoken:</h3>
+  <ul>
+    <% @team.languages.each do |language| %>
+      <li><%= language.name %></li>
+    <% end %>
+  </ul>
+</div>
+
 <% if current_team_admin %>
   <%= link_to 'add member', new_team_role_path(@team) %>
   <br>
