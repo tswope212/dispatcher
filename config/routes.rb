@@ -1,5 +1,7 @@
 Dispatcher::Application.routes.draw do
   
+  devise_for :residents
+
   resources :task_waivers
 
 
