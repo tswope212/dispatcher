@@ -4,6 +4,7 @@
   <tr class="caps">
     <th>Task</th>
     <th>Unit</th>
+    <th><%= link_to 'Status', :sort => 'complete' %></th>
     <th>Team(s)</th>
     <th>Waivers Signed?</th>
     <th></th>
@@ -14,6 +15,7 @@
   <tr class="<%= cycle('light-gray', 'white') %>">
     <td><%= link_to_name job.task %></td>
     <td><%= link_to_name job.unit :full_address %></td>
+    <td><%= job.completion_state %></td>
     <td>
       <%= job.teams.map { |team| link_to_name team }.join.html_safe %>
       <%= link_to 'dispatch a team', new_dispatch_path(:job_id => job.id) %>

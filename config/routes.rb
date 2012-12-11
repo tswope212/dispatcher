@@ -52,7 +52,9 @@ Dispatcher::Application.routes.draw do
   match '/request' => 'tasks#intake', :as => 'request_task', :via => :post
   match '/legal_intake' => 'tasks#legal_intake', :as => 'legal_intake', :via => :put
   match '/finish_intake' => 'tasks#finish_intake', :as => 'finish_intake', :via => :put
-  resources :operations_centers
+  resources :operations_centers do
+    resources :assignments
+  end
 
 
   resources :assignments

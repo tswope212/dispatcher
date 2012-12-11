@@ -9,6 +9,7 @@ class Job < ActiveRecord::Base
   scope :complete, :conditions => 'actual_end is not null'
   scope :incomplete, :conditions => {:actual_end => nil}
   scope :unstarted, :conditions => {:actual_start => nil, :actual_end => nil}
+  scope :by_completion, order('actual_end asc').order('actual_start asc')
   
   def name
     "#{task.andand.name} at #{unit.andand.full_address}"

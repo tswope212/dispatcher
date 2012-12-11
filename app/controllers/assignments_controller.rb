@@ -3,7 +3,19 @@ class AssignmentsController < ApplicationController
   # GET /assignments
   # GET /assignments.json
   def index
-    @assignments = Assignment.all
+    @assignments = if params[:operations_center_id]
+      if params[:sort] == 'complete'
+        OperationsCenter.find(params[:operations_center_id]).assignments.by_completion
+      else
+        OperationsCenter.find(params[:operations_center_id]).assignments
+      end
+    else
+      if params[:sort] == 'complete'
+        Assignment.by_completion
+      else
+        Assignment.all
+      end
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -45,7 +57,7 @@ class AssignmentsController < ApplicationController
 
     respond_to do |format|
       if @assignment.save
-        format.html { redirect_to @assignment, notice: 'Assignment was successfully created.' }
+        format.html { redirect_to operations_center_assignments_path(@assignment.operations_center), notice: 'Assignment was successfully created.' }
         format.json { render json: @assignment, status: :created, location: @assignment }
       else
         format.html { render action: "new" }

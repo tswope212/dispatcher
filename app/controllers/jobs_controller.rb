@@ -5,7 +5,11 @@ class JobsController < ApplicationController
   # GET /jobs
   # GET /jobs.json
   def index
-    @jobs = Job.all
+    @jobs = if params[:sort] == 'complete'
+      Job.by_completion
+    else
+      Job.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb

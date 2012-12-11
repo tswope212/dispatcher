@@ -13,6 +13,7 @@
     <td><%= operations_center.description %></td>
     <td><%= operations_center.unit.andand.full_address %></td>
     <% if current_team_admin %>
+      <td><%= link_to pluralize(operations_center.assignments.count, 'job') + ' assigned', operations_center_assignments_path(operations_center) %></td>
       <td><%= link_to 'Edit', edit_operations_center_path(operations_center) %></td>
       <td><%= link_to 'Destroy', operations_center, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     <% end %>

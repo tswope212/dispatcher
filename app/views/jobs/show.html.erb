@@ -29,7 +29,8 @@
 <% if current_team_admin %>
   <%= link_to 'Edit', edit_job_path(@job) %> |
   <%= link_to 'Back', jobs_path %>
-<% else %>
+<% end %>
+<% if current_person %>
   <% if @job.actual_start.blank? %>
     <%= link_to 'We have started this.', start_job_path(@job), :method => :put %>
   <% elsif @job.actual_end.blank? %>

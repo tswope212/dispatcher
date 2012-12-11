@@ -4,7 +4,7 @@
   <tr>
     <th>OperationsCenter</th>
     <th>Job</th>
-    <th></th>
+    <th><%= link_to 'Status', :sort => :complete %></th>
     <th></th>
     <th></th>
   </tr>
@@ -13,6 +13,7 @@
   <tr class="<%= cycle 'light-gray', 'white' %>">
     <td><%= link_to_name assignment.operations_center %></td>
     <td><%= link_to_name assignment.job %></td>
+    <td><%= assignment.job.completion_state %></td>
     <td><%= link_to 'Show', assignment %></td>
     <td><%= link_to 'Edit', edit_assignment_path(assignment) %></td>
     <td><%= link_to 'Destroy', assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
