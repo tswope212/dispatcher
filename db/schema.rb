@@ -149,27 +149,27 @@ ActiveRecord::Schema.define(:version => 20121210202052) do
   end
 
   create_table "residents", :force => true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "primary_phone_number"
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string   "unconfirmed_email"
-    t.string   "authentication_token"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
-    t.date     "date_of_birth"
+    t.string    "first_name"
+    t.string    "last_name"
+    t.string    "primary_phone_number"
+    t.string    "email",                  :default => "", :null => false
+    t.string    "encrypted_password",     :default => "", :null => false
+    t.string    "reset_password_token"
+    t.timestamp "reset_password_sent_at"
+    t.timestamp "remember_created_at"
+    t.integer   "sign_in_count",          :default => 0
+    t.timestamp "current_sign_in_at"
+    t.timestamp "last_sign_in_at"
+    t.string    "current_sign_in_ip"
+    t.string    "last_sign_in_ip"
+    t.string    "confirmation_token"
+    t.timestamp "confirmed_at"
+    t.timestamp "confirmation_sent_at"
+    t.string    "unconfirmed_email"
+    t.string    "authentication_token"
+    t.timestamp "created_at",                             :null => false
+    t.timestamp "updated_at",                             :null => false
+    t.date      "date_of_birth"
   end
 
   add_index "residents", ["authentication_token"], :name => "index_residents_on_authentication_token", :unique => true
@@ -287,21 +287,21 @@ ActiveRecord::Schema.define(:version => 20121210202052) do
   add_index "teams", ["person_id"], :name => "index_teams_on_person_id"
 
   create_table "units", :force => true do |t|
-    t.string   "name"
-    t.integer  "address_id"
-    t.datetime "created_at",               :null => false
-    t.datetime "updated_at",               :null => false
-    t.integer  "resident_id"
-    t.boolean  "needs_met"
-    t.boolean  "power_on"
-    t.boolean  "heater_needed"
-    t.text     "medical_needs"
-    t.text     "legal_needs"
-    t.string   "fema_number"
-    t.text     "insurance_situation"
-    t.boolean  "rapid_response_contacted"
-    t.boolean  "tenant_is_owner"
-    t.boolean  "livable"
+    t.string    "name"
+    t.integer   "address_id"
+    t.timestamp "created_at",               :null => false
+    t.timestamp "updated_at",               :null => false
+    t.integer   "resident_id"
+    t.boolean   "needs_met"
+    t.boolean   "power_on"
+    t.boolean   "heater_needed"
+    t.text      "medical_needs"
+    t.text      "legal_needs"
+    t.string    "fema_number"
+    t.text      "insurance_situation"
+    t.boolean   "rapid_response_contacted"
+    t.boolean   "tenant_is_owner"
+    t.boolean   "livable"
   end
 
   add_index "units", ["address_id"], :name => "index_units_on_address_id"

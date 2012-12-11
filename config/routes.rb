@@ -84,6 +84,9 @@ Dispatcher::Application.routes.draw do
     member do
       get :phase
     end
+    collection do
+      post :upload
+    end
   end
 
 

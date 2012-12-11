@@ -96,6 +96,25 @@ class UnitsController < ApplicationController
     end
   end
   
+  def upload
+    csv = params[:csv][:data]
+    data = csv.read
+    CSV.parse(data, :headers => :first_row) do |unit|
+      if unit['Address'] =~ /(\d+)\s+([\w\s]+)/
+        street_number = $1
+        street_name = $2
+      else
+        street_number = unit['Address']
+      end
+      neighborhood = Neighborhood.find_or_create_by_name(unit['Neighborhood']) if unit['Neighborhood'].present?
+      street = Street.find_or_create_by_name street_name
+      address = Address.find_or_create_by_street_number street_number, :street => street, :neighborhood => neighborhood
+      unit['Contact Name'] =~ /([\w\s]+)\s+([\w\-]+)/
+      resident = Resident.create :first_name => $1, :last_name => $2, :email => "#{$1.andand.gsub(/\s/, '')}-#{$2.andand.gsub(/\s/, '')}-#{SecureRandom.urlsafe_base64(4)}@disasterdispatcher.net", :password => 'password', :password_confirmation => 'password', :primary_phone_number => unit['Phone']
+      unit = address.units.create :name => unit['Name'], :resident => resident, :power_on => (unit['Power On?'] == 'Yes'), :legal_needs => unit['Legal Assistance'], :heater_needed => (unit['Is a Heater Needed?'] == 'Yes'), :medical_needs => unit['Healthcare Needs'], :insurance_situation => unit['FEMA Visited House? What color tag? Insurance?']
+    end
+  end
+  
   private
   def check_authorization
     @unit = Unit.find params[:id]

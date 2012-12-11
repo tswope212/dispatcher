@@ -24,3 +24,10 @@
 <br />
 
 <%= link_to 'New Unit', new_unit_path %>
+<%= link_to_function 'upload csv', "$('#upload_form').show()" %>
+<div id="upload_form">
+  <%= form_tag upload_units_path, :multipart => true do %>
+    <%= file_field :csv, :data %>
+    <%= submit_tag 'Load' %>
+  <% end %>
+</div>
