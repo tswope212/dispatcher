@@ -1,5 +1,6 @@
 class ResidentsController < ApplicationController
-  before_filter :authenticate_team_admin!
+  before_filter :authenticate_team_admin!, :except => [:show, :edit, :update]
+  before_filter :authorize, :only => [:show, :edit, :update]
   # GET /residents
   # GET /residents.json
   def index
@@ -81,4 +82,10 @@ class ResidentsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  private
+  def authorize
+    current_team_admin || params[:id] == current_resident.id
+  end
+
 end

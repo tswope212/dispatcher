@@ -2,9 +2,6 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @resident %> |
-<%= link_to 'Back', residents_path %>
-
 <ul>
   <% @resident.languages.each do |language| %>
     <li><%= language.name %></li>

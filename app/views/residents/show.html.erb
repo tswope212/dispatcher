@@ -12,6 +12,11 @@
   <%= @resident.primary_phone_number %>
 </p>
 
+<ul>
+  <% @resident.languages.each do |language| %>
+    <li><%= language.name %></li>
+  <% end %>
+</ul>
 
 <%= link_to 'Edit', edit_resident_path(@resident) %> |
 <%= link_to 'Back', residents_path %>
