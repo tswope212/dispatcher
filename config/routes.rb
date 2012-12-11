@@ -1,5 +1,8 @@
 Dispatcher::Application.routes.draw do
   
+  resources :languages
+
+
   devise_for :residents
   resources :residents
 
@@ -40,7 +43,7 @@ Dispatcher::Application.routes.draw do
   resources :deployments
 
 
-  devise_for :team_admins, :controllers => { :registrations => :team_admin_registrations }
+  devise_for :team_admins, :controllers => { :registrations => :team_admin_registrations, :sessions => :sessions }
   resources :team_admins do
     member do
       get 'activate'
@@ -84,7 +87,7 @@ Dispatcher::Application.routes.draw do
   end
 
 
-  devise_for :people, :controllers => { :registrations => :registrations }
+  devise_for :people, :controllers => { :registrations => :registrations, :sessions => :sessions }
   resources :people
 
   resources :units do
