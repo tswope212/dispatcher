@@ -5,6 +5,8 @@
     <th>Name</th>
     <th>Description</th>
     <th>Address</th>
+    <th>Neighborhood</th>
+    <th>City</th>
   </tr>
 
 <% @operations_centers.each do |operations_center| %>
@@ -12,6 +14,8 @@
     <td><%= link_to_name operations_center %></td>
     <td><%= operations_center.description %></td>
     <td><%= operations_center.unit.andand.full_address %></td>
+    <td><%= link_to_name operations_center.neighborhood %></td>
+    <td><%= link_to_name operations_center.city %></td>
     <% if current_team_admin %>
       <td><%= link_to pluralize(operations_center.assignments.count, 'job') + ' assigned', operations_center_assignments_path(operations_center) %></td>
       <td><%= link_to 'Edit', edit_operations_center_path(operations_center) %></td>

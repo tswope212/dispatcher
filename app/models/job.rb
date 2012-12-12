@@ -2,6 +2,7 @@ class Job < ActiveRecord::Base
   belongs_to :task
   belongs_to :unit
   has_one :address, :through => :unit
+  has_one :city, :through => :address
   has_one :resident, :through => :unit
   has_many :languages, :through => :resident
   has_many :dispatches
