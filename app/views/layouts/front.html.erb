@@ -13,7 +13,10 @@
         <div id="header">
         	<%= link_to image_tag(asset_path "disasterdispatcher_logo3.gif"), root_url, :id => 'logo' %>
           <% if current_team_admin %>
-            <%= link_to 'sign out', destroy_team_admin_session_path, :method => :delete %><br>
+            <%= link_to 'sign out', destroy_team_admin_session_path, :method => :delete, :class => 'right' %>
+            <span class="right">&nbsp;</span>
+            <%= link_to current_team_admin.email, current_team_admin, :class => 'right' %>
+            <%= clearfix %>
             <%= render 'shared/resource_links_top' %>
           <% elsif current_person %>
             <div class="right">
