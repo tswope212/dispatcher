@@ -10,7 +10,17 @@
   <%= link_to_name @neighborhood.city %>
 </p>
 
+<div id="operations_centers">
+	<h3>Operations Centers</h3>
+	<% @operations_centers.each do |operations_center| %>
+	  <%= div_for operations_center do %>
+	    <%= link_to_name operations_center %>
+	  <% end %>
+	<% end %>
+</div>
+
 <div id="jobs">
+	<h3>Jobs</h3>
   <% @jobs.each do |job| %>
     <%= div_for job do %>
       <%= link_to_name job %>
@@ -19,6 +29,7 @@
 </div>
 
 <div id="units">
+	<h3>Units</h3>
   <% @units.each do |unit| %>
     <%= div_for unit do %>
       <%= link_to_name unit %>

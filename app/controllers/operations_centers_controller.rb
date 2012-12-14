@@ -4,7 +4,11 @@ class OperationsCentersController < ApplicationController
   # GET /operations_centers
   # GET /operations_centers.json
   def index
-    @operations_centers = OperationsCenter.alphabetical
+    @operations_centers = if params[:neighborhood_id]
+      Neighborhood.find(params[:neighborhood_id]).operations_centers.alphabetical
+    else
+      OperationsCenter.alphabetical
+    end
 
     respond_to do |format|
       format.html # index.html.erb

@@ -18,6 +18,7 @@ class NeighborhoodsController < ApplicationController
     @neighborhood = Neighborhood.find(params[:id])
     @units = @neighborhood.units
     @jobs = @neighborhood.jobs
+    @operations_centers = @neighborhood.operations_centers
 
     respond_to do |format|
       format.html # show.html.erb

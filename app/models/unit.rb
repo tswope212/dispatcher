@@ -7,6 +7,7 @@ class Unit < ActiveRecord::Base
 
   has_many :jobs, :dependent => :destroy
   has_many :tasks, :through => :jobs
+  has_many :operations_centers, :dependent => :nullify
 
   attr_accessible :name, :address_id, :livable, :tenant_is_owner, :legal_needs, :medical_needs, :fema_number, :insurance_situation, :rapid_response_contacted, :power_on, :heater_needed, :needs_met, :resident, :note, :address
   

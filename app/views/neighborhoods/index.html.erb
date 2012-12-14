@@ -4,6 +4,7 @@
   <tr>
     <th>Name</th>
     <th>City</th>
+    <th>Centers</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,6 +14,7 @@
   <tr class="<%= cycle('light-gray', 'white') %>">
     <td><%= link_to_name neighborhood %></td>
     <td><%= neighborhood.city.andand.name %></td>
+		<td><%= link_to pluralize(neighborhood.operations_centers.count, 'center'), neighborhood_operations_centers_path(neighborhood) %></td>
     <% if current_team_admin %>
       <td><%= link_to 'Edit', edit_neighborhood_path(neighborhood) %></td>
       <td><%= link_to 'Destroy', neighborhood, method: :delete, data: { confirm: 'Are you sure?' } %></td>

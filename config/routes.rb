@@ -111,7 +111,9 @@ Dispatcher::Application.routes.draw do
   resources :streets
 
 
-  resources :neighborhoods
+  resources :neighborhoods do
+    resources :operations_centers
+  end
 
 
   resources :cities do
