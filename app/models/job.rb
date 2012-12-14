@@ -13,6 +13,11 @@ class Job < ActiveRecord::Base
   scope :incomplete, :conditions => {:actual_end => nil}
   scope :unstarted, :conditions => {:actual_start => nil, :actual_end => nil}
   scope :by_completion, order('actual_end asc').order('actual_start asc')
+  scope :dispatched, joins(:dispatches)
+  
+  def self.not_dispatched
+    all - dispatched
+  end
   
   def name
     "#{task.andand.name} at #{unit.andand.full_address}"
