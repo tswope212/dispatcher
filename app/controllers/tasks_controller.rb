@@ -7,6 +7,7 @@ class TasksController < ApplicationController
   
   def intake
     @resident = Resident.create :email => params[:email], :password => params[:password], :password_confirmation => params[:password_confirmation], :first_name => params[:first_name], :last_name => params[:last_name], :primary_phone_number => params[:primary_phone_number]
+    ResidentRegistrationMailer.registration_receipt(@resident).deliver
     sign_in @resident
     @city = City.find params[:city_id]
     @street = @city.streets.find_or_create_by_name params[:street_name]
