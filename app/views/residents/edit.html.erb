@@ -8,7 +8,7 @@
   <% end %>
   <li>
     <%= form_for @resident.proficiencies.new do |f| %>
-      <%= f.select :language_id, options_from_collection_for_select(Language.all, :id, :name), :include_blank => true %>
+      <%= f.select :language_id, options_from_collection_for_select(Language.all, :id, :name), :include_blank => 'Languages Spoken' %>
       <%= f.submit :add %>
       <%= f.hidden_field :speaker_type %>
       <%= f.hidden_field :speaker_id %>
