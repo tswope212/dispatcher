@@ -16,7 +16,7 @@ class TasksController < ApplicationController
       @unit = @address.units.find_or_create_by_name params[:unit_name]
       @unit.resident = @resident
       @unit.save
-      params[:languages].each do |language_id|
+      params[:languages].andand.each do |language_id|
         @resident.proficiencies.create :language_id => language_id
       end
       session[:unit_id] = @unit.id
