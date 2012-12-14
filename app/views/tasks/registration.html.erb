@@ -6,11 +6,11 @@
   <%= text_field_tag :primary_phone_number %>
   <%= label_tag :primary_phone_number %><br>
   <%= email_field_tag :email %>
-  <%= label_tag :email %><br>
+  <%= label_tag :email %>*<br>
   <%= password_field_tag :password %>
-  <%= label_tag :password, 'Please Choose a Password' %><br>
+  <%= label_tag :password, 'Please Choose a Password' %>*<br>
   <%= password_field_tag :password_confirmation %>
-  <%= label_tag :password_confirmation, 'Please Confirm the Password' %><hr>
+  <%= label_tag :password_confirmation, 'Please Confirm the Password' %>*<hr>
   <%= text_field_tag :street_number, nil, :size => 3, :placeholder => '45' %>
   <%= text_field_tag :street_name, nil, :placeholder => 'Newberry Ln' %>
   <%= text_field_tag :unit_name, nil, :size => 5, :placeholder => 'Apt 2A' %><br>
@@ -26,6 +26,13 @@
   <%= label_tag :city_id %><br>
   <%= text_field_tag :zip_code, nil, :size => 6 %>
   <%= label_tag :zip_code, 'zip code' %><hr>
+
+  Languages spoken in the house:<br>
+  <% Language.all.each do |language| %>
+    <%= check_box_tag 'languages[]', language.id %>
+    <%= label_tag :languages, language.name %><br>
+  <% end %>
+  
   
   <%= submit_tag 'Submit Information' %>
   
