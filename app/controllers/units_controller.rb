@@ -26,7 +26,7 @@ class UnitsController < ApplicationController
   # GET /units/new
   # GET /units/new.json
   def new
-    @unit = Unit.new
+    @unit = Unit.new :address_id => params[:address_id]
 
     respond_to do |format|
       format.html # new.html.erb
@@ -56,6 +56,9 @@ class UnitsController < ApplicationController
   # POST /units.json
   def create
     @unit = Unit.new(params[:unit])
+    if session[:resident_id]
+      @unit.resident_id = session[:resident_id]
+    end
 
     respond_to do |format|
       if @unit.save

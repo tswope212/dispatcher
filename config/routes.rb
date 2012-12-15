@@ -109,7 +109,9 @@ Dispatcher::Application.routes.draw do
   end
 
 
-  resources :addresses
+  resources :addresses do
+    resources :units
+  end
 
 
   resources :streets

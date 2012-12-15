@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <%= @resident.name %>
 </p>
@@ -17,6 +15,17 @@
     <li><%= language.name %></li>
   <% end %>
 </ul>
+
+
+<div id="units">
+  <h3>Dwelling(s) managed by this person:</h3>
+  <% @resident.units.each do |unit| %>  
+    <%= div_for unit do %>
+      <%= link_to_name unit, :full_name %>
+    <% end %>
+  <% end %>
+</div>
+<%= link_to 'add dwelling', new_address_path %><br>
 
 <%= link_to 'Edit', edit_resident_path(@resident) %> |
 <%= link_to 'Back', residents_path %>

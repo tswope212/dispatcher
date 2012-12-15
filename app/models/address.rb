@@ -6,7 +6,7 @@ class Address < ActiveRecord::Base
   belongs_to :neighborhood
   attr_accessible :street_number, :street_id, :zip_code, :neighborhood_id, :street, :neighborhood
   
-  acts_as_gmappable
+  acts_as_gmappable :validation => false
 
   def gmaps4rails_address
     "#{street_number} #{street.andand.name}, #{city.andand.name} #{zip_code}"

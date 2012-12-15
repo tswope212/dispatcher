@@ -46,6 +46,7 @@ class ResidentsController < ApplicationController
 
     respond_to do |format|
       if @resident.save
+        session[:resident_id] = @resident.id
         format.html { redirect_to @resident, notice: 'Resident was successfully created.' }
         format.json { render json: @resident, status: :created, location: @resident }
       else

@@ -41,6 +41,11 @@ class AddressesController < ApplicationController
   # POST /addresses
   # POST /addresses.json
   def create
+    if params[:street].present?
+      @street = Street.find_or_create_by_name params[:street]
+      params[:address][:street_id] = @street.id
+    end
+    
     @address = Address.new(params[:address])
 
     respond_to do |format|

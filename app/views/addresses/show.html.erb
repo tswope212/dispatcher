@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <b>Street number:</b>
   <%= @address.street_number %>
@@ -19,6 +17,16 @@
   <b>Neighborhood:</b>
   <%= link_to_name @address.neighborhood %>
 </p>
+
+<div id="units">
+  <h3>Units at this address</h3>
+  <% @address.units.each do |unit| %>
+    <%= div_for unit do %>
+      <%= link_to_name unit %>
+    <% end %>
+  <% end %>
+  <%= link_to 'add a unit', new_address_unit_path(@address) %>
+</div>
 
 <%= gmaps(:markers => {:data => @address.to_gmaps4rails}, :map_options => {:auto_zoom => false, :zoom => 14, :detect_location => true}) %>
 
