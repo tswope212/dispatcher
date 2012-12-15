@@ -1,4 +1,5 @@
 class TeamAdmin < ActiveRecord::Base
+  mount_uploader :image, ProfileImageUploader
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -6,7 +7,7 @@ class TeamAdmin < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :token_authenticatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :personal_statement, :first_name, :last_name, :phone_number, :date_of_birth
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :personal_statement, :first_name, :last_name, :phone_number, :date_of_birth, :image
   
   after_create :send_activation_message
   

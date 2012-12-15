@@ -1,5 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-
+<%= image_tag @team_admin.image, :width => 200 if @team_admin.image.present? %>
+<br>
+<%= @team_admin.name %>
+<br>
+<%= @team_admin.email %>
+<br>
 <%= link_to 'Edit', edit_team_admin_path(@team_admin) %> |
 <%= link_to 'Back', team_admins_path %>

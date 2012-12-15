@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<%= image_tag @person.image, :width => 200 if @person.image.present? %>
 <%= @person.name %><br>
 <%= mail_to @person.email %><br>
 <%= @person.primary_phone_number %><br>

@@ -28,7 +28,11 @@
   </div>
   <div class="field">
     <%= f.text_area :personal_statement %>
-    <%= f.label :personal_statement %>
+    <%= f.label :personal_statement, :size => '30x3' %>
+  </div>
+  <div class="field">
+    <%= f.file_field :image %>
+    <%= f.label :image %>
   </div>
   <div class="actions">
     <%= f.submit %>

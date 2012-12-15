@@ -8,6 +8,8 @@ class Person < ActiveRecord::Base
   has_many :waivers, :through => :signatures
   has_many :proficiencies, :as => :speaker
   has_many :languages, :through => :proficiencies
+  
+  mount_uploader :image, ProfileImageUploader
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -15,7 +17,7 @@ class Person < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :primary_phone_number, :date_of_birth
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :primary_phone_number, :date_of_birth, :image
   # attr_accessible :title, :body
   
   scope :alphabetical_by_first_name, :order => :first_name
