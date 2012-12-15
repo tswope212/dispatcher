@@ -1,7 +1,6 @@
 class JobsController < ApplicationController
   before_filter :authenticate_team_admin!, :only => [:new, :edit, :update, :destroy]
   before_filter :authenticate_person!, :only => [:show, :index, :start, :finish]
-  before_filter :authenticate_person_or_admin!, :only => :create
   # GET /jobs
   # GET /jobs.json
   def index
