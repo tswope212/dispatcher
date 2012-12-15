@@ -15,7 +15,7 @@
 <% @jobs.each do |job| %>
   <tr class="<%= cycle('light-gray', 'white') %>">
     <td><%= link_to_name job.task %></td>
-    <td><%= link_to_name job.unit :full_address %></td>
+    <td><%= link_to_name job.unit, :full_name %></td>
     <td><%= job.languages.map(&:name).to_sentence %></td>
     <td><%= job.completion_state %></td>
     <td>
