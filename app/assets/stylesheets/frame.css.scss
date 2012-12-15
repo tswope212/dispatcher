@@ -38,13 +38,13 @@
 	}
 }
 
-@media all and (max-width:48em) {
+@media all and (min-width:30em) and (max-width:48em) {
 	#frame {
 		width: 80%;
 	}
 }
 
-@media all and (min-width:49em) {
+@media all and (min-width:48em) {
 	#frame {
 		width: 50%;
 	}
