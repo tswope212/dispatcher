@@ -127,7 +127,7 @@ Dispatcher::Application.routes.draw do
     resources :deployments
   end
   
-  root :to => 'cities#index'
+  root :to => 'dispatches#introduction'
 
 
   # The priority is based upon order of creation:

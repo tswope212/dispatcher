@@ -1,6 +1,11 @@
 class DispatchesController < ApplicationController
   before_filter :authenticate_team_admin!, :only => [:new, :edit, :create, :update, :destroy]
   before_filter :authenticate_person!, :only => [:show, :index]
+
+  def introduction
+    
+  end
+
   # GET /dispatches
   # GET /dispatches.json
   def index
