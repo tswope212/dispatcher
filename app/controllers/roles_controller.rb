@@ -56,7 +56,7 @@ class RolesController < ApplicationController
   end
   
   def join
-    @role = current_person.roles.new :team_id => params[:team_id]
+    @role = current_person.roles.new :team_id => params[:id]
     render :action => :new
   end
 
