@@ -8,6 +8,6 @@ class Task < ActiveRecord::Base
   scope :alphabetical, :order => :name
   
   def self.common_tasks
-    PhaseTemplate.find(1, 2).map(&:tasks).flatten
+    PhaseTemplate.find(1, 2, 5).map(&:tasks).flatten
   end
 end
