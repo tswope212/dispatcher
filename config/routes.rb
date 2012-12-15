@@ -9,7 +9,11 @@ Dispatcher::Application.routes.draw do
 
 
   devise_for :residents
-  resources :residents
+  resources :residents do
+    collection do
+      post :populate
+    end
+  end
 
   resources :task_waivers
 

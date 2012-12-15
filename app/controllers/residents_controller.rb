@@ -41,7 +41,7 @@ class ResidentsController < ApplicationController
 
   # POST /residents
   # POST /residents.json
-  def create
+  def populate
     @resident = Resident.new(params[:resident])
 
     respond_to do |format|
