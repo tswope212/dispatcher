@@ -32,12 +32,29 @@
 	padding: 5px;
 }
 
+@media all and (max-width:30em) {
+	#frame {
+		width: 90%;
+	}
+}
+
+@media all and (max-width:48em) {
+	#frame {
+		width: 80%;
+	}
+}
+
+@media all and (min-width:49em) {
+	#frame {
+		width: 50%;
+	}
+}
+
 #frame {
 	height: 100%;
 	background-color: rgb(255, 225, 70);
 	background-color: rgba(255, 225, 0, 0.65);
 	max-width: 840px;
-	width: 50%;
 	margin-left: auto;
 	margin-right: auto;
 	border: 1px solid black;
