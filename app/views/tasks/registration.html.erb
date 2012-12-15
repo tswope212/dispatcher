@@ -8,7 +8,7 @@
   <%= email_field_tag :email %>
   <%= label_tag :email %>*<br>
   <%= password_field_tag :password %>
-  <%= label_tag :password, 'Please Choose a Password' %>*<br>
+  <%= label_tag :password, 'Please Choose a Password (at least 6 characters)' %>*<br>
   <%= password_field_tag :password_confirmation %>
   <%= label_tag :password_confirmation, 'Please Confirm the Password' %>*<hr>
   <%= text_field_tag :street_number, nil, :size => 3, :placeholder => '45' %>
@@ -38,7 +38,6 @@
 <% end %>
 <script type="text/javascript">
   $('#intake').validate({'rules': {
-	  'email': {'required': true, 'email': true},
 	  'password': {'required': true, 'minlength': 6},
 	  'password_confirmation': {'required': true, 'minlength': 6},
 	  'city_id': {'required': true}
