@@ -37,4 +37,8 @@ class Person < ActiveRecord::Base
   def has_signed_waiver? waiver
     waivers.include? waiver
   end
+  
+  def has_skill? skill
+    skills.include? skill
+  end
 end

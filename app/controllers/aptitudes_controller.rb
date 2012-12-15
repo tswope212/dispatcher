@@ -50,7 +50,7 @@ class AptitudesController < ApplicationController
 
     respond_to do |format|
       if @aptitude.save
-        format.html { redirect_to @aptitude, notice: 'Aptitude was successfully created.' }
+        format.html { redirect_to skills_path, notice: 'Aptitude was successfully created.' }
         format.json { render json: @aptitude, status: :created, location: @aptitude }
       else
         format.html { render action: "new" }
