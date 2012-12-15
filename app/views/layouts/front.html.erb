@@ -29,6 +29,8 @@
             <%= link_to 'sign out', destroy_resident_session_path, :method => :delete, :class => 'right' %>
             <span class="right">&nbsp;</span>
             <%= link_to current_resident.email, current_resident, :class => 'right' %>
+            <%= clearfix %>
+            <%= render 'shared/person_resource_links' %>
           <% else %>
             <%= link_to 'sign up to receive assistance', assistance_registration_path, :class => 'right tab' %>
             <%= link_to 'sign up to offer help', new_person_registration_path, :class => 'right tab' %>

@@ -1,5 +1,4 @@
 class SignaturesController < ApplicationController
-  before_filter :authenticate_person!, :only => :new
   before_filter :authenticate_team_admin!, :only => [:index, :show, :edit, :update, :destroy]
   # GET /signatures
   # GET /signatures.json
@@ -43,7 +42,11 @@ class SignaturesController < ApplicationController
   # POST /signatures.json
   def create
     @signature = Signature.new(params[:signature])
-    @signature.signatory = current_person
+    if current_resident
+      @signature.signatory = current_resident
+    elsif current_person
+      @signature.signatory = current_person
+    end
 
     respond_to do |format|
       if @signature.save

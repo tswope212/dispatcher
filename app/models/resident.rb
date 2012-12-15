@@ -3,6 +3,9 @@ class Resident < ActiveRecord::Base
   has_many :signatures, :as => :signatory, :dependent => :destroy
   has_many :proficiencies, :as => :speaker
   has_many :languages, :through => :proficiencies
+  has_many :signatures, :as => :signatory, :dependent => :destroy
+  has_many :waivers, :through => :signatures
+  
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -24,4 +27,9 @@ class Resident < ActiveRecord::Base
     phone_number_without_spaces = primary_phone_number.gsub(/\s/, '')
     self.email = "#{phone_number_without_spaces}@disasterdispatcher.net"
   end
+  
+  def has_signed_waiver? waiver
+    waivers.include? waiver
+  end
+  
 end
