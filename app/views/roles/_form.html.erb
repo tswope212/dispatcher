@@ -24,6 +24,6 @@
     <%= f.select :skill_id, options_from_collection_for_select(Skill.all, :id, :name, @role.skill_id), :include_blank => true %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Join Team' %>
   </div>
 <% end %>

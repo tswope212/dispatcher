@@ -1,19 +1,24 @@
+<% if @resident %>
+  <% @resident.errors.full_messages.each do |error| %>
+    <%= error %><br>
+  <% end %>
+<% end %>
 <%= form_tag request_task_path, :id => 'intake' do %>
-  <%= text_field_tag :first_name %>
+  <%= text_field_tag :first_name, params[:first_name] %>
   <%= label_tag :first_name %><br>
-  <%= text_field_tag :last_name %>
+  <%= text_field_tag :last_name, params[:last_name] %>
   <%= label_tag :last_name %><br>
-  <%= text_field_tag :primary_phone_number %>
+  <%= text_field_tag :primary_phone_number, params[:primary_phone_number] %>
   <%= label_tag :primary_phone_number %><br>
-  <%= email_field_tag :email %>
-  <%= label_tag :email %>*<br>
+  <%= email_field_tag :email, params[:email] %>
+  <%= label_tag :email %>* (Either an email or a phone number is required)<br>
   <%= password_field_tag :password %>
   <%= label_tag :password, 'Please Choose a Password (at least 6 characters)' %>*<br>
   <%= password_field_tag :password_confirmation %>
   <%= label_tag :password_confirmation, 'Please Confirm the Password' %>*<hr>
-  <%= text_field_tag :street_number, nil, :size => 3, :placeholder => '45' %>
-  <%= text_field_tag :street_name, nil, :placeholder => 'Newberry Ln' %>
-  <%= text_field_tag :unit_name, nil, :size => 5, :placeholder => 'Apt 2A' %><br>
+  <%= text_field_tag :street_number, params[:street_number], :size => 3, :placeholder => '45' %>
+  <%= text_field_tag :street_name, params[:street_name], :placeholder => 'Newberry Ln' %>
+  <%= text_field_tag :unit_name, params[:unit_name], :size => 5, :placeholder => 'Apt 2A' %><br>
   &nbsp;&nbsp;&nbsp;&nbsp;<%= label_tag :street_number, '#' %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <%= label_tag :street_name, 'Street' %>
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -22,9 +27,9 @@
   <em>Note: please put your street number and street name in the two separate boxes.  If your home has a unit number or name, put it in the third box.  Thanks for your cooperation!</em><br>
   
   <hr>
-  <%= select_tag :city_id, options_from_collection_for_select(City.alphabetical, :id, :name), :include_blank => true %>
-  <%= label_tag :city_id %><br>
-  <%= text_field_tag :zip_code, nil, :size => 6 %>
+  <%= select_tag :city_id, options_from_collection_for_select(City.alphabetical, :id, :name, params[:city_id]), :include_blank => true %>
+  <%= label_tag :city_id %>*<br>
+  <%= text_field_tag :zip_code, params[:zip_code], :size => 6 %>
   <%= label_tag :zip_code, 'zip code' %><hr>
 
   Languages spoken in the house:<br>
