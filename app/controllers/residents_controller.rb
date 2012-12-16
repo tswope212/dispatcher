@@ -51,6 +51,7 @@ class ResidentsController < ApplicationController
       if @resident.save
         if session[:unit_id]
           Unit.find(session[:unit_id]).update_attribute(:resident, @resident)
+          session[:unit_id] = nil
         end
         session[:resident_id] = @resident.id
         format.html { redirect_to @resident, notice: 'Resident was successfully created.' }
