@@ -7,6 +7,7 @@ class Job < ActiveRecord::Base
   has_many :languages, :through => :resident
   has_many :dispatches
   has_many :teams, :through => :dispatches
+  has_many :notes, :dependent => :destroy
   attr_accessible :task_id, :unit_id, :scheduled_start, :scheduled_end, :actual_start, :actual_end
   
   scope :complete, :conditions => 'actual_end is not null'

@@ -26,6 +26,17 @@
   <%= @job.scheduled_end.andand.strftime("%I:%M %p on %A, %b %d") %>
 </p>
 
+<div id="notes">
+  <%= link_to 'add note', new_job_note_path(@job) %><br>
+  <% @job.notes.each do |note| %>
+    <p>
+      <%= note.text %>
+    </p>
+    <%= image_tag note.image, :width => 400 if note.image.present? %>
+  <% end %>
+  <%= link_to 'add note', new_job_note_path(@job) %>
+</div>
+
 <% if current_team_admin %>
   <%= link_to 'Edit', edit_job_path(@job) %> |
   <%= link_to 'Back', jobs_path %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121215222920) do
+ActiveRecord::Schema.define(:version => 20121216224150) do
 
   create_table "addresses", :force => true do |t|
     t.integer   "street_number"
@@ -48,6 +48,12 @@ ActiveRecord::Schema.define(:version => 20121215222920) do
 
   add_index "assignments", ["job_id"], :name => "index_assignments_on_job_id"
   add_index "assignments", ["operations_center_id"], :name => "index_assignments_on_operations_center_id"
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "cities", :force => true do |t|
     t.string    "name"
@@ -107,6 +113,18 @@ ActiveRecord::Schema.define(:version => 20121215222920) do
   end
 
   add_index "neighborhoods", ["city_id"], :name => "index_neighborhoods_on_city_id"
+
+  create_table "notes", :force => true do |t|
+    t.text     "text"
+    t.string   "image"
+    t.integer  "job_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "notes", ["category_id"], :name => "index_notes_on_category_id"
+  add_index "notes", ["job_id"], :name => "index_notes_on_job_id"
 
   create_table "operations_centers", :force => true do |t|
     t.string    "name"

@@ -1,51 +1,57 @@
-<div id="person_login">
-  <h2 class='caps'>Volunteers</h2>
-  <%= form_for(Person.new, :as => 'person', :url => session_path(:person)) do |f| %>
-    <div><%= f.label :email %><br />
-    <%= f.email_field :email %></div>
+<% unless current_person %>
+  <div id="person_login">
+    <h2 class='caps'>Volunteers</h2>
+    <%= form_for(Person.new, :as => 'person', :url => session_path(:person)) do |f| %>
+      <div><%= f.label :email %><br />
+      <%= f.email_field :email %></div>
 
-    <div><%= f.label :password %><br />
-    <%= f.password_field :password %></div>
+      <div><%= f.label :password %><br />
+      <%= f.password_field :password %></div>
 
-    <% if devise_mapping.rememberable? -%>
-      <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-    <% end -%>
+      <% if devise_mapping.rememberable? -%>
+        <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+      <% end -%>
 
-    <div><%= f.submit "Sign in" %></div>
-  <% end %>
-</div>
-<div id="resident_login">
-  <h2 class='caps'>Residents</h2>
-  <%= form_for(Resident.new, :as => 'resident', :url => session_path(:resident)) do |f| %>
-    <div><%= f.label :email %><br />
-    <%= f.email_field :email %></div>
+      <div><%= f.submit "Sign in" %></div>
+    <% end %>
+  </div>
+<% end %>
+<% unless current_resident %>
+  <div id="resident_login">
+    <h2 class='caps'>Residents</h2>
+    <%= form_for(Resident.new, :as => 'resident', :url => session_path(:resident)) do |f| %>
+      <div><%= f.label :email %><br />
+      <%= f.email_field :email %></div>
 
-    <div><%= f.label :password %><br />
-    <%= f.password_field :password %></div>
+      <div><%= f.label :password %><br />
+      <%= f.password_field :password %></div>
 
-    <% if devise_mapping.rememberable? -%>
-      <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-    <% end -%>
+      <% if devise_mapping.rememberable? -%>
+        <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+      <% end -%>
 
-    <div><%= f.submit "Sign in" %></div>
-  <% end %>
-</div>
-<div id="team_admin_login">
-  <h2 class='caps'>Admins</h2>
-  <%= form_for(TeamAdmin.new, :as => 'team_admin', :url => session_path(:team_admin)) do |f| %>
-    <div><%= f.label :email %><br />
-    <%= f.email_field :email %></div>
+      <div><%= f.submit "Sign in" %></div>
+    <% end %>
+  </div>
+<% end %>
+<% unless current_team_admin %>
+  <div id="team_admin_login">
+    <h2 class='caps'>Admins</h2>
+    <%= form_for(TeamAdmin.new, :as => 'team_admin', :url => session_path(:team_admin)) do |f| %>
+      <div><%= f.label :email %><br />
+      <%= f.email_field :email %></div>
 
-    <div><%= f.label :password %><br />
-    <%= f.password_field :password %></div>
+      <div><%= f.label :password %><br />
+      <%= f.password_field :password %></div>
 
-    <% if devise_mapping.rememberable? -%>
-      <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-    <% end -%>
+      <% if devise_mapping.rememberable? -%>
+        <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+      <% end -%>
 
-    <div><%= f.submit "Sign in" %></div>
-  <% end %>
-</div>
+      <div><%= f.submit "Sign in" %></div>
+    <% end %>
+  </div>
+<% end %>
 <%= clearfix %>
 <%= render "devise/shared/links" %>
 <%= link_to 'Sign up for admin access', new_team_admin_registration_path %>

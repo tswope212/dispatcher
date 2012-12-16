@@ -1,5 +1,11 @@
 Dispatcher::Application.routes.draw do
   
+  resources :categories
+
+
+  resources :notes
+
+
   resources :proficiencies
 
 
@@ -19,6 +25,7 @@ Dispatcher::Application.routes.draw do
 
 
   resources :jobs do
+    resources :notes
     member do
       put :start
       put :finish

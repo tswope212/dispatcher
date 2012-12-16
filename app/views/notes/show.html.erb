@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Text:</b>
+  <%= @note.text %>
+</p>
+
+<p>
+  <b>Image:</b>
+  <%= image_tag @note.image %>
+</p>
+
+<p>
+  <b>Job:</b>
+  <%= link_to_name @note.job %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= link_to_name @note.category %>
+</p>
+
+
+<%= link_to 'Edit', edit_note_path(@note) %> |
+<%= link_to 'Back', notes_path %>
