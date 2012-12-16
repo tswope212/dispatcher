@@ -26,6 +26,9 @@ class ResidentsController < ApplicationController
   # GET /residents/new
   # GET /residents/new.json
   def new
+    if params[:unit_id]
+      session[:unit_id] = params[:unit_id]
+    end
     @resident = Resident.new
 
     respond_to do |format|
@@ -46,6 +49,9 @@ class ResidentsController < ApplicationController
 
     respond_to do |format|
       if @resident.save
+        if session[:unit_id]
+          Unit.find(session[:unit_id]).update_attribute(:resident, @resident)
+        end
         session[:resident_id] = @resident.id
         format.html { redirect_to @resident, notice: 'Resident was successfully created.' }
         format.json { render json: @resident, status: :created, location: @resident }

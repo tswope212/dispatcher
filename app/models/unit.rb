@@ -9,7 +9,8 @@ class Unit < ActiveRecord::Base
   has_many :tasks, :through => :jobs
   has_many :operations_centers, :dependent => :nullify
 
-  attr_accessible :name, :address_id, :livable, :tenant_is_owner, :legal_needs, :medical_needs, :fema_number, :insurance_situation, :rapid_response_contacted, :power_on, :heater_needed, :needs_met, :resident, :note, :address
+  attr_accessible :name, :address_id, :livable, :tenant_is_owner, :legal_needs, :medical_needs, :fema_number, :insurance_situation, :rapid_response_contacted, :power_on, :heater_needed, :needs_met, :resident, :note, :address, :image
+  mount_uploader :image, ProfileImageUploader
   
   before_create :populate_default_unit_name
   after_destroy :remove_orphaned_address_and_resident

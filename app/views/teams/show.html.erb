@@ -1,4 +1,8 @@
 <p>
+  <%= image_tag @team.image, :width => 300 if @team.image.present? %>
+</p>
+
+<p>
   <b>Name:</b>
   <%= @team.name %>
 </p>

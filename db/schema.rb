@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121216224150) do
+ActiveRecord::Schema.define(:version => 20121216231833) do
 
   create_table "addresses", :force => true do |t|
     t.integer   "street_number"
@@ -320,6 +320,7 @@ ActiveRecord::Schema.define(:version => 20121216224150) do
     t.integer   "person_id"
     t.timestamp "created_at", :null => false
     t.timestamp "updated_at", :null => false
+    t.string    "image"
   end
 
   add_index "teams", ["person_id"], :name => "index_teams_on_person_id"
@@ -341,6 +342,7 @@ ActiveRecord::Schema.define(:version => 20121216224150) do
     t.boolean   "tenant_is_owner"
     t.boolean   "livable"
     t.text      "note"
+    t.string    "image"
   end
 
   add_index "units", ["address_id"], :name => "index_units_on_address_id"

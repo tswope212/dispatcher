@@ -107,6 +107,7 @@ Dispatcher::Application.routes.draw do
   resources :people
 
   resources :units do
+    resources :residents
     member do
       get :phase
     end

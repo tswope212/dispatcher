@@ -13,7 +13,13 @@
   <tr class="<%= cycle 'light-gray', 'white' %>">
     <td><%= link_to_name unit %></td>
     <td><%= link_to_name unit.address %></td>
-    <td><%= link_to_name unit.resident %></td>
+    <td>
+      <% if unit.resident.present? %>
+        <%= link_to_name unit.resident %>
+      <% else %>
+        <%= link_to 'add resident', new_unit_resident_path(unit) %>
+      <% end %>
+    </td>
     <td><%= link_to 'Show', unit %></td>
     <td><%= link_to 'Edit', edit_unit_path(unit) %></td>
     <td><%= link_to 'Destroy', unit, method: :delete, data: { confirm: 'Are you sure?' } %></td>

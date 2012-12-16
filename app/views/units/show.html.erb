@@ -20,13 +20,21 @@
 <%= clearfix %>
 <p>
   <b>Resident:</b>
-  <%= link_to_name @unit.resident %>
+  <% if @unit.resident.present? %>
+    <%= link_to_name @unit.resident %>
+  <% else %>
+    <%= link_to 'add resident', new_unit_resident_path(@unit) %>
+  <% end %>
 </p>
 
 <p>
   <b>Phone:</b>
   <%= @unit.resident.andand.primary_phone_number %>
 </p>  
+
+<p>
+  <%= image_tag @unit.image, :width => 400 if @unit.image.present? %>
+</p>
 
 <p>
   <b>Name:</b>
