@@ -14,7 +14,7 @@
 <% @notes.each do |note| %>
   <tr>
     <td><%= note.text %></td>
-    <td><%= note.image, :width => 150 %></td>
+    <td><%= image_tag note.image, :width => 150 if note.image.present? %></td>
     <td><%= link_to_name note.job %></td>
     <td><%= link_to_name note.category %></td>
     <td><%= link_to 'Show', note %></td>

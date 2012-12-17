@@ -1,0 +1,22 @@
+Hello <%= @leader.first_name %>,
+<br><br>
+Your team <%= @team.name %> has been dispatched to perform a <%= @job.task.name %> at:
+<br><br>
+<%= @job.unit.andand.full_address %>
+<br><br>
+Here's any description/instructions we have on this task.
+<br><br>
+<%= @job.task.description %>
+<br><br>
+And notes on the home:
+<br><br>
+<%= @job.unit.andand.note %>
+<br><br>
+Notes on the job:
+<br><br>
+<% @job.notes.each do |note| %>
+  <p>
+    <%= note.updated_at.strftime("%m/%d:")%><br>
+    <%= note.text %>
+  </p>
+<% end %>
