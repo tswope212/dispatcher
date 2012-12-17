@@ -3,5 +3,15 @@
 <%= @coordinator.name %><br>
 <%= @coordinator.primary_phone_number %><br>
 
+<div id="operations_centers">
+  <h3>Coordinates for hubs:</h3>
+  <% @coordinator.operations_centers.each do |hub| %>
+    <%= div_for hub do %>
+      <%= link_to_name hub %>
+    <% end %>
+  <% end %>
+  <%= link_to 'grant access to another hub', new_coordinator_coordination_path(@coordinator) %>
+</div>
+
 <%= link_to 'Edit', edit_coordinator_path(@coordinator) %> |
 <%= link_to 'Back', coordinators_path %>

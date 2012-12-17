@@ -1,7 +1,12 @@
 Dispatcher::Application.routes.draw do
   
+  resources :coordinations
+
+
   devise_for :coordinators
-  resources :coordinators
+  resources :coordinators do
+    resources :coordinations
+  end
 
   resources :categories
 

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Operations center:</b>
+  <%= link_to_name @coordination.operations_center %>
+</p>
+
+<p>
+  <b>Coordinator:</b>
+  <%= link_to_name @coordination.coordinator %>
+</p>
+
+<%= link_to 'Edit', edit_coordination_path(@coordination) %> |
+<%= link_to 'Back', coordinations_path %>

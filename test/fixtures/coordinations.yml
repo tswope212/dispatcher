@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  operations_center: 
+  coordinator: 
+  team_admin: 
+
+two:
+  operations_center: 
+  coordinator: 
+  team_admin: 

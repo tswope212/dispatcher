@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121217020722) do
+ActiveRecord::Schema.define(:version => 20121217211018) do
 
   create_table "addresses", :force => true do |t|
     t.integer   "street_number"
@@ -60,6 +60,46 @@ ActiveRecord::Schema.define(:version => 20121217020722) do
     t.timestamp "created_at", :null => false
     t.timestamp "updated_at", :null => false
   end
+
+  create_table "coordinations", :force => true do |t|
+    t.integer  "operations_center_id"
+    t.integer  "coordinator_id"
+    t.integer  "team_admin_id"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
+
+  add_index "coordinations", ["coordinator_id"], :name => "index_coordinations_on_coordinator_id"
+  add_index "coordinations", ["operations_center_id"], :name => "index_coordinations_on_operations_center_id"
+  add_index "coordinations", ["team_admin_id"], :name => "index_coordinations_on_team_admin_id"
+
+  create_table "coordinators", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "primary_phone_number"
+    t.string   "email",                  :default => "", :null => false
+    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
+    t.string   "authentication_token"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+  end
+
+  add_index "coordinators", ["authentication_token"], :name => "index_coordinators_on_authentication_token", :unique => true
+  add_index "coordinators", ["confirmation_token"], :name => "index_coordinators_on_confirmation_token", :unique => true
+  add_index "coordinators", ["email"], :name => "index_coordinators_on_email", :unique => true
+  add_index "coordinators", ["reset_password_token"], :name => "index_coordinators_on_reset_password_token", :unique => true
 
   create_table "deployments", :force => true do |t|
     t.integer   "city_id"

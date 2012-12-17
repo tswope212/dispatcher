@@ -1,0 +1,27 @@
+<h1>Listing coordinations</h1>
+
+<table>
+  <tr>
+    <th>Operations center</th>
+    <th>Coordinator</th>
+    <th>Access Granted By</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @coordinations.each do |coordination| %>
+  <tr>
+    <td><%= link_to_name coordination.operations_center %></td>
+    <td><%= link_to_name coordination.coordinator %></td>
+    <td><%= link_to_name coordination.team_admin %></td>
+    <td><%= link_to 'Show', coordination %></td>
+    <td><%= link_to 'Edit', edit_coordination_path(coordination) %></td>
+    <td><%= link_to 'Destroy', coordination, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Coordination', new_coordination_path %>
