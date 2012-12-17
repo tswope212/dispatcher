@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121217013612) do
+ActiveRecord::Schema.define(:version => 20121217020722) do
 
   create_table "addresses", :force => true do |t|
     t.integer   "street_number"
@@ -319,9 +319,10 @@ ActiveRecord::Schema.define(:version => 20121217013612) do
   create_table "teams", :force => true do |t|
     t.string    "name"
     t.integer   "person_id"
-    t.timestamp "created_at", :null => false
-    t.timestamp "updated_at", :null => false
+    t.timestamp "created_at",      :null => false
+    t.timestamp "updated_at",      :null => false
     t.string    "image"
+    t.string    "group_me_number"
   end
 
   add_index "teams", ["person_id"], :name => "index_teams_on_person_id"

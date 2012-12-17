@@ -5,7 +5,7 @@ class Team < ActiveRecord::Base
   has_many :languages, :through => :people
   has_many :dispatches
   has_many :jobs, :through => :dispatches
-  attr_accessible :name, :person_id, :image
+  attr_accessible :name, :person_id, :image, :group_me_number
   scope :alphabetical, :order => :name
   mount_uploader :image, ProfileImageUploader
 end

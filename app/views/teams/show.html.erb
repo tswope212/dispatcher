@@ -12,6 +12,11 @@
   <%= link_to_name @team.person %>
 </p>
 
+<p>
+  <b>Group Me number</b>
+  <%= @team.group_me_number %>
+</p>
+
 <% @team.dispatches.incomplete.each do |dispatch| %>
   <%= div_for dispatch do |dispatch| %>
     <%= dispatch.job.scheduled_start.andand.strftime("%I:%M %p on %A, %b %d") %>
