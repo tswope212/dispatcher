@@ -10,7 +10,7 @@
     <th></th>
     <th></th>
   </tr>
-
+<%= paginate @deployments %>
 <% @deployments.each do |deployment| %>
   <tr class="<%= cycle 'light-gray', 'white' %>">
     <td><%= link_to_name deployment.city %></td>
@@ -23,7 +23,7 @@
   </tr>
 <% end %>
 </table>
-
+<%= paginate @deployments %>
 <br />
 
 <%= link_to 'New Deployment', new_deployment_path %>

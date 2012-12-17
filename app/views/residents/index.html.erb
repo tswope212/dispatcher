@@ -6,7 +6,7 @@
     <th></th>
     <th></th>
   </tr>
-
+<%= paginate @residents %>
 <% @residents.each do |resident| %>
   <tr>
     <td><%= link_to_name resident %></td>
@@ -17,7 +17,7 @@
   </tr>
 <% end %>
 </table>
-
+<%= paginate @residents %>
 <br />
 
 <%= link_to 'New Resident', new_resident_path %>

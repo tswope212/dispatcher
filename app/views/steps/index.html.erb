@@ -9,7 +9,7 @@
     <th></th>
     <th></th>
   </tr>
-
+<%= paginate @steps %>
 <% @steps.each do |step| %>
   <tr class="<%= cycle 'light-gray', 'white' %>">
     <td><%= link_to_name step.phase_template %></td>
@@ -22,7 +22,7 @@
   </tr>
 <% end %>
 </table>
-
+<%= paginate @steps %>
 <br />
 
 <%= link_to 'New Step', new_step_path %>

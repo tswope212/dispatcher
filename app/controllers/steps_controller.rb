@@ -4,7 +4,7 @@ class StepsController < ApplicationController
   # GET /steps
   # GET /steps.json
   def index
-    @steps = Step.collated.ordered
+    @steps = Step.collated.ordered.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

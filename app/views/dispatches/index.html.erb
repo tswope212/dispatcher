@@ -9,7 +9,7 @@
     <th></th>
     <th></th>
   </tr>
-
+<%= paginate @dispatches %>
 <% @dispatches.each do |dispatch| %>
   <tr class="<%= cycle('light-gray', 'white') %>">
     <td><%= link_to dispatch.id, dispatch %></td>
@@ -23,7 +23,7 @@
   </tr>
 <% end %>
 </table>
-
+<%= paginate @dispatches %>
 <br />
 
 <%= link_to 'New Dispatch', new_dispatch_path if current_team_admin %>

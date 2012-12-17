@@ -2,7 +2,7 @@ class ProficienciesController < ApplicationController
   # GET /proficiencies
   # GET /proficiencies.json
   def index
-    @proficiencies = Proficiency.all
+    @proficiencies = Proficiency.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

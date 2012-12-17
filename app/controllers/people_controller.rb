@@ -13,8 +13,8 @@ class PeopleController < ApplicationController
     elsif params[:sort] == 'phone'
       Person.alphabetical_by_phone
     else
-      Person.all
-    end
+      Person
+    end.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

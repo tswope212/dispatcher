@@ -3,7 +3,7 @@ class SignaturesController < ApplicationController
   # GET /signatures
   # GET /signatures.json
   def index
-    @signatures = Signature.all
+    @signatures = Signature.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

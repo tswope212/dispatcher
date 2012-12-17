@@ -8,7 +8,7 @@
     <th></th>
     <th></th>
   </tr>
-
+<%= paginate @tasks %>
 <% @tasks.each do |task| %>
   <tr class="<%= cycle 'light-gray', 'white' %>">
     <td><%= task.name %></td>
@@ -19,7 +19,7 @@
   </tr>
 <% end %>
 </table>
-
+<%= paginate @tasks %>
 <br />
 
 <%= link_to 'New Task', new_task_path %>

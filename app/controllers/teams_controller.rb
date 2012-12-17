@@ -10,7 +10,7 @@ class TeamsController < ApplicationController
       Language.find(params[:language_id]).teams
     else
       Team.alphabetical
-    end
+    end.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

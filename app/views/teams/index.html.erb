@@ -15,7 +15,7 @@
     <th></th>
     <th></th>
   </tr>
-
+<%= paginate @teams %>
 <% @teams.each do |team| %>
   <tr class="<%= cycle('light-gray', 'white') %>">
     <td><%= image_tag team.image, :width => 100 if team.image.present? %></td>
@@ -31,7 +31,7 @@
   </tr>
 <% end %>
 </table>
-
+<%= paginate @teams %>
 <br />
 
 <%= link_to 'New Team', new_team_path %>

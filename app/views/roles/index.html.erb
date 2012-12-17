@@ -9,7 +9,7 @@
     <th></th>
     <th></th>
   </tr>
-
+<%= paginate @roles %>
 <% @roles.each do |role| %>
   <tr class="<%= cycle 'light-gray', 'white' %>">
     <td><%= link_to_name role.person %></td>
@@ -23,7 +23,7 @@
   </tr>
 <% end %>
 </table>
-
+<%= paginate @roles %>
 <br />
 
 <%= link_to 'New Role', new_role_path if current_team_admin %>

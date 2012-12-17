@@ -2,7 +2,7 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.json
   def index
-    @notes = Note.all
+    @notes = Note.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

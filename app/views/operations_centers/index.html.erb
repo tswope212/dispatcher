@@ -8,7 +8,7 @@
     <th>Neighborhood</th>
     <th>City</th>
   </tr>
-
+<%= paginate @operations_centers %>
 <% @operations_centers.each do |operations_center| %>
   <tr class="<%= cycle('light-gray', 'white') %>">
     <td><%= link_to_name operations_center %></td>
@@ -24,7 +24,7 @@
   </tr>
 <% end %>
 </table>
-
+<%= paginate @operations_centers %>
 <br />
 
 <%= link_to 'New Operations center', new_operations_center_path if current_team_admin %>

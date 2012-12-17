@@ -3,7 +3,7 @@ class CitiesController < ApplicationController
   # GET /cities
   # GET /cities.json
   def index
-    @cities = City.alphabetical
+    @cities = City.alphabetical.page(params[:page])
 
     respond_to do |format|
       format.html { render :layout => 'front' }

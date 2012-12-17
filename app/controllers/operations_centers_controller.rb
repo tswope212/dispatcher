@@ -8,7 +8,7 @@ class OperationsCentersController < ApplicationController
       Neighborhood.find(params[:neighborhood_id]).operations_centers.alphabetical
     else
       OperationsCenter.alphabetical
-    end
+    end.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

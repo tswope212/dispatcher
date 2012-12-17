@@ -8,7 +8,7 @@
     <th></th>
     <th></th>
   </tr>
-
+<%= paginate @streets %>
 <% @streets.each do |street| %>
   <tr class="<%= cycle 'light-gray', 'white' %>">
     <td><%= link_to_name street %></td>
@@ -21,7 +21,7 @@
   </tr>
 <% end %>
 </table>
-
+<%= paginate @streets %>
 <br />
 
 <%= link_to 'New Street', new_street_path %>

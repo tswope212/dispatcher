@@ -11,7 +11,7 @@
     <th></th>
     <th></th>
   </tr>
-
+<%= paginate @jobs %>
 <% @jobs.each do |job| %>
   <tr class="<%= cycle('light-gray', 'white') %>">
     <td><%= link_to_name job.task %></td>
@@ -31,7 +31,7 @@
   </tr>
 <% end %>
 </table>
-
+<%= paginate @jobs %>
 <br />
 
 <%= link_to 'New Job', new_job_path %>

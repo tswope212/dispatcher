@@ -9,7 +9,7 @@ class DispatchesController < ApplicationController
   # GET /dispatches
   # GET /dispatches.json
   def index
-    @dispatches = Dispatch.recent
+    @dispatches = Dispatch.recent.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

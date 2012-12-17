@@ -9,7 +9,7 @@
     <th></th>
     <th></th>
   </tr>
-
+<%= paginate @signatures %>
 <% @signatures.each do |signature| %>
   <tr class="<%= cycle 'light-gray', 'white' %>">
     <td><%= link_to_name signature.waiver %></td>
@@ -21,7 +21,7 @@
   </tr>
 <% end %>
 </table>
-
+<%= paginate @signatures %>
 <br />
 
 <%= link_to 'New Signature', new_signature_path %>

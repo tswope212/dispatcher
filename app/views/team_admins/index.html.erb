@@ -6,7 +6,7 @@
     <th></th>
     <th></th>
   </tr>
-
+<%= paginate @team_admins %>
 <% @team_admins.each do |team_admin| %>
   <tr class="<%= cycle 'light-gray', 'white' %>">
     <td><%= team_admin.name %></td>
@@ -17,7 +17,7 @@
   </tr>
 <% end %>
 </table>
-
+<%= paginate @team_admins %>
 <br />
 
 <%= link_to 'New Team admin', new_team_admin_path %>

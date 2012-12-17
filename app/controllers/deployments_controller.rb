@@ -4,7 +4,7 @@ class DeploymentsController < ApplicationController
   # GET /deployments
   # GET /deployments.json
   def index
-    @deployments = Deployment.all
+    @deployments = Deployment.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

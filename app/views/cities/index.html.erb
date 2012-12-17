@@ -1,3 +1,4 @@
+<%= paginate @cities %>
 <table>
 <% @cities.each do |city| %>
   <tr class="<%= cycle 'light-gray', 'white' %>">
@@ -11,7 +12,7 @@
   </tr>
 <% end %>
 </table>
-
+<%= paginate @cities %>
 <br />
 
 <%= link_to 'New City', new_city_path if current_team_admin %>

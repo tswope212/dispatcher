@@ -8,7 +8,7 @@
     <th></th>
     <th></th>
   </tr>
-
+<%= paginate @units %>
 <% @units.each do |unit| %>
   <tr class="<%= cycle 'light-gray', 'white' %>">
     <td><%= link_to_name unit %></td>
@@ -26,7 +26,7 @@
   </tr>
 <% end %>
 </table>
-
+<%= paginate @units %>
 <br />
 
 <%= link_to 'New Unit', new_unit_path %>

@@ -7,7 +7,7 @@
     <th><%= link_to 'Phone #', :sort => 'phone' %></th>
     <th><%= link_to 'Email', :sort => 'email' %></th>
   </tr>
-
+<%= paginate @people %>
 <% @people.each do |person| %>
   <tr class="<%= cycle('light-gray', 'white') %>">
     <td><%= link_to_name person %></td>
@@ -17,3 +17,4 @@
   </tr>
 <% end %>
 </table>
+<%= paginate @people %>

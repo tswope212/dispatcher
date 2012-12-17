@@ -4,7 +4,7 @@ class ResidentsController < ApplicationController
   # GET /residents
   # GET /residents.json
   def index
-    @residents = Resident.all
+    @residents = Resident.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

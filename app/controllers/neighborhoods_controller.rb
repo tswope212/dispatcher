@@ -4,7 +4,7 @@ class NeighborhoodsController < ApplicationController
   # GET /neighborhoods
   # GET /neighborhoods.json
   def index
-    @neighborhoods = Neighborhood.alphabetical
+    @neighborhoods = Neighborhood.alphabetical.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

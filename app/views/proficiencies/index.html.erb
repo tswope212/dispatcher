@@ -10,7 +10,7 @@
     <th></th>
     <th></th>
   </tr>
-
+<%= paginate @proficiencies %>
 <% @proficiencies.each do |proficiency| %>
   <tr>
     <td><%= link_to_name proficiency.language %></td>
@@ -23,7 +23,7 @@
   </tr>
 <% end %>
 </table>
-
+<%= paginate @proficiencies %>
 <br />
 
 <%= link_to 'New Proficiency', new_proficiency_path %>

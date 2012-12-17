@@ -4,7 +4,7 @@ class TeamAdminsController < ApplicationController
   # GET /team_admins
   # GET /team_admins.json
   def index
-    @team_admins = TeamAdmin.all
+    @team_admins = TeamAdmin.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

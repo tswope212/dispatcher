@@ -10,7 +10,7 @@
     <th></th>
     <th></th>
   </tr>
-
+<%= paginate @notes %>
 <% @notes.each do |note| %>
   <tr>
     <td><%= note.text %></td>
@@ -23,7 +23,7 @@
   </tr>
 <% end %>
 </table>
-
+<%= paginate @notes %>
 <br />
 
 <%= link_to 'New Note', new_note_path %>
