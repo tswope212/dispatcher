@@ -52,6 +52,16 @@
 </p>
 
 <p>
+  <b>Plans to return:</b>
+  <%= @unit.plan_to_return %>
+</p>
+
+<p>
+  <b>Year built:</b>
+  <%= @unit.year_built.strftime("%Y") %>
+</p>
+
+<p>
   <b>Tenant is owner:</b>
   <%= @unit.tenant_is_owner %>
 </p>
@@ -69,6 +79,11 @@
 <p>
   <b>Heater needed:</b>
   <%= @unit.heater_needed %>
+</p>
+
+<p>
+  <b>Carbon Monoxide Detector needed:</b>
+  <%= @unit.need_carbon_monoxide_detector %>
 </p>
 
 <p>

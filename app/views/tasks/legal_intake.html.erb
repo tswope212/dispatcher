@@ -3,6 +3,14 @@
   <%= f.radio_button :livable, true %><%= f.label :livable, 'yes' %>
   <%= f.radio_button :livable, false %><%= f.label :livable, 'no' %>
   <br>
+  Do you plan to return to live there?
+  <%= f.radio_button :plan_to_return, true %><%= f.label :plan_to_return, 'yes' %>
+  <%= f.radio_button :plan_to_return, false %><%= f.label :plan_to_return, 'no' %>
+  <br>
+  Do you need a carbon monoxide detector?
+  <%= f.radio_button :need_carbon_monoxide_detector, true %><%= f.label :need_carbon_monoxide_detector, 'yes' %>
+  <%= f.radio_button :need_carbon_monoxide_detector, false %><%= f.label :need_carbon_monoxide_detector, 'no' %>
+  <br>
   Do you own or rent? &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <%= f.radio_button :tenant_is_owner, true %><%= f.label :tenant_is_owner, 'own' %>
   <%= f.radio_button :tenant_is_owner, false %><%= f.label :tenant_is_owner, 'rent' %>
@@ -22,6 +30,9 @@
   Have you contacted Rapid Response/311?
   <%= f.radio_button :rapid_response_contacted, true %><%= f.label :rapid_response_contacted, 'yes'%>
   <%= f.radio_button :rapid_response_contacted, false %><%= f.label :rapid_response_contacted, 'no' %>
+  <br>
+  What year was your home built?
+  <%= f.date_select :year_built, :start_year => Time.now.year, :end_year => 1800, :discard_month => true, :include_blank => true %>
   <br>
   <%= f.submit 'Submit Information or Skip' %>
 <% end %>
