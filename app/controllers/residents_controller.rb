@@ -46,12 +46,21 @@ class ResidentsController < ApplicationController
   # POST /residents.json
   def populate
     @resident = Resident.new(params[:resident])
+    if params[:resident][:password].blank?
+      @password = SecureRandom.base64(8)
+      @resident.password = @password
+      @resident.password_confirmation = @password
+      @deliver_password = true
+    end
 
     respond_to do |format|
       if @resident.save
         if session[:unit_id]
           Unit.find(session[:unit_id]).update_attribute(:resident, @resident)
           session[:unit_id] = nil
+        end
+        if @deliver_password
+          ResidentRegistrationMailer.password_generated_notification(@resident, @password).deliver
         end
         session[:resident_id] = @resident.id
         format.html { redirect_to @resident, notice: 'Resident was successfully created.' }
