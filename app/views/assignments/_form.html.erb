@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :job_id %><br />
-    <%= f.select :job_id, options_from_collection_for_select(Job.all, :id, :name, @assignment.job_id) %>
+    <%= f.select :job_id, options_from_collection_for_select(Job.recent.not_dispatched, :id, :name, @assignment.job_id) %>
   </div>
   <div class="actions">
     <%= f.submit %>

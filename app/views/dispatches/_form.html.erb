@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :team_id %><br />
-    <%= f.select :team_id, options_from_collection_for_select(Team.all, :id, :name, @dispatch.team_id), :include_blank => true %>
+    <%= f.select :team_id, options_from_collection_for_select(Team.alphabetical, :id, :name, @dispatch.team_id), :include_blank => true %>
   </div>
   <div class="field">
     <%= f.label :job_id %><br />
-    <%= f.select :job_id, options_from_collection_for_select(Job.not_dispatched, :id, :name, @dispatch.job_id) %>
+    <%= f.select :job_id, options_from_collection_for_select(Job.recent.not_dispatched, :id, :name, @dispatch.job_id) %>
   </div>
   <div class="actions">
     <%= f.submit 'Dispatch Team' %>

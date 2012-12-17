@@ -15,6 +15,7 @@ class Job < ActiveRecord::Base
   scope :unstarted, :conditions => {:actual_start => nil, :actual_end => nil}
   scope :by_completion, order('actual_end asc').order('actual_start asc')
   scope :dispatched, joins(:dispatches)
+  scope :recent, order('created_at desc')
   
   def self.not_dispatched
     all - dispatched

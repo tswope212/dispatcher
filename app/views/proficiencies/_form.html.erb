@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :language_id %><br />
-    <%= f.select :language_id, options_from_collection_for_select(Language.all, :id, :name, @proficiency.language_id), :include_blank => true %>
+    <%= f.select :language_id, options_from_collection_for_select(Language.alphabetical, :id, :name, @proficiency.language_id), :include_blank => true %>
   </div>
   <div class="field">
     <%= f.label :level, 'Proficiency Level (1 = I know 10 words; 4 = I have spoken in years past; 7 = I can communicate easily; 10 = I could teach this language)' %><br />

@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :task_id %><br />
-    <%= f.select :task_id, options_from_collection_for_select(Task.all, :id, :name, @job.task_id) %>
+    <%= f.select :task_id, options_from_collection_for_select(Task.alphabetical, :id, :name, @job.task_id) %>
   </div>
   <div class="field">
     <%= f.label :unit_id %><br />
-    <%= f.select :unit_id, options_from_collection_for_select(Unit.all, :id, :name, @job.unit_id) %>
+    <%= f.select :unit_id, options_from_collection_for_select(Unit.all, :id, :full_name, @job.unit_id) %>
   </div>
   <div class="field">
     <%= f.label :scheduled_start %>

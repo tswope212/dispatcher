@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :person_id %><br />
-    <%= f.select :person_id, options_from_collection_for_select(Person.all, :id, :name, @aptitude.person_id) %>
+    <%= f.select :person_id, options_from_collection_for_select(Person.alphabetical_by_first_name, :id, :name, @aptitude.person_id), :include_blank => true %>
   </div>
   <div class="field">
     <%= f.label :skill_id %><br />
