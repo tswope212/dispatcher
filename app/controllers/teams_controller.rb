@@ -1,10 +1,12 @@
 class TeamsController < ApplicationController
   before_filter :authenticate_team_admin!, :only => [:new, :edit, :create, :update, :destroy]
-  before_filter :authenticate_person!, :only => [:show, :index]
+  before_filter :authenticate_person_or_coordinator!, :only => [:show, :index]
   # GET /teams
   # GET /teams.json
   def index
-    @teams = if params[:city_id]
+    @teams = if current_coordinator
+      current_coordinator.teams.alphabetical
+    elsif params[:city_id]
       City.find(params[:city_id]).teams.alphabetical
     elsif params[:language_id]
       Language.find(params[:language_id]).teams

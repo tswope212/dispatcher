@@ -9,6 +9,9 @@
 
 <% @coordinators.each do |coordinator| %>
   <tr>
+    <td><%= coordinator.name %></td>
+    <td><%= coordinator.email %></td>
+    <td><%= coordinator.primary_phone_number %></td>
     <td><%= link_to 'Show', coordinator %></td>
     <td><%= link_to 'Edit', edit_coordinator_path(coordinator) %></td>
     <td><%= link_to 'Destroy', coordinator, method: :delete, data: { confirm: 'Are you sure?' } %></td>

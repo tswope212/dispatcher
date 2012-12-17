@@ -1,10 +1,12 @@
 class JobsController < ApplicationController
   before_filter :authenticate_team_admin!, :only => [:new, :edit, :update, :destroy]
-  before_filter :authenticate_person!, :only => [:show, :index, :start, :finish]
+  before_filter :authenticate_person_or_coordinator!, :only => [:show, :index, :start, :finish]
   # GET /jobs
   # GET /jobs.json
   def index
-    @jobs = if params[:sort] == 'complete'
+    @jobs = if current_coordinator
+      current_coordinator.jobs
+    elsif params[:sort] == 'complete'
       Job.by_completion.page(params[:page])
     else
       Job.page(params[:page])

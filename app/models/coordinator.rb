@@ -7,6 +7,9 @@ class Coordinator < ActiveRecord::Base
          
   has_many :coordinations
   has_many :operations_centers, :through => :coordinations
+  has_many :cities, :through => :operations_centers
+  has_many :teams, :through => :cities
+  has_many :jobs, :through => :operations_centers
          
   scope :alphabetical_by_first_name, :order => :first_name
   scope :alphabetical_by_last_name, :order => :last_name
