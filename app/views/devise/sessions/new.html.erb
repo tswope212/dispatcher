@@ -34,6 +34,24 @@
     <% end %>
   </div>
 <% end %>
+<% unless current_coordinator %>
+  <div id="coordinator_login">
+    <h2 class="caps">Coordinators</h2>
+    <%= form_for(Coordinator.new, :as => 'coordinator', :url => session_path(:coordinator)) do |f| %>
+      <div><%= f.label :email %><br>
+      <%= f.email_field :email %></div>
+      
+      <div><%= f.label :password %><br>
+      <%= f.password_field :password %></div>
+
+      <% if devise_mapping.rememberable? -%>
+        <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+      <% end -%>
+
+      <div><%= f.submit "Sign in" %></div>
+    <% end %>
+  </div>
+<% end %>
 <% unless current_team_admin %>
   <div id="team_admin_login">
     <h2 class='caps'>Admins</h2>
@@ -54,4 +72,5 @@
 <% end %>
 <%= clearfix %>
 <%= render "devise/shared/links" %>
+<%= link_to 'sign up for coordinator access', new_coordinator_registration_path %><br>
 <%= link_to 'Sign up for admin access', new_team_admin_registration_path %>

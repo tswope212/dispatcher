@@ -18,6 +18,11 @@
             <%= link_to current_team_admin.email, current_team_admin, :class => 'right' %>
             <%= clearfix %>
             <%= render 'shared/resource_links_top' %>
+          <% elsif current_coordinator %>
+            <div class="right">
+              <%= link_to current_coordinator.email, edit_coordinator_path(current_coordinator), :class => 'right' %><br>
+              <%= link_to 'sign out', destroy_coordinator_session_path, :method => :delete, :class => 'right' %>
+            </div>
           <% elsif current_person %>
             <div class="right">
               <%= link_to current_person.email, edit_person_path(current_person), :class => 'right' %><br>
