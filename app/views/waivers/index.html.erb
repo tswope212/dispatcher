@@ -19,7 +19,13 @@
       <td><%= link_to 'Destroy', waiver, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     <% end %>
     <% if crnt = current_person || current_resident %>
-      <td><%= link_to 'sign this waiver', new_waiver_signature_path(waiver) unless crnt.has_signed_waiver?(waiver) %></td>
+      <td>
+        <% if crnt.has_signed_waiver?(waiver) %>
+          already signed
+        <% else %>
+          <%= link_to 'sign this waiver', new_waiver_signature_path(waiver) %>
+        <% end %>
+      </td>
     <% end %>
   </tr>
 <% end %>
