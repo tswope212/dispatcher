@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121217003903) do
+ActiveRecord::Schema.define(:version => 20121217010803) do
 
   create_table "addresses", :force => true do |t|
     t.integer   "street_number"
@@ -207,6 +207,7 @@ ActiveRecord::Schema.define(:version => 20121217003903) do
     t.timestamp "updated_at",                             :null => false
     t.date      "date_of_birth"
     t.string    "image"
+    t.string    "vehicles"
   end
 
   add_index "residents", ["authentication_token"], :name => "index_residents_on_authentication_token", :unique => true

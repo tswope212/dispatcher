@@ -35,6 +35,9 @@ class TasksController < ApplicationController
     @unit.power_on = params[:power] == 'yes' ? true : false
     @unit.heater_needed = params[:heater] == 'yes' ? true : false
     @unit.save
+    if params[:vehicles].present?
+      current_resident.update_attribute :vehicles, params[:vehicles]
+    end
   end
     
   def finish_intake

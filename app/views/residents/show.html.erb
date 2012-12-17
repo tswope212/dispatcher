@@ -12,6 +12,10 @@
   <%= @resident.primary_phone_number %>
 </p>
 
+<p>
+  <%= @resident.vehicles %>
+</p>
+
 <ul>
   <% @resident.languages.each do |language| %>
     <li><%= language.name %></li>
