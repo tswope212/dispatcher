@@ -67,6 +67,10 @@
     <%= f.label :image %><br>
     <%= f.file_field :image %>
   </div>
+  <div class="field">
+    <%= f.label :year_built %><br>
+    <%= f.date_select :year_built, :discard_month => true, :start_year => Time.now.year, :end_year => 1800, :include_blank => true %>
+  </div>
   
   <div class="actions">
     <%= f.submit %>

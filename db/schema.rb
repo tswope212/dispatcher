@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121217010803) do
+ActiveRecord::Schema.define(:version => 20121217012828) do
 
   create_table "addresses", :force => true do |t|
     t.integer   "street_number"
@@ -344,6 +344,7 @@ ActiveRecord::Schema.define(:version => 20121217010803) do
     t.boolean   "livable"
     t.text      "note"
     t.string    "image"
+    t.date      "year_built"
   end
 
   add_index "units", ["address_id"], :name => "index_units_on_address_id"
