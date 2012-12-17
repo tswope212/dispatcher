@@ -23,6 +23,14 @@
     <%= f.label :signature_type %><br />
     <%= f.select :signature_type, Signature.signature_types %>
   </div>
+  <div class="field">
+    <%= f.label :visible_to_volunteers %><br>
+    <%= f.check_box :visible_to_volunteers %>
+  </div>
+  <div class="field">
+    <%= f.label :visible_to_residents %><br>
+    <%= f.check_box :visible_to_residents %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

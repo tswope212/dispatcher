@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121216231833) do
+ActiveRecord::Schema.define(:version => 20121217003903) do
 
   create_table "addresses", :force => true do |t|
     t.integer   "street_number"
@@ -351,8 +351,10 @@ ActiveRecord::Schema.define(:version => 20121216231833) do
     t.string    "name"
     t.text      "text"
     t.string    "signature_type"
-    t.timestamp "created_at",     :null => false
-    t.timestamp "updated_at",     :null => false
+    t.timestamp "created_at",            :null => false
+    t.timestamp "updated_at",            :null => false
+    t.boolean   "visible_to_volunteers"
+    t.boolean   "visible_to_residents"
   end
 
 end

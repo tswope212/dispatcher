@@ -58,6 +58,7 @@ class UnitsController < ApplicationController
     @unit = Unit.new(params[:unit])
     if session[:resident_id]
       @unit.resident_id = session[:resident_id]
+      session[:resident_id] = nil
     end
 
     respond_to do |format|

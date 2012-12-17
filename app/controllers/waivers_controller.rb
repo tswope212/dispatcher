@@ -3,7 +3,13 @@ class WaiversController < ApplicationController
   # GET /waivers
   # GET /waivers.json
   def index
-    @waivers = Waiver.all
+    @waivers = if current_person
+      Waiver.visible_to_volunteers
+    elsif current_resident
+      Waiver.visible_to_residents
+    else
+      Waiver.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb
