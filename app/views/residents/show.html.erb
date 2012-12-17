@@ -16,6 +16,10 @@
   <%= @resident.vehicles %>
 </p>
 
+<p>
+  updated on <%= @resident.updated_at.strftime("%m/%d/%y") %>
+</p>
+
 <ul>
   <% @resident.languages.each do |language| %>
     <li><%= language.name %></li>

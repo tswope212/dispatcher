@@ -58,7 +58,7 @@
 
 <p>
   <b>Year built:</b>
-  <%= @unit.year_built.strftime("%Y") %>
+  <%= @unit.year_built.andand.strftime("%Y") %>
 </p>
 
 <p>
@@ -114,6 +114,10 @@
 <p>
   <b>Notes:</b>
   <%= text_to_html @unit.note.to_s %>
+</p>
+
+<p>
+  updated on <%= @unit.updated_at.strftime("%m/%d/%y") %>
 </p>
   
 <% @unit.jobs.each do |job| %>
