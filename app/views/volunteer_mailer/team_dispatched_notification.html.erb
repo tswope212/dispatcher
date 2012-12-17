@@ -1,0 +1,18 @@
+Hi <%= @volunteer.first_name %>,
+<br><br>
+Your team has been dispatched to do a <%= @task.name %> job at <%= @unit.full_address %>.
+<br><br>
+<% if @job.scheduled_start.present? %>
+  You are scheduled to start at <%= @job.scheduled_start.strftime("%I:%M %p on %A, %b %d") %>.
+  <br><br>
+<% end %>
+You can view details of the job <%= link_to 'here', job_url(@job) %>.
+<br><br>
+Here are notes about the job.
+<br><br>
+<% @job.notes.each do |note| %>
+  <p>
+    <%= note.text %><br>
+    <%= image_tag note.image, :width => 250 if note.image.present? %>
+  </p>
+<% end %>
