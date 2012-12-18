@@ -5,7 +5,7 @@ class JobsController < ApplicationController
   # GET /jobs.json
   def index
     @jobs = if current_coordinator
-      current_coordinator.jobs
+      current_coordinator.jobs.page(params[:page])
     elsif params[:sort] == 'complete'
       Job.by_completion.page(params[:page])
     else
