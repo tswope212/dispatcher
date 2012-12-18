@@ -1,5 +1,5 @@
 class TaylorMailer < ActionMailer::Base
-  default from: "bot@disasterdispatcher.net"
+  default from: "disasterdispatcher.net@gmail.com"
   
   def activation_authorization team_admin
     @team_admin = team_admin

@@ -1,7 +1,9 @@
 class ResidentRegistrationMailer < ActionMailer::Base
+  default from: "disasterdispatcher.net@gmail.com"
+  
   def registration_receipt resident
     @resident = resident
-    mail :to => @resident.email, :subject => 'Dispatcher Registration Received', :from => 'info@disasterdispatcher.net'
+    mail :to => @resident.email, :subject => 'Dispatcher Registration Received'
   end
   
   def password_generated_notification resident, password
