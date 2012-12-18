@@ -38,6 +38,9 @@ Dispatcher::Application.routes.draw do
       put :start
       put :finish
     end
+    collection do
+      post :export
+    end
   end
 
 

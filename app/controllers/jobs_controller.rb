@@ -88,6 +88,20 @@ class JobsController < ApplicationController
     @job.update_attribute :actual_end, Time.now
     redirect_to @job
   end
+  
+  def export
+    @jobs = Job.dispatched
+    CSV.open(Rails.root + 'tmp/csv/jobs.csv', 'wb') do |csv|
+      csv << ['Address', 'Type of Work', 'Volunteer', 'Organization', 'Hours', 'Cost']
+      @jobs.each do |job|
+        job.teams.each do |team|
+          team.people.each do |person|
+            csv << [job.address.name, job.task.name, person.name, 'SI Unity', 1, 10]
+          end
+        end
+      end
+    end
+  end
 
   # DELETE /jobs/1
   # DELETE /jobs/1.json
