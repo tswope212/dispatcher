@@ -5,6 +5,6 @@ class VolunteerMailer < ActionMailer::Base
     @task = @job.task
     @unit = @job.unit
     @address = @job.address
-    mail :to => @volunteer.email, :subject => 'Your team has been dispatched.'
+    mail :to => @volunteer.email, :subject => 'Your team has been dispatched.', :from => 'disasterdispatcher.net@gmail.com'
   end
 end
