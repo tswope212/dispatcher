@@ -12,4 +12,9 @@ class ApplicationController < ActionController::Base
     return true if current_person || current_coordinator
     authenticate_person!
   end
+  
+  def authenticate_team_admin_or_coordinator!
+    return true if current_team_admin || current_coordinator
+    authenticate_coordinator!
+  end
 end
