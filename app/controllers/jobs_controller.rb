@@ -91,7 +91,8 @@ class JobsController < ApplicationController
   
   def export
     @jobs = Job.dispatched
-    CSV.open(Rails.root + 'tmp/csv/jobs.csv', 'wb') do |csv|
+    filename = Rails.root + "tmp/jobs_#{Time.now.strftime("%m-%d-%H-%M")}.csv"
+    CSV.open(filename, 'wb') do |csv|
       csv << ['Address', 'Type of Work', 'Volunteer', 'Organization', 'Hours', 'Cost']
       @jobs.each do |job|
         job.teams.each do |team|
@@ -101,6 +102,7 @@ class JobsController < ApplicationController
         end
       end
     end
+    send_file filename
   end
 
   # DELETE /jobs/1
