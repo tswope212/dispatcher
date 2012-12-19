@@ -31,13 +31,17 @@ class TasksController < ApplicationController
     @address.update_attributes params[:address]
     session[:address_id] = nil
     @unit = Unit.find session[:unit_id]
-    @unit.needs_met = params[:needs_met] == 'yes' ? true : false
-    @unit.power_on = params[:power] == 'yes' ? true : false
-    @unit.heater_needed = params[:heater] == 'yes' ? true : false
+    @unit.needs_met = params[:needs_met] == 'yes'
+    @unit.power_on = params[:power] == 'yes'
+    @unit.heater_needed = params[:heater] == 'yes'
     @unit.save
     if params[:vehicles].present?
-      current_resident.update_attribute :vehicles, params[:vehicles]
+      current_resident.vehicles = params[:vehicles]
     end
+    current_resident.has_phone = params[:has_phone] == 'yes'
+    current_resident.has_smart_phone = params[:has_smart_phone] == 'yes'
+    current_resident.has_internet_access = params[:has_internet_access] == 'yes'
+    current_resident.save
   end
     
   def finish_intake

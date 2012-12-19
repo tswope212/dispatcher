@@ -1,10 +1,10 @@
-<div id="error_explanation">
-  <% if @resident %>
+<% if @resident %>
+  <div id="error_explanation">
     <% @resident.errors.full_messages.each do |error| %>
       <%= error %><br>
     <% end %>
-  <% end %>
-</div>
+  </div>
+<% end %>
 <%= form_tag request_task_path, :id => 'intake' do %>
   <%= text_field_tag :first_name, params[:first_name] %>
   <%= label_tag :first_name %><br>

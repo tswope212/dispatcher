@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121217211018) do
+ActiveRecord::Schema.define(:version => 20121219003946) do
 
   create_table "addresses", :force => true do |t|
     t.integer   "street_number"
@@ -248,6 +248,9 @@ ActiveRecord::Schema.define(:version => 20121217211018) do
     t.date      "date_of_birth"
     t.string    "image"
     t.string    "vehicles"
+    t.boolean   "has_phone"
+    t.boolean   "has_smart_phone"
+    t.boolean   "has_internet_access"
   end
 
   add_index "residents", ["authentication_token"], :name => "index_residents_on_authentication_token", :unique => true
@@ -368,26 +371,27 @@ ActiveRecord::Schema.define(:version => 20121217211018) do
   add_index "teams", ["person_id"], :name => "index_teams_on_person_id"
 
   create_table "units", :force => true do |t|
-    t.string    "name"
-    t.integer   "address_id"
-    t.timestamp "created_at",                    :null => false
-    t.timestamp "updated_at",                    :null => false
-    t.integer   "resident_id"
-    t.boolean   "needs_met"
-    t.boolean   "power_on"
-    t.boolean   "heater_needed"
-    t.text      "medical_needs"
-    t.text      "legal_needs"
-    t.string    "fema_number"
-    t.text      "insurance_situation"
-    t.boolean   "rapid_response_contacted"
-    t.boolean   "tenant_is_owner"
-    t.boolean   "livable"
-    t.text      "note"
-    t.string    "image"
-    t.date      "year_built"
-    t.boolean   "need_carbon_monoxide_detector"
-    t.boolean   "plan_to_return"
+    t.string   "name"
+    t.integer  "address_id"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.integer  "resident_id"
+    t.boolean  "needs_met"
+    t.boolean  "power_on"
+    t.boolean  "heater_needed"
+    t.text     "medical_needs"
+    t.text     "legal_needs"
+    t.string   "fema_number"
+    t.text     "insurance_situation"
+    t.boolean  "rapid_response_contacted"
+    t.boolean  "tenant_is_owner"
+    t.boolean  "livable"
+    t.text     "note"
+    t.string   "image"
+    t.date     "year_built"
+    t.boolean  "need_carbon_monoxide_detector"
+    t.boolean  "plan_to_return"
+    t.boolean  "will_not_be_helped"
   end
 
   add_index "units", ["address_id"], :name => "index_units_on_address_id"

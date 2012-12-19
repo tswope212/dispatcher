@@ -17,6 +17,12 @@
 </p>
 
 <p>
+  <%= @resident.has_phone? ? 'Has phone' : '' %><br>
+  <%= @resident.has_smart_phone? ? 'Has smart phone' : '' %><br>
+  <%= @resident.has_internet_access? ? 'Has internet access' : '' %>
+</p>
+
+<p>
   updated on <%= @resident.updated_at.strftime("%m/%d/%y") %>
 </p>
 

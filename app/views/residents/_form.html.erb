@@ -32,16 +32,6 @@
   </div>
   
   <div class="field">
-    <%= f.password_field :password %>
-    <%= f.label :password, 'New Password' %>
-  </div>
-  
-  <div class="field">
-    <%= f.password_field :password_confirmation %>
-    <%= f.label :password_confirmation %>
-  </div>
-  
-  <div class="field">
     <%= f.file_field :image %>
     <%= f.label :image %>
   </div>
@@ -51,6 +41,20 @@
     <%= f.label :vehicles %>
   </div>
   
+  <div class="field">
+    <%= f.check_box :has_phone %>
+    <%= f.label :has_phone %>
+  </div>
+  
+  <div class="field">
+    <%= f.check_box :has_smart_phone %>
+    <%= f.label :has_smart_phone %>
+  </div>
+  
+  <div class="field">
+    <%= f.check_box :has_internet_access %>
+    <%= f.label :has_internet_access %>
+  </div>
 
   <div class="actions">
     <%= f.submit %>

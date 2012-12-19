@@ -72,6 +72,13 @@
     <%= f.date_select :year_built, :discard_month => true, :start_year => Time.now.year, :end_year => 1800, :include_blank => true %>
   </div>
   
+  <% if current_team_admin %>
+    <div class="field">
+      <%= f.label :will_not_be_helped %><br>
+      <%= f.check_box :will_not_be_helped %>
+    </div>
+  <% end %>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

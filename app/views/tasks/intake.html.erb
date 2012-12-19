@@ -18,5 +18,17 @@ Can you specify which neighborhood you are in?
   Feel free to list any working vehicles you have.
   <%= text_field_tag :vehicles %>
   <br>
+  What communication tools do you currently have?<br>
+  Phone? &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <%= radio_button_tag :has_phone, :yes %><%= label_tag :has_phone, :yes %>
+  <%= radio_button_tag :has_phone, :no %><%= label_tag :has_phone, :no %>
+  <br>
+  Smart Phone? &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <%= radio_button_tag :has_smart_phone, :yes %><%= label_tag :has_smart_phone, :yes %>
+  <%= radio_button_tag :has_smart_phone, :no %><%= label_tag :has_phone, :no %>
+  <br>
+  Internet Access? &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <%= radio_button_tag :has_internet_access, :yes %><%= label_tag :has_internet_access, :yes %>
+  <%= radio_button_tag :has_internet_access, :no %><%= label_tag :has_internet_access, :no %><br>
   <%= f.submit 'Submit Information or Skip' %>
 <% end %>
