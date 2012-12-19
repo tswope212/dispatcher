@@ -1,6 +1,6 @@
 Hi <%= @volunteer.first_name %>,
 <br><br>
-Your team has been dispatched to do a <%= @task.name %> job at <%= @unit.full_address %>.
+Your team has been dispatched to do a <%= @task.name %> job at <%= @unit.andand.full_address %>.
 <br><br>
 <% if @job.scheduled_start.present? %>
   You are scheduled to start at <%= @job.scheduled_start.strftime("%I:%M %p on %A, %b %d") %>.
