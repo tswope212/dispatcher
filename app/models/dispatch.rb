@@ -14,7 +14,7 @@ class Dispatch < ActiveRecord::Base
   end
   
   def notify_team_lead
-    TeamLeaderMailer.job_assigned_notification(self).deliver if team.person.andand.email.present?
+    # TeamLeaderMailer.job_assigned_notification(self).deliver if team.person.andand.email.present?
   end
   
   def notify_team_members
