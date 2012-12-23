@@ -76,6 +76,6 @@ Dispatcher::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 end
 
-if defined?(MailSafe::Config)
-  MailSafe::Config.replacement_address = 'mike.schwab+dispatcher-staging@gmail.com'
-end
+# if defined?(MailSafe::Config)
+#   MailSafe::Config.replacement_address = 'mike.schwab+dispatcher-staging@gmail.com'
+# end
