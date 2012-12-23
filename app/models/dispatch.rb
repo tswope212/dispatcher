@@ -7,19 +7,19 @@ class Dispatch < ActiveRecord::Base
   scope :recent, :order => 'created_at desc'
   scope :incomplete, :joins => :job, :conditions => 'jobs.actual_end is null'
   
-  # after_create :notify_team_lead, :notify_team_members
+  after_create :notify_team_lead, :notify_team_members
   
   def name
     "dispatched to #{job.unit.full_address}"
   end
   
   def notify_team_lead
-    TeamLeaderMailer.job_assigned_notification(self).deliver if team.person.andand.email.present?
+    TeamLeaderMailer.job_assigned_notification(self).deliver rescue nil
   end
   
   def notify_team_members
     team.people.each do |volunteer|
-      VolunteerMailer.team_dispatched_notification(self, volunteer).deliver if volunteer.email.present?
+      VolunteerMailer.team_dispatched_notification(self, volunteer).deliver rescue nil
     end
   end
 end
