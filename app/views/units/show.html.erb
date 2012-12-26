@@ -6,6 +6,9 @@
       <% else %>
         <%= job.name %>
       <% end %>
+      <% if job.actual_end.present? %>
+        (complete)
+      <% end %>
     <% end %>
   <% end %>
 </div>
