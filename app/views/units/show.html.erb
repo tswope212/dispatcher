@@ -1,18 +1,28 @@
-<div id="requested_jobs">
-  <% @unit.jobs.each do |job| %>
-    <%= div_for job do %>
-      <% if current_team_admin %>
-        <%= link_to_name job %>
-      <% else %>
-        <%= job.name %>
-      <% end %>
-      <% if job.actual_end.present? %>
-        (complete)
+<table>
+  <tr>
+    <th></th>
+    <th>completed</th>
+    <th>date</th>
+  </tr>
+  <div id="requested_jobs">
+    <% @unit.jobs.each do |job| %>
+      <%= div_for job do %>
+        <tr>
+          <td>
+            <% if current_team_admin %>
+              <%= link_to_name job %>
+            <% else %>
+              <%= job.name %>
+            <% end %>
+          </td>
+        <% if job.actual_end.present? %>
+          <td>√</td>
+          <td><%= job.actual_end.strftime("%m/%d/%y") %></td>
+        <% end %>
       <% end %>
     <% end %>
-  <% end %>
-</div>
-
+  </div>
+</table>
 <div id="nominate_tasks">
   <span id="instructions">If your home needs one or more of these jobs done, click on them (the page will reload each time).</span>
   <% (Task.common_tasks - @unit.tasks).each do |task| %>
