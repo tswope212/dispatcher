@@ -41,7 +41,7 @@ class Person < ActiveRecord::Base
   end
   
   def has_signed_waivers?
-    Waiver.visible_to_volunteers.all? { |w| has_signed_waiver? w }
+    Waiver.required_for_volunteers.all? { |w| has_signed_waiver? w }
   end
   
   def has_not_signed_waivers?
