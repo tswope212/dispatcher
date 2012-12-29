@@ -72,7 +72,13 @@ class PeopleController < ApplicationController
 
     respond_to do |format|
       if @person.update_attributes(params[:person])
-        format.html { redirect_to root_url, notice: 'Thanks for offering to help.' }
+        format.html { 
+          if current_person.andand.has_not_signed_waivers?
+            redirect_to waivers_path, :notice => 'Thanks for offering to help.  Please continue by signing these waivers.'
+          else
+            redirect_to @person
+          end
+        }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
