@@ -1,6 +1,8 @@
 <%= link_to 'waivers', waivers_path, :class => 'right tab' %>
-<%= link_to 'neighborhoods', neighborhoods_path, :class => 'right tab' %>
-<%= link_to 'operations centers', operations_centers_path, :class => 'right tab' %>
-<%= link_to 'skills', skills_path, :class => 'right tab' %>
-<%= link_to 'dispatches', dispatches_path, :class => 'right tab' %>
-<%= link_to 'teams', teams_path, :class => 'right tab' %>
+<% if current_person.has_signed_waivers? %>
+  <%= link_to 'neighborhoods', neighborhoods_path, :class => 'right tab' %>
+  <%= link_to 'operations centers', operations_centers_path, :class => 'right tab' %>
+  <%= link_to 'skills', skills_path, :class => 'right tab' %>
+  <%= link_to 'dispatches', dispatches_path, :class => 'right tab' %>
+  <%= link_to 'teams', teams_path, :class => 'right tab' %>
+<% end %>

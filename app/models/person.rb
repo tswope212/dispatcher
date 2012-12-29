@@ -40,6 +40,10 @@ class Person < ActiveRecord::Base
     waivers.include? waiver
   end
   
+  def has_signed_waivers?
+    Waiver.visible_to_volunteers.all? { |w| has_signed_waiver? w }
+  end
+  
   def has_skill? skill
     skills.include? skill
   end
