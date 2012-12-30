@@ -37,10 +37,7 @@
   <%= link_to 'add note', new_job_note_path(@job) %>
 </div>
 
-<% if current_team_admin %>
-  <%= link_to 'Edit', edit_job_path(@job) %> |
-  <%= link_to 'Back', jobs_path %>
-<% end %>
+<%= link_to 'Edit', edit_job_path(@job) %><br>
 <% if current_person %>
   <% if @job.actual_start.blank? %>
     <%= link_to 'We have started this.', start_job_path(@job), :method => :put %>
