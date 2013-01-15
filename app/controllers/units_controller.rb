@@ -3,7 +3,7 @@ class UnitsController < ApplicationController
   before_filter :check_authorization, :only => :show
 
   def search
-    @units = Unit.search params[:query]
+    @units = Unit.search(params[:query]).page(params[:page])
     render :action => :index
   end
   
