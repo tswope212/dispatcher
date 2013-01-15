@@ -7,7 +7,7 @@
 
 <p>
   <b>Image:</b>
-  <%= image_tag @note.image %>
+  <%= image_tag @note.image if @note.image.present? %>
 </p>
 
 <p>
