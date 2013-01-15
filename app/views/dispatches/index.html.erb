@@ -7,8 +7,8 @@
     <th>Dispatcher</th>
     <th>Team</th>
     <th>Job</th>
-    <th></th>
-    <th></th>
+    <th>Date</th>
+    <th><%= link_to 'Updated', :order => :updated, :direction => (params[:direction] == 'reverse' ? 'forward' : 'reverse') %></th>
   </tr>
 <%= paginate @dispatches %>
 <% @dispatches.each do |dispatch| %>
@@ -19,6 +19,7 @@
     <td><%= link_to_name dispatch.team %></td>
     <td><%= link_to_name dispatch.job %></td>
     <td><%= dispatch.created_at.strftime("%m/%d/%y %I %P") %></td>
+    <td><%= dispatch.updated_at.strftime("%m/%d/%y %I %P") %></td>
     <% if current_team_admin %>
       <td><%= link_to 'Edit', edit_dispatch_path(dispatch) %></td>
       <td><%= link_to 'Destroy', dispatch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
