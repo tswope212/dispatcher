@@ -4,7 +4,15 @@ class JobsController < ApplicationController
   # GET /jobs
   # GET /jobs.json
   def index
-    @jobs = if current_coordinator
+    @jobs = if params[:address_id]
+      if params[:order] == 'impending'
+        Address.find(params[:address_id]).jobs.impending
+      elsif params[:order] == 'undispatched'
+        Address.find(params[:address_id]).jobs.undispatched
+      else
+        Address.find(params[:address_id]).jobs
+      end.page(params[:page])
+    elsif current_coordinator
       current_coordinator.jobs.page(params[:page])
     elsif params[:sort] == 'complete'
       Job.by_completion.page(params[:page])

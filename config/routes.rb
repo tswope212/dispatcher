@@ -131,6 +131,7 @@ Dispatcher::Application.routes.draw do
 
   resources :addresses do
     resources :units
+    resources :jobs
   end
 
 

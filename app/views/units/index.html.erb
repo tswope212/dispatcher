@@ -11,7 +11,7 @@
     <th>Address</th>
     <th></th>
     <th></th>
-    <th></th>
+    <th><%= link_to 'Updated', :order => :updated %></th>
   </tr>
 <%= paginate @units %>
 <% @units.each do |unit| %>
@@ -26,6 +26,7 @@
       <% end %>
     </td>
     <td><%= link_to 'Show', unit %></td>
+    <td><%= unit.updated_at.strftime("%m/%d/%y %I %p") %></td>
     <td><%= link_to 'Edit', edit_unit_path(unit) %></td>
     <td><%= link_to 'Destroy', unit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>

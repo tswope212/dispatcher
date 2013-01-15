@@ -10,7 +10,11 @@ class UnitsController < ApplicationController
   # GET /units
   # GET /units.json
   def index
-    @units = Unit.page(params[:page])
+    @units = if params[:order] == 'updated'
+      Unit.updated
+    else
+      Unit
+    end.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

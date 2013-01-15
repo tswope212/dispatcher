@@ -15,7 +15,10 @@ class Job < ActiveRecord::Base
   scope :unstarted, :conditions => {:actual_start => nil, :actual_end => nil}
   scope :by_completion, order('actual_end asc').order('actual_start asc')
   scope :dispatched, joins(:dispatches)
+  scope :undispatched, dispatched.where('dispatches.id is null')
   scope :recent, order('created_at desc')
+  scope :future, where("scheduled_end > ?", Time.now)
+  scope :impending, order('scheduled_start asc').future
   
   def self.not_dispatched
     all - dispatched

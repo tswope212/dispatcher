@@ -16,6 +16,7 @@ class StreetsController < ApplicationController
   # GET /streets/1.json
   def show
     @street = Street.find(params[:id])
+    @addresses = @street.addresses.ordered
 
     respond_to do |format|
       format.html # show.html.erb

@@ -16,6 +16,8 @@ class Unit < ActiveRecord::Base
   before_create :populate_default_unit_name
   after_destroy :remove_orphaned_address_and_resident
   
+  scope :updated, order('updated_at desc')
+  
   define_index do
     indexes name
     indexes note

@@ -5,6 +5,7 @@ class Address < ActiveRecord::Base
   has_many :jobs, :through => :units
   belongs_to :neighborhood
   attr_accessible :street_number, :street_id, :zip_code, :neighborhood_id, :street, :neighborhood
+  scope :ordered, order(:street_number)
   
   acts_as_gmappable :validation => false
 
