@@ -15,3 +15,7 @@
 /tmp
 
 config/initializers/carrierdev_aws_key.rb
+
+config/development.sphinx.conf
+
+config/database.yml

@@ -4,6 +4,7 @@ class Unit < ActiveRecord::Base
 
   has_one :city, :through => :address
   has_one :neighborhood, :through => :address
+  has_one :street, :through => :address
 
   has_many :jobs, :dependent => :destroy
   has_many :tasks, :through => :jobs
@@ -14,6 +15,19 @@ class Unit < ActiveRecord::Base
   
   before_create :populate_default_unit_name
   after_destroy :remove_orphaned_address_and_resident
+  
+  define_index do
+    indexes name
+    indexes note
+    indexes street.name, :as => :street
+    indexes city.name, :as => :city
+    indexes address.zip_code
+    indexes resident.email
+    indexes resident.primary_phone_number
+    indexes created_at
+    indexes updated_at
+    indexes tasks.name, :as => :jobs
+  end
   
   def full_name
     "#{name} at #{address.andand.name}"

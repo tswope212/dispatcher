@@ -11,6 +11,8 @@ gem 'pg'
 gem 'carrierwave'
 gem 'fog'
 gem 'kaminari'
+gem 'thinking-sphinx', '<3.0'
+gem 'flying-sphinx'
 # gem 'mail_safe'
 
 # Gems used only for assets and not required
