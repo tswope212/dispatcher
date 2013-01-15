@@ -31,5 +31,5 @@ gem 'jquery-rails'
 
 group :development do
   gem 'debugger'
-  gem 'sqlite3'
+  gem 'mysql2'
 end

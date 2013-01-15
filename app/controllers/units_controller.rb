@@ -1,6 +1,12 @@
 class UnitsController < ApplicationController
   before_filter :authenticate_team_admin!, :only => [:index, :edit, :update, :destroy]
   before_filter :check_authorization, :only => :show
+
+  def search
+    @units = Unit.search params[:query]
+    render :action => :index
+  end
+  
   # GET /units
   # GET /units.json
   def index

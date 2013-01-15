@@ -124,6 +124,7 @@ Dispatcher::Application.routes.draw do
     end
     collection do
       post :upload
+      get :search
     end
   end
 
