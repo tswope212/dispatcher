@@ -17,6 +17,11 @@ class Resident < ActiveRecord::Base
   
   before_validation :use_phone_for_email_if_necessary, :on => :create
   
+  define_index do
+    indexes :first_name
+    indexes :last_name
+  end
+  
   def name
     "#{first_name} #{last_name}"
   end
