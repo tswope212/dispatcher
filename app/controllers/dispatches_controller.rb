@@ -10,6 +10,8 @@ class DispatchesController < ApplicationController
   # GET /dispatches.json
   def index
     @dispatches = Dispatch.recent.page(params[:page])
+    
+    @dispatches = Kaminari.paginate_array(Dispatch.recent.sort_by { |d| d.job.andand.completion_state.to_s }).page(params[:page]) if params[:order]
 
     respond_to do |format|
       format.html # index.html.erb
