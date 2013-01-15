@@ -13,6 +13,17 @@
   <% end %>
 </div>
 
+<div id="streets">
+  <% @streets.in_groups_of(3, nil).each do |street_group| %>
+    <div class="street_row">
+      <% street_group.each do |street| %>
+        <%= link_to_name street %>
+        (<%= pluralize(street.addresses.count, 'location') %>)
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
 <header class="caps">Addresses</header>
 <div id="addresses">
   <% @addresses.each do |address| %>

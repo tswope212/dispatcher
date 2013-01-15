@@ -17,6 +17,7 @@ class CitiesController < ApplicationController
     @city = City.find(params[:id])
     @addresses = @city.addresses
     @neighborhoods = @city.neighborhoods
+    @streets = @city.streets.alphabetical
 
     respond_to do |format|
       format.html { render :layout => 'front' }
