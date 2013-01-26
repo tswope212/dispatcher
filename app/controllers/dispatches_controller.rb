@@ -11,19 +11,18 @@ class DispatchesController < ApplicationController
   def index
     sort_order = params[:direction] == 'reverse' ? ' desc' : ' asc'
     @dispatches = case params[:order]
-      when 'updated'
-        Dispatch.order('updated at' + sort_order)
-      when 'dispatcher'
-        Dispatch.joins(:person).order('people.last_name' + sort_order)
-      when 'team'
-        Dispatch.joins(:team).order('teams.name' + sort_order)
-      when 'job'
-        Dispatch.joins(:task).order('tasks.name' + sort_order)
-      when 'date'
-        Dispatch.order('created_at' + sort_order)
-      else
-        Dispatch.recent
-      end
+    when 'updated'
+      Dispatch.order('updated at' + sort_order)
+    when 'dispatcher'
+      Dispatch.joins(:person).order('people.last_name' + sort_order)
+    when 'team'
+      Dispatch.joins(:team).order('teams.name' + sort_order)
+    when 'job'
+      Dispatch.joins(:task).order('tasks.name' + sort_order)
+    when 'date'
+      Dispatch.order('created_at' + sort_order)
+    else
+      Dispatch.recent
     end.page(params[:page])
     
     @dispatches = @dispatches.send(params[:filter]) if params[:filter].present?
