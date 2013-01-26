@@ -15,7 +15,7 @@ class DispatchesController < ApplicationController
       Dispatch.recent
     end.page(params[:page])
     
-    @dispatches.send(params[:filter]) if params[:filter].present?
+    @dispatches = @dispatches.send(params[:filter]) if params[:filter].present?
     
     @dispatches = Kaminari.paginate_array(Dispatch.recent.sort_by { |d| d.job.andand.completion_state.to_s }).page(params[:page]) if params[:order] == 'complete'
 
