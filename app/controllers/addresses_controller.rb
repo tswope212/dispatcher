@@ -3,7 +3,7 @@ class AddressesController < ApplicationController
   # GET /addresses
   # GET /addresses.json
   def index
-    @addresses = Address.page(params[:page])
+    @addresses = Address.address_order.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
