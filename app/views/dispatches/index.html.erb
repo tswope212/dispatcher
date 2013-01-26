@@ -8,11 +8,11 @@
 <table>
   <tr class='caps'>
     <th>ID</th>
-    <th><%= link_to 'Status', :order => :complete %></th>
-    <th>Dispatcher</th>
-    <th>Team</th>
-    <th>Job</th>
-    <th>Date</th>
+    <th><%= link_to 'Status', :order => :complete, :direction => (params[:direction] == 'reverse' ? 'forward' : 'reverse') %></th>
+    <th><%= link_to 'Dispatcher', :order => :dispatcher, :direction => (params[:direction] == 'reverse' ? 'forward' : 'reverse') %></th>
+    <th><%= link_to 'Team', :order => :team, :direction => (params[:direction] == 'reverse' ? 'forward' : 'reverse') %></th>
+    <th><%= link_to 'Job', :order => :job, :direction => (params[:direction] == 'reverse' ? 'forward' : 'reverse') %></th>
+    <th><%= link_to 'Date', :order => :date, :direction => (params[:direction] == 'reverse' ? 'forward' : 'reverse') %></th>
     <th><%= link_to 'Updated', :order => :updated, :direction => (params[:direction] == 'reverse' ? 'forward' : 'reverse') %></th>
   </tr>
 <%= paginate @dispatches %>

@@ -9,10 +9,21 @@ class DispatchesController < ApplicationController
   # GET /dispatches
   # GET /dispatches.json
   def index
-    @dispatches = if params[:order] == 'updated'
-      params[:direction] == 'reverse' ? Dispatch.order('updated_at desc') : Dispatch.order('updated_at asc')
-    else
-      Dispatch.recent
+    sort_order = params[:direction] == 'reverse' ? ' desc' : ' asc'
+    @dispatches = case params[:order]
+      when 'updated'
+        Dispatch.order('updated at' + sort_order)
+      when 'dispatcher'
+        Dispatch.joins(:person).order('people.last_name' + sort_order)
+      when 'team'
+        Dispatch.joins(:team).order('teams.name' + sort_order)
+      when 'job'
+        Dispatch.joins(:task).order('tasks.name' + sort_order)
+      when 'date'
+        Dispatch.order('created_at' + sort_order)
+      else
+        Dispatch.recent
+      end
     end.page(params[:page])
     
     @dispatches = @dispatches.send(params[:filter]) if params[:filter].present?
