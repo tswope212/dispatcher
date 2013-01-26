@@ -1,5 +1,10 @@
 <h1 class='caps'>Teams dispatched to jobs</h1>
 
+<%= link_to 'unscheduled', :filter => 'unscheduled' %>
+<%= link_to 'scheduled', :filter => 'scheduled' %>
+<%= link_to 'in progress', :filter => 'incomplete' %>
+<%= link_to 'completed', :filter => 'complete' %>
+
 <table>
   <tr class='caps'>
     <th>ID</th>

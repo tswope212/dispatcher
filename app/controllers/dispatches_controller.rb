@@ -9,11 +9,12 @@ class DispatchesController < ApplicationController
   # GET /dispatches
   # GET /dispatches.json
   def index
+    params[:filter] ||= 'all'
     @dispatches = if params[:order] == 'updated'
       params[:direction] == 'reverse' ? Dispatch.order('updated_at desc') : Dispatch.order('updated_at asc')
     else
       Dispatch.recent
-    end.page(params[:page])
+    end.page(params[:page]).send(params[:filter])
     
     @dispatches = Kaminari.paginate_array(Dispatch.recent.sort_by { |d| d.job.andand.completion_state.to_s }).page(params[:page]) if params[:order] == 'complete'
 
