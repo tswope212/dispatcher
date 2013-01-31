@@ -10,8 +10,15 @@ body {
 	font-family: 'Arial';
 }
 
-#logo a:hover {
-	background-color: none;
+#logo {
+	display: inline-block;
+	font-size: 1.8em;
+	padding: 5px;
+}
+
+#logo_hash {
+	display: inline-block;
+	font-size: 1.8em;
 }
 
 h1 {
