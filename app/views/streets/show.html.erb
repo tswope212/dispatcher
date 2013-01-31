@@ -17,9 +17,11 @@
 <% @addresses.in_groups_of(4, nil) do |address_group| %>
   <div class="address_row">
     <% address_group.each do |address| %>
-      <strong><%= link_to address.street_number, address %></strong>
-      (<%= link_to pluralize(address.jobs.impending.count, 'job') + ' impending', address_jobs_path(address, :order => 'impending') %>, 
-      <%= link_to pluralize(address.jobs.undispatched.count, 'job') + ' undispatched', address_jobs_path(address, :order => 'undispatched') %>)
+      <% if address %>
+        <strong><%= link_to address.street_number, address %></strong>
+        (<%= link_to pluralize(address.jobs.impending.count, 'job') + ' impending', address_jobs_path(address, :order => 'impending') %>, 
+        <%= link_to pluralize(address.jobs.undispatched.count, 'job') + ' undispatched', address_jobs_path(address, :order => 'undispatched') %>)
+      <% end %>
     <% end %>
   </div>
 <% end %>

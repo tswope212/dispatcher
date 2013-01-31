@@ -32,7 +32,7 @@
 	<h3>Units</h3>
   <% @units.each do |unit| %>
     <%= div_for unit do %>
-      <%= link_to_name unit %>
+      <%= link_to unit.full_name, unit %>
     <% end %>
   <% end %>
 </div>

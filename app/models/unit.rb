@@ -32,7 +32,7 @@ class Unit < ActiveRecord::Base
   end
   
   def full_name
-    "#{name} at #{address.andand.name}"
+    "#{name}, #{address.andand.name}"
   end
   
   def full_address
