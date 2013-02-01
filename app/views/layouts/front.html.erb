@@ -10,7 +10,7 @@
     <div id="background-holder">
       <div id="frame">
         <div id="header">
-        	<div id="logo_hash">#</div><div id="logo">Disaster Dispatcher</div>
+        	<%= image_tag 'disasterdispatcher_logo3.gif' %>
           <% if current_coordinator %>
             <div class="right">
               You are signed in as a coordinator.<br>
@@ -68,7 +68,7 @@
           <%= yield :scripts %>
         </div>
         <footer>
-          <em class="tagline">This is an app for coordinating volunteers, managing resident needs, and facilitating disaster relief & recovery</em>
+          <div class="tagline">This is an app for coordinating volunteers, managing resident needs, and facilitating disaster relief & recovery</div>
           <div id="">
           <%= mail_to 'info@disasterdispatcher.com', 'Contact' %>
           |
