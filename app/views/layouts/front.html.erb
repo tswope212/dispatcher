@@ -18,9 +18,6 @@
               <%= image_tag 'black_gear.png', :class => 'right', :id => 'settings_link' %><br>
               <%= link_to 'sign out', destroy_coordinator_session_path, :method => :delete, :class => 'right' %>
             </div>
-            <%= clearfix %>
-            <%= render 'shared/coordinator_tabs' %>
-            <%= clearfix %>
           <% end %>
           <% if current_person %>
             <div class="right">
@@ -29,9 +26,6 @@
               <%= image_tag 'black_gear.png', :class => 'right', :id => 'settings_link' %><br>
               <%= link_to 'sign out', destroy_person_session_path, :method => :delete, :class => 'right' %>
             </div>
-            <%= clearfix %>
-            <%= render 'shared/person_resource_links' %>
-            <%= clearfix %>
           <% end %>
           <% if current_resident %>
             <div class="right">
@@ -40,9 +34,6 @@
               <%= image_tag 'black_gear.png', :class => 'right', :id => 'settings_link' %><br>
               <%= link_to 'sign out', destroy_resident_session_path, :method => :delete, :class => 'right' %>
             </div>
-            <%= clearfix %>
-            <%= render 'shared/resident_resource_links' %>
-            <%= clearfix %>
           <% end %>
           <% if current_team_admin %>
             <div class="right">
@@ -51,12 +42,22 @@
               <%= image_tag 'black_gear.png', :class => 'right', :id => 'settings_link' %><br>
               <%= link_to 'sign out', destroy_team_admin_session_path, :method => :delete, :class => 'right' %>
             </div>
-            <%= clearfix %>
-            <%= render 'shared/resource_links_top' %>
-            <%= clearfix %>
           <% end %>
+
+          <%= clearfix %>
+          <%= render 'shared/coordinator_tabs' if current_coordinator %>
+          <%= render 'shared/person_resource_links' if current_person %>
+          <%= render 'shared/resident_resource_links' if current_resident %>
+          <%= render 'shared/resource_links_top' if current_team_admin %>
+          <%= clearfix %>
           
-          <%= link_to 'sign in', new_person_session_path %>
+          <% if !current_team_admin && !current_coordinator && !current_person && !current_resident %>
+            <%= link_to 'sign up to receive assistance', assistance_registration_path, :class => 'right tab' %>
+            <%= link_to 'sign up to offer help', new_person_registration_path, :class => 'right tab' %>
+            <%= link_to 'sign in', new_person_session_path, :class => 'right tab' %>
+          <% else %>
+            <%= link_to 'sign in', new_person_session_path %>
+          <% end %>
           <%= clearfix %>
           <br>
         </div>
