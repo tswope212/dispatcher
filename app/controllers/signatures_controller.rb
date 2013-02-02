@@ -54,7 +54,7 @@ class SignaturesController < ApplicationController
           if current_person.andand.has_not_signed_waivers?
             redirect_to waivers_path, notice: 'We received your signature.  Please continue to sign the remaining waivers.'
           else
-            redirect_to root_url, notice: 'We received your signature.' 
+            redirect_to volunteer_introduction_url
           end
         }
         format.json { render json: @signature, status: :created, location: @signature }

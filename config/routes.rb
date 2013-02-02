@@ -148,6 +148,8 @@ Dispatcher::Application.routes.draw do
     resources :deployments
   end
   
+  match '/volunteer_introduction', :controller => 'dispatches', :action => 'volunteer_introduction'
+  
   root :to => 'dispatches#introduction'
 
 

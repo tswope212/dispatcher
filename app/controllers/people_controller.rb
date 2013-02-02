@@ -74,7 +74,7 @@ class PeopleController < ApplicationController
       if @person.update_attributes(params[:person])
         format.html { 
           if current_person.andand.has_not_signed_waivers?
-            redirect_to waivers_path, :notice => 'Thanks for offering to help.  Please continue by signing these waivers.'
+            redirect_to waivers_path, :notice => 'You are now signed up as a volunteer!  Before proceeding, please sign your volunteer waivers.'
           else
             redirect_to @person
           end
