@@ -1,12 +1,3 @@
-<h1>Update Contact Info</h1>
+<h2 class="caps">Contact Info</h1>
 
 <%= render 'form' %>
-
-<div id="languages">
-  <h3>Language skills</h3>
-  <% @person.proficiencies.each do |proficiency| %>
-    <%= link_to proficiency.language.name, edit_proficiency_path(proficiency) %>
-    (<%= proficiency.level %>)
-  <% end %>
-  <%= link_to 'add a language', new_proficiency_path %>
-</div>
