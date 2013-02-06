@@ -1,0 +1,22 @@
+.landing.call_to_action {
+	display: inline-block;
+	border: 1px solid black;
+	border-radius: 5px;
+	padding: 5px;
+	margin: 5px;
+	
+	heading {
+		font-size: 1.7em;
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+	
+	p {
+		color: #aaa;
+		text-align: center;
+	}
+	
+	form {
+		display: inline-block;
+	}
+}

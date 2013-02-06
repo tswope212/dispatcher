@@ -1,6 +1,34 @@
 This is an app to manage resident needs and coordinate volunteers.  We have created this app to facilitate the disaster relief and rebuild process in direct response to the destruction caused by Hurricane Sandy.  As long time New Yorkers, we are committed to the recovery of New York's waterfront and surrounding shoreline area.
 <br><br>
-If you are would like to help, please click on <%= link_to 'volunteers', new_person_registration_path %>.
-If you need help, please click on <%= link_to 'residents', assistance_registration_path %>.
+<div class="landing call_to_action" id="volunteer_call_to_action">
+  <heading>
+    Volunteers
+  </heading>
+  <p>
+    Are you here to help?
+  </p>
+  <%= button_to 'sign in', new_person_session_path, :method => :get %>
+  <%= button_to 'sign up', new_person_registration_path, :method => :get %>
+</div>
+<div class="landing call_to_action" id="coordinator_call_to_action">
+  <heading>
+    Coordinators
+  </heading>
+  <p>
+    Are you leading help?
+  </p>
+  <%= button_to 'sign in', new_coordinator_session_path, :method => :get %>
+  <%= button_to 'sign up', new_coordinator_registration_path, :method => :get %>
+</div>
+<div class="landing call_to_action" id="resident_call_to_action">
+  <heading>
+    Residents
+  </heading>
+  <p>
+    Are you in need of help?
+  </p>
+  <%= button_to 'sign in', new_resident_session_path, :method => :get %>
+  <%= button_to 'sign up', new_resident_registration_path, :method => :get %>
+</div>
 <br><br>
 This app is a constant work in progress with improvements being made regularly.  We welcome your feedback and would love to hear from you with suggestions how we can best make it suit your needs.  We're here to help too, so please don't hesitate to email or call with any questions.  <%= mail_to 'info@disasterdispatcher.net' %>
