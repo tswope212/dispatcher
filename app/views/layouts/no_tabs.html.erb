@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dispatcher</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div id="background-holder">
+      <div id="frame">
+        <div id="header">
+        	<%= image_tag 'disasterdispatcher_logo3.gif' %>
+
+        </div>
+        <div id="content-area">
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+          <%= yield %>
+          <%= yield :scripts %>
+        </div>
+        <footer>
+          <div class="tagline">This is an app for coordinating volunteers, managing resident needs, and facilitating disaster relief & recovery</div>
+          <div id="">
+          <%= mail_to 'info@disasterdispatcher.com', 'Contact' %>
+          |
+          <%= link_to 'About', root_url %>
+          |
+          <%= link_to 'Help' %>
+  		    <% if current_team_admin %>
+            <%= render 'shared/resource_links_bottom' %>
+          <% end %>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>

@@ -3,7 +3,7 @@ class DispatchesController < ApplicationController
   before_filter :authenticate_person!, :only => [:show, :index]
 
   def introduction
-    
+    render :layout => 'no_tabs'
   end
 
   # GET /dispatches
