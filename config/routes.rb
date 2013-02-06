@@ -115,7 +115,11 @@ Dispatcher::Application.routes.draw do
 
 
   devise_for :people, :controllers => { :registrations => :registrations, :sessions => :sessions }
-  resources :people
+  resources :people do
+    collection do
+      get :home
+    end
+  end
 
   resources :units do
     resources :residents

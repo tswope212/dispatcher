@@ -1,6 +1,11 @@
 class PeopleController < ApplicationController
   before_filter :authenticate_team_admin!, :only => [:index, :show, :destroy]
-  before_filter :authenticate_person!, :only => [:edit, :update]
+  before_filter :authenticate_person!, :only => [:home, :edit, :update]
+
+  def home
+    
+  end
+
   # GET /people
   # GET /people.json
   def index
