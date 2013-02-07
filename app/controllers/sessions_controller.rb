@@ -2,12 +2,6 @@ class SessionsController < Devise::SessionsController
   after_filter :log_in_all_accounts, :only => :create
   
   private
-  
-  def after_sign_in_path_for resource
-    if resource.is_a? Person
-      home_people_path
-    end
-  end
     
   def log_in_all_accounts
     if current_person
