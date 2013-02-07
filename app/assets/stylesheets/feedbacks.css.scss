@@ -10,3 +10,15 @@
 	width: 99%;
 	height: 60px;
 }
+
+#new_feedback ::-webkit-input-placeholder {
+	text-transform: uppercase;
+}
+
+#new_feedback :-moz-placeholder {
+	text-transform: uppercase;
+}
+
+#new_feedback :-ms-input-placeholder {
+	text-transform: uppercase;
+}
