@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  message: MyText
+  name: MyString
+  email: MyString
+  ip: MyString
+  read: 1
+  starred: 1
+  person: 
+  resident: 
+  coordinator: 
+  team_admin: 
+
+two:
+  message: MyText
+  name: MyString
+  email: MyString
+  ip: MyString
+  read: 1
+  starred: 1
+  person: 
+  resident: 
+  coordinator: 
+  team_admin: 
