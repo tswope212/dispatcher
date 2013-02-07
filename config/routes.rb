@@ -1,6 +1,10 @@
 Dispatcher::Application.routes.draw do
   
-  resources :feedbacks
+  resources :feedbacks do
+    member do
+      put :star
+    end
+  end
 
 
   resources :coordinations

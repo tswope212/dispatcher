@@ -1,5 +1,5 @@
 class FeedbacksController < ApplicationController
-  before_filter :authenticate_team_admin!, :only => [:index, :show, :edit, :update, :destroy]
+  before_filter :authenticate_team_admin!, :only => [:index, :show, :edit, :update, :star, :destroy]
   # GET /feedbacks
   # GET /feedbacks.json
   def index
@@ -74,6 +74,12 @@ class FeedbacksController < ApplicationController
         format.json { render json: @feedback.errors, status: :unprocessable_entity }
       end
     end
+  end
+  
+  def star
+    @feedback = Feedback.find params[:id]
+    @feedback.update_attribute :starred, current_team_admin.id
+    redirect_to :action => :index
   end
 
   # DELETE /feedbacks/1
