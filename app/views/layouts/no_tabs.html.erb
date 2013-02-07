@@ -20,16 +20,14 @@
           <%= yield :scripts %>
         </div>
         <footer>
-          <div class="tagline">This is an app for coordinating volunteers, managing resident needs, and facilitating disaster relief & recovery</div>
+          <div class="tagline">This is an app for coordinating volunteers, managing resident needs, and facilitating disaster relief &amp; recovery.</div>
+          <div>We respect your privacy and will never, under any circumstances, sell your personal information.</div>
           <div id="">
           <%= link_to 'Contact', new_feedback_path %>
           |
           <%= link_to 'About', root_url %>
           |
           <%= link_to 'Help' %>
-  		    <% if current_team_admin %>
-            <%= render 'shared/resource_links_bottom' %>
-          <% end %>
         </footer>
       </div>
     </div>
