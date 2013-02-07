@@ -1,4 +1,5 @@
 class FeedbacksController < ApplicationController
+  before_filter :authenticate_team_admin!, :only => [:index, :show, :edit, :update, :destroy]
   # GET /feedbacks
   # GET /feedbacks.json
   def index
