@@ -26,6 +26,8 @@ class FeedbacksController < ApplicationController
   # GET /feedbacks/new.json
   def new
     @feedback = Feedback.new
+    
+    @teams = Team.alphabetical
 
     respond_to do |format|
       format.html # new.html.erb
