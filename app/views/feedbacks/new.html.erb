@@ -3,11 +3,11 @@
 </p>
 
 <%= form_for @feedback do |f| %>
-  <%= f.text_field :name, :placeholder => 'Name' %>
-  <%= f.text_field :email, :placeholder => 'Email' %>
-  <%= f.submit 'SUBMIT', :id => 'feedback_submit' %>
+  <%= f.text_field :name, :placeholder => 'Name', :tabindex => 1 %>
+  <%= f.text_field :email, :placeholder => 'Email', :tabindex => 2 %>
+  <%= f.submit 'SUBMIT', :id => 'feedback_submit', :tabindex => 4 %>
   <br>
-  <%= f.text_area :message, :placeholder => 'Comments' %>
+  <%= f.text_area :message, :placeholder => 'Comments', :tabindex => 3 %>
 <% end %>
 
 <p>
