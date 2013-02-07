@@ -3,7 +3,7 @@ class FeedbacksController < ApplicationController
   # GET /feedbacks
   # GET /feedbacks.json
   def index
-    @feedbacks = Feedback.all
+    @feedbacks = Feedback.recent.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,6 +15,10 @@ class FeedbacksController < ApplicationController
   # GET /feedbacks/1.json
   def show
     @feedback = Feedback.find(params[:id])
+    
+    if @feedback.read.blank?
+      @feedback.update_attribute :read, current_team_admin.id
+    end
 
     respond_to do |format|
       format.html # show.html.erb
