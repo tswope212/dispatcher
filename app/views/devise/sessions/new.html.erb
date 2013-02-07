@@ -1,76 +1,30 @@
-<% unless current_person %>
-  <div id="person_login">
-    <h2 class='caps'>Volunteers</h2>
-    <%= form_for(Person.new, :as => 'person', :url => session_path(:person)) do |f| %>
-      <div><%= f.label :email %><br />
-      <%= f.email_field :email %></div>
+<div id="login">
+  <h2>Sign in</h2>
+  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+    <div><%= f.email_field :email, :placeholder => 'EMAIL' %></div>
 
-      <div><%= f.label :password %><br />
-      <%= f.password_field :password %></div>
+    <div><%= f.password_field :password, :placeholder => 'PASSWORD' %></div>
 
-      <% if devise_mapping.rememberable? -%>
-        <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+    <div>
+      <%= f.submit "Sign in" %>
+      <%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
+        <%= link_to "Forgot your password?", new_password_path(resource_name) %>
       <% end -%>
+    </div>
+  <% end %>
+</div>
 
-      <div><%= f.submit "Sign in" %></div>
-    <% end %>
-  </div>
-<% end %>
-<% unless current_resident %>
-  <div id="resident_login">
-    <h2 class='caps'>Residents</h2>
-    <%= form_for(Resident.new, :as => 'resident', :url => session_path(:resident)) do |f| %>
-      <div><%= f.label :email %><br />
-      <%= f.email_field :email %></div>
+<div id="register">
+  <h2>Sign up</h2>
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
 
-      <div><%= f.label :password %><br />
-      <%= f.password_field :password %></div>
+    <div><%= f.email_field :email, :placeholder => 'EMAIL' %></div>
 
-      <% if devise_mapping.rememberable? -%>
-        <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-      <% end -%>
+    <div><%= f.password_field :password, :placeholder => 'PASSWORD' %></div>
 
-      <div><%= f.submit "Sign in" %></div>
-    <% end %>
-  </div>
-<% end %>
-<% unless current_coordinator %>
-  <div id="coordinator_login">
-    <h2 class="caps">Coordinators</h2>
-    <%= form_for(Coordinator.new, :as => 'coordinator', :url => session_path(:coordinator)) do |f| %>
-      <div><%= f.label :email %><br>
-      <%= f.email_field :email %></div>
-      
-      <div><%= f.label :password %><br>
-      <%= f.password_field :password %></div>
+    <div><%= f.password_field :password_confirmation, :placeholder => 'PASSWORD CONFIRMATION' %></div>
 
-      <% if devise_mapping.rememberable? -%>
-        <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-      <% end -%>
-
-      <div><%= f.submit "Sign in" %></div>
-    <% end %>
-  </div>
-<% end %>
-<% unless current_team_admin %>
-  <div id="team_admin_login">
-    <h2 class='caps'>Admins</h2>
-    <%= form_for(TeamAdmin.new, :as => 'team_admin', :url => session_path(:team_admin)) do |f| %>
-      <div><%= f.label :email %><br />
-      <%= f.email_field :email %></div>
-
-      <div><%= f.label :password %><br />
-      <%= f.password_field :password %></div>
-
-      <% if devise_mapping.rememberable? -%>
-        <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-      <% end -%>
-
-      <div><%= f.submit "Sign in" %></div>
-    <% end %>
-  </div>
-<% end %>
-<%= clearfix %>
-<%= render "devise/shared/links" %>
-<%= link_to 'sign up for coordinator access', new_coordinator_registration_path %><br>
-<%= link_to 'Sign up for admin access', new_team_admin_registration_path %>
+    <div><%= f.submit "Sign up" %></div>
+  <% end %>
+</div>
