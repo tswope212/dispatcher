@@ -1,5 +1,5 @@
 <h1>Listing team_admins</h1>
-
+<%= button_to 'New Team admin', new_team_admin_path, :method => :get, :class => 'right new_button' %>
 <table>
   <tr>
     <th></th>
@@ -20,4 +20,3 @@
 <%= paginate @team_admins %>
 <br />
 
-<%= link_to 'New Team admin', new_team_admin_path %>

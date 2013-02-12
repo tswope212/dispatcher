@@ -1,0 +1,8 @@
+Hello <%= @team_admin.first_name %>,
+<br><br>
+You have been granted admin access to Disaster Dispatcher.
+<br><br>
+To begin, set a password.
+<%= link_to 'Click here', edit_team_admin_password_url(@team_admin, :reset_password_token => @team_admin.reset_password_token) %>.
+<br><br>
+- The Dispatcher Team

@@ -11,6 +11,10 @@
     </div>
   <% end %>
   <div class="field">
+    <%= f.email_field :email %>
+    <%= f.label :email %>
+  </div>
+  <div class="field">
     <%= f.text_field :first_name %>
     <%= f.label :first_name %>
   </div>
@@ -23,7 +27,7 @@
     <%= f.label :phone_number %>
   </div>
   <div class="field">
-    <%= f.date_select :date_of_birth, :start_year => 1900 %>
+    <%= f.date_select :date_of_birth, :start_year => 1900, :discard_month => true, :discard_day => true %>
     <%= f.label :date_of_birth %>
   </div>
   <div class="field">
