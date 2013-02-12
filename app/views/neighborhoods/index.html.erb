@@ -1,4 +1,5 @@
 <h1>Neighborhoods</h1>
+<%= link_to 'New Neighborhood', new_neighborhood_path if current_team_admin, :method => :get, :class => 'right new_button'  %>
 
 <table>
   <tr>
@@ -25,4 +26,3 @@
 <%= paginate @neighborhoods %>
 <br />
 
-<%= link_to 'New Neighborhood', new_neighborhood_path if current_team_admin %>

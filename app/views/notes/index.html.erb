@@ -1,4 +1,5 @@
 <h1>Listing notes</h1>
+<%= link_to 'New Note', new_note_path, :method => :get, :class => 'right new_button' %>
 
 <table>
   <tr>
@@ -26,4 +27,3 @@
 <%= paginate @notes %>
 <br />
 
-<%= link_to 'New Note', new_note_path %>

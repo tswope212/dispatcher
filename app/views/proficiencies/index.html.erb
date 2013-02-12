@@ -1,4 +1,5 @@
 <h1>Listing proficiencies</h1>
+<%= link_to 'New Proficiency', new_proficiency_pat, :method => :get, :class => 'right new_button' %>
 
 <table>
   <tr>
@@ -26,4 +27,3 @@
 <%= paginate @proficiencies %>
 <br />
 
-<%= link_to 'New Proficiency', new_proficiency_path %>
