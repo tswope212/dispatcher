@@ -1,4 +1,6 @@
 <%= paginate @cities %>
+<%= link_to 'New City', new_city_path if current_team_admin, :method => :get, :class => 'right new_button' %>
+
 <table>
 <% @cities.each do |city| %>
   <tr class="<%= cycle 'light-gray', 'white' %>">
@@ -15,4 +17,3 @@
 <%= paginate @cities %>
 <br />
 
-<%= link_to 'New City', new_city_path if current_team_admin %>

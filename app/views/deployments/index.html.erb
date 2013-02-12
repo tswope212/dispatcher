@@ -1,4 +1,5 @@
 <h1>Listing deployments</h1>
+<%= link_to 'New Deployment', new_deployment_path, :method => :get, :class => 'right new_button' %>
 
 <table>
   <tr>
@@ -26,4 +27,3 @@
 <%= paginate @deployments %>
 <br />
 
-<%= link_to 'New Deployment', new_deployment_path %>
