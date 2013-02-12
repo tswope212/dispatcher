@@ -11,7 +11,7 @@ class TeamsController < ApplicationController
     elsif params[:language_id]
       Language.find(params[:language_id]).teams
     elsif params[:order] == 'newest_member'
-      Team.by_newest_member
+      Team.by_newest_member(params[:newest_member_direction])
     elsif params[:order] == 'latest_job'
       Team.by_latest_job(params[:latest_job_direction])
     elsif params[:order] == 'recent'
