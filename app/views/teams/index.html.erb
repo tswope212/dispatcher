@@ -13,7 +13,8 @@
     <th>Image</th>
     <th>Team</th>
     <th>Team Leader</th>
-    <th><%= link_to 'Newest Member Joined', :order => 'newest_member', :newest_member_direction => (params[:newest_member_direction] == 'asc' ? 'desc' : 'asc') %></th>
+    <th><%= link_to 'Newest Member Joined', :order => :newest_member, :newest_member_direction => (params[:newest_member_direction] == 'asc' ? 'desc' : 'asc') %></th>
+    <th><%= link_to 'Latest Job Completed', :order => :latest_job, :latest_job_direction => (params[:latest_job_direction] == 'asc' ? 'desc' : 'asc') %></th>
     <td><%= link_to 'Formed', :order => :recent, :recent_direction => (params[:recent_direction] == 'asc' ? 'desc' : 'asc') %></td>
     <th></th>
     <th></th>
@@ -25,6 +26,7 @@
     <td><%= link_to_name team %></td>
     <td><%= link_to_name team.person %></td>
     <td><%= team.roles.recent.first.andand.created_at.andand.strftime("%m/%d/%y %I %P") %></td>
+    <td><%= team.jobs.complete.recent.first.andand.actual_end.andand.strftime("%m/%d/%y %I %P") %></td>
     <td><%= team.created_at.strftime("%m/%d/%y %I %P") %></td>
     <% if current_team_admin %>
       <td><%= link_to 'Edit', edit_team_path(team) %></td>
