@@ -11,7 +11,13 @@ class UnitsController < ApplicationController
   # GET /units.json
   def index
     @units = if params[:order] == 'updated'
-      Unit.updated
+      Unit.order('updated_at ' + params[:updated_direction])
+    elsif params[:order] == 'first_name'
+      Unit.joins(:resident).order('residents.first_name ' + params[:first_name_direction])
+    elsif params[:order] == 'last_name'
+      Unit.joins(:resident).order('residents.last_name ' + params[:last_name_direction])
+    elsif params[:order] == 'name'
+      Unit.order('name ' + params[:name_direction])
     else
       Unit
     end.page(params[:page])

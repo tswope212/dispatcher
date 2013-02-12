@@ -7,11 +7,12 @@
 <%= button_to 'New Unit', new_unit_path, :method => :get, :class => 'right new_button' %>
 <table>
   <tr>
-    <th>Name</th>
-    <th>Address</th>
+    <th><%= link_to 'Name', :order => :name, :name_direction => (params[:name_direction] == 'asc' ? 'desc' : 'asc') %></th>
+    <th><%= link_to 'Address', :order => :address, :address_direction => (params[:address_direction] == 'asc' ? 'desc' : 'asc') %></th>
+    <th><%= link_to 'First', :order => :first_name, :first_name_direction => (params[:first_name_direction] == 'asc' ? 'desc' : 'asc') %>/
+      <%= link_to 'Last', :order => :last_name, :last_name_direction => (params[:last_name_direction] == 'asc' ? 'desc' : 'asc') %></th>
     <th></th>
-    <th></th>
-    <th><%= link_to 'Updated', :order => :updated %></th>
+    <th><%= link_to 'Updated', :order => :updated, :updated_direction => (params[:updated_direction] == 'asc' ? 'desc' : 'asc') %></th>
   </tr>
 <%= paginate @units %>
 <% @units.each do |unit| %>
