@@ -1,4 +1,9 @@
 class TeamAdmin < ActiveRecord::Base
+  has_many :coordinations, :dependent => :nullify
+  has_many :feedbacks, :dependent => :nullify
+  has_many :task_waivers, :dependent => :nullify
+  
+  
   mount_uploader :image, ProfileImageUploader
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,

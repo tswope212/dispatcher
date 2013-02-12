@@ -1,5 +1,5 @@
 <h1 class='caps'>Jobs</h1>
-
+<%= button_to 'New Job', new_job_path, :method => :get, :class => 'right new_button' %>
 <table>
   <tr class="caps">
     <th>Task</th>
@@ -34,5 +34,4 @@
 <%= paginate @jobs %>
 <br />
 
-<%= link_to 'New Job', new_job_path %>
 <%= link_to 'export to csv', export_jobs_path, :method => :post %>
