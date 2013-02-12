@@ -12,6 +12,8 @@ class TeamsController < ApplicationController
       Language.find(params[:language_id]).teams
     elsif params[:order] == 'newest_member'
       Team.by_newest_member
+    elsif params[:order] == 'recent'
+      Team.order('created_at ' + params[:recent_direction])
     else
       Team.alphabetical
     end.page(params[:page])
