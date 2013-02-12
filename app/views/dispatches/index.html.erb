@@ -9,13 +9,13 @@
 
 <table>
   <tr class='caps'>
-    <th><%= link_to 'ID', :order => :id, :direction => (params[:direction] == 'reverse' ? 'forward' : 'reverse') %></th>
-    <th><%= link_to 'Status', :order => :complete, :direction => (params[:direction] == 'reverse' ? 'forward' : 'reverse') %></th>
-    <th><%= link_to 'Dispatcher', :order => :dispatcher, :direction => (params[:direction] == 'reverse' ? 'forward' : 'reverse') %></th>
-    <th><%= link_to 'Team', :order => :team, :direction => (params[:direction] == 'reverse' ? 'forward' : 'reverse') %></th>
-    <th><%= link_to 'Job', :order => :job, :direction => (params[:direction] == 'reverse' ? 'forward' : 'reverse') %></th>
-    <th><%= link_to 'Dispatch Date', :order => :date, :direction => (params[:direction] == 'reverse' ? 'forward' : 'reverse') %></th>
-    <th><%= link_to 'Last Updated', :order => :updated, :direction => (params[:direction] == 'reverse' ? 'forward' : 'reverse') %></th>
+    <th><%= link_to 'ID', :order => :id, :id_direction => (params[:id_direction] == 'asc' ? 'desc' : 'asc') %></th>
+    <th><%= link_to 'Status', :order => :complete, :complete_direction => (params[:complete_direction] == 'asc' ? 'desc' : 'asc') %></th>
+    <th><%= link_to 'Dispatcher', :order => :dispatcher, :dispatcher_direction => (params[:dispatcher_direction] == 'asc' ? 'desc' : 'asc') %></th>
+    <th><%= link_to 'Team', :order => :team, :team_direction => (params[:team_direction] == 'asc' ? 'desc' : 'asc') %></th>
+    <th><%= link_to 'Job', :order => :job, :job_direction => (params[:job_direction] == 'asc' ? 'desc' : 'asc') %></th>
+    <th><%= link_to 'Dispatch Date', :order => :date, :date_direction => (params[:date_direction] == 'asc' ? 'desc' : 'asc') %></th>
+    <th><%= link_to 'Last Updated', :order => :updated, :updated_direction => (params[:updated_direction] == 'asc' ? 'desc' : 'asc') %></th>
   </tr>
 <%= paginate @dispatches %>
 <% @dispatches.each do |dispatch| %>
