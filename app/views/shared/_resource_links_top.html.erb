@@ -1,13 +1,24 @@
-<%= link_to 'cities', cities_path, :class => 'right tab' %>
-<%= link_to 'neighborhoods', neighborhoods_path, :class => 'right tab' %>
-<%= link_to 'homes', units_path, :class => 'right tab' %>
-<%= link_to 'centers', operations_centers_path, :class => 'right tab' %>
-<%= link_to 'people', people_path, :class => 'right tab' %>
-<%= link_to 'teams', teams_path, :class => 'right tab' %>
-<%= link_to 'skills', skills_path, :class => 'right tab' %>
-<%= link_to 'jobs', jobs_path, :class => 'right tab' %>
-<%= link_to 'dispatches', dispatches_path, :class => 'right tab' %>
-<%= link_to 'aptitudes', aptitudes_path, :class => 'right tab' %>
-<%= link_to 'assignments', assignments_path, :class => 'right tab' %>
-<%= link_to 'deployments', deployments_path, :class => 'right tab' %>
+<div id="people_tabs" class="tab_group">
+  <%= link_to 'people', '',  :class => 'big tab' %>
+  <br>
+  <%= link_to 'volunteers', people_path, :class => 'tab' %>
+  <%= link_to 'admins', team_admins_path, :class => 'tab' %>
+  <%= link_to 'residents', residents_path, :class => 'tab' %>
+  <%= link_to 'coordinators', coordinators_path, :class => 'tab' %>
+</div>
+<div id="teams_tabs" class="tab_group">
+  <%= link_to 'teams', teams_path, :class => 'big tab' %>
+  <br>
+  <%= link_to 'deployments', deployments_path, :class => 'tab' %>
+  <%= link_to 'dispatches', dispatches_path, :class => 'tab' %>
+  <%= link_to 'roles', roles_path, :class => 'tab' %>
+</div>
+<div id="homes_tabs" class="tab_group">
+  <%= link_to 'homes', units_path, :class => 'big tab' %>
+  <br>
+  <%= link_to 'tasks', tasks_path, :class => 'tab' %>
+  <%= link_to 'phases', phase_templates_path, :class => 'tab' %>
+  <%= link_to 'jobs', jobs_path, :class => 'tab' %>
+</div>
+
 <%= link_to 'add resident', new_resident_path, :class => 'right tab' %>

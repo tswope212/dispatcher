@@ -1,20 +1,45 @@
 <%= clearfix %>
-<%= link_to 'waivers', waivers_path, :class => 'right tab' %>
-<%= link_to 'signatures', signatures_path, :class => 'right tab' %>
-<%= link_to 'streets', streets_path, :class => 'right tab' %>
-<%= link_to 'addresses', addresses_path, :class => 'right tab' %>
-<%= link_to 'phases', phase_templates_path, :class => 'right tab' %>
-<%= link_to 'tasks', tasks_path, :class => 'right tab' %>
+<div id="centers_tabs" class="tab_group">
+  <%= link_to 'centers', operations_centers_path, :class => 'big tab' %>
+  <br>
+  <%= link_to 'assignments', assignments_path, :class => 'tab' %>  
+</div>
+
+<div id="addresses_tabs" class="tab_group">
+  <%= link_to 'addresses', addresses_path, :class => 'big tab' %>
+  <br>
+  <%= link_to 'streets', streets_path, :class => 'tab' %>
+  <%= link_to 'neighborhoods', neighborhoods_path, :class => 'tab' %>
+  <%= link_to 'cities', cities_path, :class => 'tab' %>
+</div>
+
+<div id="waivers_tabs" class="tab_group">
+  <%= link_to 'waivers', waivers_path, :class => 'big tab' %>
+  <br>
+  <%= link_to 'signatures', signatures_path, :class => 'tab' %>
+  <%= link_to 'task-waivers', task_waivers_path, :class => 'tab' %>
+</div>
+
+
+
+
+
+
+
+<%= link_to 'skills', skills_path, :class => 'right tab' %>
+
+
+<%= link_to 'aptitudes', aptitudes_path, :class => 'right tab' %>
+
+
+
 <%= link_to 'languages', languages_path, :class => 'right tab' %>
 <%= link_to 'proficiencies', proficiencies_path, :class => 'right tab' %>
-<%= link_to 'admins', team_admins_path, :class => 'right tab' %>
-<%= link_to 'residents', residents_path, :class => 'right tab' %>
+
 <%= clearfix %>
-<%= link_to 'task-waivers', task_waivers_path, :class => 'right tab' %>
 <%= link_to 'steps', steps_path, :class => 'right tab' %>
-<%= link_to 'roles', roles_path, :class => 'right tab' %>
+
 <%= link_to 'categories', categories_path, :class => 'right tab' %>
 <%= link_to 'notes', notes_path, :class => 'right tab' %>
 <%= link_to 'coordinations', coordinations_path, :class => 'right tab' %>
-<%= link_to 'coordinators', coordinators_path, :class => 'right tab' %>
 <%= link_to 'feedbacks', feedbacks_path, :class => 'right tab' %>
