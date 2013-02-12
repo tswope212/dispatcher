@@ -3,8 +3,9 @@
 
 <table>
   <tr>
-    <th>Name</th>
-    <th><%= link_to 'primary_phone_number', :order => :phone, :direction => (params[:direction] == 'reverse' ? 'forward' : 'reverse') %></th>
+    <th><%= link_to 'First', :order => :first_name, :first_name_direction => (params[:first_name_direction] == 'asc' ? 'desc' : 'asc') %>/
+        <%= link_to 'Last', :order => :last_name, :last_name_direction => (params[:last_name_direction] == 'asc' ? 'desc' : 'asc') %></th>
+    <th><%= link_to 'primary_phone_number', :order => :phone, :phone_direction => (params[:phone_direction] == 'asc' ? 'desc' : 'asc') %></th>
     <th># of homes</th>
   </tr>
 <%= paginate @residents %>
