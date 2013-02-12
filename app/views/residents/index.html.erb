@@ -1,5 +1,6 @@
 <h1>Residents list</h1>
-<%= link_to 'New Resident', new_resident_path %>
+<%= button_to 'New Resident', new_resident_path, :method => :get, :class => 'right new_button'%>
+
 <table>
   <tr>
     <th></th>
@@ -19,5 +20,3 @@
 </table>
 <%= paginate @residents %>
 <br />
-
-<%= link_to 'New Resident', new_resident_path %>

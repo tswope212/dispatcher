@@ -4,7 +4,7 @@
   <%= text_field_tag :query, params[:query] %>
   <%= submit_tag :search %>
 <% end %>
-
+<%= button_to 'New Unit', new_unit_path, :method => :get, :class => 'right new_button' %>
 <table>
   <tr>
     <th>Name</th>
@@ -35,7 +35,7 @@
 <%= paginate @units %>
 <br />
 
-<%= link_to 'New Unit', new_unit_path %>
+
 <%= link_to_function 'upload csv', "$('#upload_form').show()" %>
 <div id="upload_form">
   <%= form_tag upload_units_path, :multipart => true do %>
