@@ -14,14 +14,14 @@
 <%= link_to 'Edit', edit_street_path(@street) %> |
 <%= link_to 'Back', streets_path %>
 
-<% @addresses.in_groups_of(4, nil) do |address_group| %>
-  <div class="address_row">
-    <% address_group.each do |address| %>
+<table>
+  <% @addresses.each do |address| %>
+    <tr>
       <% if address %>
-        <strong><%= link_to address.street_number, address %></strong>
-        (<%= link_to pluralize(address.jobs.impending.count, 'job') + ' impending', address_jobs_path(address, :order => 'impending') %>, 
-        <%= link_to pluralize(address.jobs.undispatched.count, 'job') + ' undispatched', address_jobs_path(address, :order => 'undispatched') %>)
+        <td><strong><%= link_to address.street_number, address %></strong></td>
+        <td><%= link_to pluralize(address.jobs.impending.count, 'job') + ' impending', address_jobs_path(address, :order => 'impending') %></td>
+        <td><%= link_to pluralize(address.jobs.undispatched.count, 'job') + ' undispatched', address_jobs_path(address, :order => 'undispatched') %></td>
       <% end %>
-    <% end %>
-  </div>
-<% end %>
+    </tr>
+  <% end %>
+</table>
