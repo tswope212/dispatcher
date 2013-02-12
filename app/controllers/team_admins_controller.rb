@@ -74,6 +74,10 @@ class TeamAdminsController < ApplicationController
   def activate
     @team_admin = TeamAdmin.find params[:id]
     @team_admin.update_attribute :active, true
+    
+    @team_admin.send :generate_reset_password_token!
+    TeamAdminMailer.activation_message(@team_admin).deliver
+    
     redirect_to :action => :index
   end
   
