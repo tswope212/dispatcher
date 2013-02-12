@@ -3,9 +3,9 @@
 
 <table>
   <tr>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Name</th>
+    <th><%= link_to 'primary_phone_number', :order => :complete, :direction => (params[:direction] == 'reverse' ? 'forward' : 'reverse') %></th>
+    <th># of homes</th>
   </tr>
 <%= paginate @residents %>
 <% @residents.each do |resident| %>
@@ -20,3 +20,5 @@
 </table>
 <%= paginate @residents %>
 <br />
+
+<%= link_to 'ID', :order => :complete, :direction => (params[:direction] == 'reverse' ? 'forward' : 'reverse') %>

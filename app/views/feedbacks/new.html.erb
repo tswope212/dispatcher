@@ -20,6 +20,7 @@
     <th>Primary Contact</th>
     <th>Email</th>
     <th>Phone</th>
+    <th>GroupMe</th>
   </tr>
   <% @teams.each do |team| %>
     <tr class="<%= cycle 'white', 'light-gray' %>">
@@ -27,6 +28,7 @@
       <td><%= team.person.andand.name %></td>
       <td><%= team.person.andand.email %></td>
       <td><%= team.person.andand.primary_phone_number %></td>
+      <td><%= team.group_me_number %></td>
     </tr>
   <% end %>
 </table>
