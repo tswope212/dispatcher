@@ -1,6 +1,11 @@
 <h1>Listing signatures</h1>
 <%= link_to 'New Signature', new_signature_path, :method => :get, :class => 'right new_button' %>
 
+<%= form_tag search_signatures_path do %>
+  <%= text_field_tag :query %>
+  <%= submit_tag :find %>
+<% end %>
+
 <table>
   <tr>
     <th>Waiver</th>
