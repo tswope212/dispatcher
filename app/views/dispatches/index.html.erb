@@ -9,7 +9,7 @@
 
 <table>
   <tr class='caps'>
-    <th><%= link_to 'ID', :order => :complete, :direction => (params[:direction] == 'reverse' ? 'forward' : 'reverse') %></th>
+    <th><%= link_to 'ID', :order => :id, :direction => (params[:direction] == 'reverse' ? 'forward' : 'reverse') %></th>
     <th><%= link_to 'Status', :order => :complete, :direction => (params[:direction] == 'reverse' ? 'forward' : 'reverse') %></th>
     <th><%= link_to 'Dispatcher', :order => :dispatcher, :direction => (params[:direction] == 'reverse' ? 'forward' : 'reverse') %></th>
     <th><%= link_to 'Team', :order => :team, :direction => (params[:direction] == 'reverse' ? 'forward' : 'reverse') %></th>

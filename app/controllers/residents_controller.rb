@@ -4,7 +4,13 @@ class ResidentsController < ApplicationController
   # GET /residents
   # GET /residents.json
   def index
-    @residents = Resident.page(params[:page])
+    sort_order = params[:direction] == 'reverse' ? ' desc' : ' asc'
+    
+    @residents = if params[:order] == 'phone'
+      Resident.order('primary_phone_number' + sort_order)
+    else
+      Resident
+    end.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

@@ -21,6 +21,8 @@ class DispatchesController < ApplicationController
       Dispatch.joins(:task).order('tasks.name' + sort_order)
     when 'date'
       Dispatch.order('created_at' + sort_order)
+    when 'id'
+      Dispatch.order('id' + sort_order)
     else
       Dispatch.recent
     end.page(params[:page])
