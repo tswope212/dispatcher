@@ -17,6 +17,8 @@ class PeopleController < ApplicationController
       Person.order('email ' + params[:email_direction])
     elsif params[:sort] == 'phone'
       Person.order('primary_phone_number ' + params[:phone_direction])
+    elsif params[:sort] == 'updated'
+      Person.order('updated_at ' + params[:updated_direction])
     else
       Person
     end.page(params[:page])

@@ -6,6 +6,7 @@
     <%= link_to 'Last', :sort => :last_name, :last_name_direction => (params[:last_name_direction] == 'asc' ? 'desc' : 'asc') %></th>
     <th><%= link_to 'Phone #', :sort => :phone, :phone_direction => (params[:phone_direction] == 'asc' ? 'desc' : 'asc') %></th>
     <th><%= link_to 'Email', :sort => :email, :email_direction => (params[:email_direction] == 'asc' ? 'desc' : 'asc') %></th>
+    <th><%= link_to 'Updated', :sort => :updated, :updated_direction => (params[:updated_direction] == 'asc' ? 'desc' : 'asc') %></th>
   </tr>
 <%= paginate @people %>
 <% @people.each do |person| %>
@@ -13,6 +14,7 @@
     <td><%= link_to_name person %></td>
     <td><%= person.primary_phone_number %></td>
     <td><%= mail_to person.email %></td>
+    <td><%= person.updated_at.strftime("%m/%d/%y %I %P") %></td>
     <td><%= link_to 'remove', person_path(person), :method => :delete, :confirm => "Ready to remove #{person.first_name}?" %></td>
   </tr>
 <% end %>
