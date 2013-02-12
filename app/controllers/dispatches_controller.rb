@@ -28,7 +28,10 @@ class DispatchesController < ApplicationController
     
     @dispatches = @dispatches.send(params[:filter]) if params[:filter].present?
     
-    @dispatches = Kaminari.paginate_array(Dispatch.recent.sort_by { |d| d.job.andand.completion_state.to_s }).page(params[:page]) if params[:order] == 'complete'
+    if params[:order] == 'complete'
+      @dispatches = (params[:complete_direction] == 'desc') ? Kaminari.paginate_array(Dispatch.recent.sort_by { |d| d.job.andand.completion_state.to_s }.reverse) : Kaminari.paginate_array(Dispatch.recent.sort_by { |d| d.job.andand.completion_state.to_s })
+      @dispatches = @dispatches.page(params[:page])
+    end
 
     respond_to do |format|
       format.html # index.html.erb
