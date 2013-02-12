@@ -10,6 +10,8 @@ class TeamsController < ApplicationController
       City.find(params[:city_id]).teams.alphabetical
     elsif params[:language_id]
       Language.find(params[:language_id]).teams
+    elsif params[:order] == 'newest_member'
+      Team.by_newest_member
     else
       Team.alphabetical
     end.page(params[:page])

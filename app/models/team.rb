@@ -7,5 +7,6 @@ class Team < ActiveRecord::Base
   has_many :jobs, :through => :dispatches
   attr_accessible :name, :person_id, :image, :group_me_number
   scope :alphabetical, :order => :name
+  scope :by_newest_member, joins(:roles).order('roles.created_at')
   mount_uploader :image, ProfileImageUploader
 end
