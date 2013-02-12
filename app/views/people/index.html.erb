@@ -2,10 +2,10 @@
 
 <table>
   <tr>
-    <th><%= link_to 'First', :sort => :first_name, :direction => (params[:direction] == 'reverse' ? 'forward' : 'reverse') %>/
-    <%= link_to 'Last', :sort => :last_name, :direction => (params[:direction] == 'reverse' ? 'forward' : 'reverse') %></th>
-    <th><%= link_to 'Phone #', :sort => :phone, :direction => (params[:direction] == 'reverse' ? 'forward' : 'reverse') %></th>
-    <th><%= link_to 'Email', :sort => :email, :direction => (params[:direction] == 'reverse' ? 'forward' : 'reverse') %></th>
+    <th><%= link_to 'First', :sort => :first_name, :first_name_direction => (params[:first_name_direction] == 'asc' ? 'desc' : 'asc') %>/
+    <%= link_to 'Last', :sort => :last_name, :last_name_direction => (params[:last_name_direction] == 'asc' ? 'desc' : 'asc') %></th>
+    <th><%= link_to 'Phone #', :sort => :phone, :phone_direction => (params[:phone_direction] == 'asc' ? 'desc' : 'asc') %></th>
+    <th><%= link_to 'Email', :sort => :email, :email_direction => (params[:email_direction] == 'asc' ? 'desc' : 'asc') %></th>
   </tr>
 <%= paginate @people %>
 <% @people.each do |person| %>

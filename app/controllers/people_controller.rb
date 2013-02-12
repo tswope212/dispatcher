@@ -9,16 +9,14 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.json
   def index
-    sort_order = params[:direction] == 'reverse' ? ' desc' : ' asc'
-    
     @people = if params[:sort] == 'first_name'
-      Person.order('first_name' + sort_order)
+      Person.order('first_name ' + params[:first_name_direction])
     elsif params[:sort] == 'last_name'
-      Person.order('last_name' + sort_order)
+      Person.order('last_name ' + params[:last_name_direction])
     elsif params[:sort] == 'email'
-      Person.order('email' + sort_order)
+      Person.order('email ' + params[:email_direction])
     elsif params[:sort] == 'phone'
-      Person.order('primary_phone_number' + sort_order)
+      Person.order('primary_phone_number ' + params[:phone_direction])
     else
       Person
     end.page(params[:page])
