@@ -1,5 +1,5 @@
 <h1>Team member roles</h1>
-<%= button_to 'New Role', new_role_path if current_team_admin, :method => :get, :class => 'right new_button' %>
+<%= button_to 'New Role', new_role_path, :method => :get, :class => 'right new_button' if current_team_admin %>
 
 <table>
   <tr>
