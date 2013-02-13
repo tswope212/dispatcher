@@ -42,7 +42,7 @@
 
           <%= clearfix %>
           <%= render 'shared/coordinator_tabs' if current_coordinator %>
-          <%= render 'shared/person_resource_links' if current_person %>
+          <%= render 'shared/person_resource_links' if current_person && !current_team_admin %>
           <%= render 'shared/resident_resource_links' if current_resident %>
           <%= render 'shared/resource_links_top' if current_team_admin %>
           <%= clearfix %>
@@ -51,9 +51,6 @@
             <%= link_to 'residents', assistance_registration_path, :class => 'right tab' %>
             <%= link_to 'coordinators', new_coordinator_registration_path, :class => 'right tab' %>
             <%= link_to 'volunteers', new_person_registration_path, :class => 'right tab' %>
-            <%= link_to 'sign in', new_person_session_path, :class => 'right tab' %>
-          <% else %>
-            <%= link_to 'sign in', new_person_session_path %>
           <% end %>
           <%= clearfix %>
           <br>
