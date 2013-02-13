@@ -18,6 +18,8 @@ class UnitsController < ApplicationController
       Unit.joins(:resident).order('residents.last_name ' + params[:last_name_direction])
     elsif params[:order] == 'name'
       Unit.order('name ' + params[:name_direction])
+    elsif params[:order] == 'address'
+      Kaminari.paginate_array(Address.joins(:street, :units).order("streets.name #{params[:address_direction]}").map(&:units).flatten)
     else
       Unit
     end.page(params[:page])
