@@ -10,6 +10,11 @@ class SignaturesController < ApplicationController
       format.json { render json: @signatures }
     end
   end
+  
+  def search
+    @signatures = Signature.search params[:query]
+    render :action => :index
+  end
 
   # GET /signatures/1
   # GET /signatures/1.json

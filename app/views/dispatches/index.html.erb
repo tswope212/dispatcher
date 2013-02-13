@@ -3,7 +3,7 @@ Click on columns to sort them.  Click on them again to reverse sort them.
 <br><br>
 <%= link_to 'unscheduled', :filter => 'unscheduled' %>
 <%= link_to 'scheduled', :filter => 'scheduled' %>
-<%= link_to 'in progress', :filter => 'incomplete' %>
+<%= link_to 'in progress', :filter => 'started' %>
 <%= link_to 'completed', :filter => 'complete' %>
 
 <%= button_to 'New Dispatch', new_dispatch_path, :method => :get, :class => 'right new_button' if current_team_admin %>

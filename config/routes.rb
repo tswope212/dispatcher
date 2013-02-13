@@ -66,7 +66,11 @@ Dispatcher::Application.routes.draw do
   end
 
 
-  resources :signatures
+  resources :signatures do
+    collection do
+      post :search
+    end
+  end
 
 
   resources :waivers do

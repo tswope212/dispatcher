@@ -1,5 +1,5 @@
 <h1>Waivers</h1>
-<%= link_to 'New Waiver', new_waiver_path if current_team_admin, :method => :get, :class => 'right new_button' %>
+<%= button_to 'New Waiver', new_waiver_path, :method => :get, :class => 'right new_button' if current_team_admin %>
 
 
 <table>
