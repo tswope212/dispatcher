@@ -164,6 +164,7 @@ Dispatcher::Application.routes.draw do
   end
   
   match '/volunteer_introduction', :controller => 'dispatches', :action => 'volunteer_introduction'
+  match '/about', :controller => 'dispatches', :action => 'about'
   
   root :to => 'dispatches#introduction'
 
