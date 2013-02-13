@@ -8,3 +8,37 @@
 .tab_group {
 	display: inline-block;
 }
+
+a.big.tab {
+	padding: 10px 60px 10px 60px;
+}
+
+#people_tabs a.big.tab {
+	padding-left: 110px;
+	padding-right: 110px;
+}
+
+#teams_tabs a.big.tab {
+	padding-left: 75px;
+	padding-right: 75px;
+}
+
+#homes_tabs a.big.tab {
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
+#addresses_tabs a.big.tab {
+	padding-left: 45px;
+	padding-right: 45px;
+}
+
+#waivers_tabs a.big.tab {
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
+#centers_tabs a.big.tab {
+	padding-left: 40px;
+	padding-right: 40px;
+}
