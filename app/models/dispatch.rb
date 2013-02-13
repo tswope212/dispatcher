@@ -6,8 +6,10 @@ class Dispatch < ActiveRecord::Base
   attr_accessible :team_id, :job_id
   
   scope :recent, order('created_at desc')
+  scope :unstarted, joins(:job).where('jobs.actual_start is null')
   scope :incomplete, joins(:job).where('jobs.actual_end is null')
-  scope :unscheduled, joins(:job).where('jobs.scheduled_start is null')
+  scope :started, incomplete.joins(:job).where('jobs.actual_start is not null')
+  scope :unscheduled, unstarted.incomplete.joins(:job).where('jobs.scheduled_start is null')
   scope :scheduled, joins(:job).where('jobs.scheduled_start is not null and jobs.actual_start is null')
   scope :complete, joins(:job).where('jobs.actual_end is not null')
   
