@@ -12,6 +12,9 @@ en:
         other: "%{count} errors prohibited this %{resource} from being saved:"
 
   devise:
+    team_admin_registrations:
+      team_admin:
+        signed_up_but_inactive: 'The admin account is ready. An email was sent to activate it.'
     failure:
       already_authenticated: 'You are already signed in.'
       unauthenticated: 'You need to sign in or sign up before continuing.'
