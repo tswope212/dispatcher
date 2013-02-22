@@ -121,21 +121,33 @@ class UnitsController < ApplicationController
   def upload
     csv = params[:csv][:data]
     data = csv.read
-    CSV.parse(data, :headers => :first_row) do |unit|
-      if unit['Address'] =~ /(\d+)\s+([\w\s]+)/
+    # CSV.parse(data, :headers => :first_row) do |unit|
+    #   if unit['Address'] =~ /(\d+)\s+([\w\s]+)/
+    #     street_number = $1
+    #     street_name = $2
+    #   else
+    #     street_number = unit['Address']
+    #   end
+    #   neighborhood = Neighborhood.find_or_create_by_name(unit['Neighborhood']) if unit['Neighborhood'].present?
+    #   street = Street.find_or_create_by_name street_name
+    #   address = Address.find_or_create_by_street_number street_number, :street => street, :neighborhood => neighborhood
+    #   unit['Contact Name'] =~ /([\w\s]+)\s+([\w\-]+)/
+    #   first_name = $1
+    #   last_name = $2
+    #   resident = Resident.create :first_name => first_name, :last_name => last_name, :email => "#{first_name.andand.gsub(/\s/, '')}-#{last_name}-#{SecureRandom.urlsafe_base64(4)}@disasterdispatcher.net", :password => 'password', :password_confirmation => 'password', :primary_phone_number => unit['Phone']
+    #   unit = Unit.create :address => address, :name => unit['Name'], :resident => resident, :power_on => (unit['Power On?'] == 'Yes'), :legal_needs => unit['Legal Assistance'], :heater_needed => (unit['Is a Heater Needed?'] == 'Yes'), :medical_needs => unit['Healthcare Needs'], :insurance_situation => unit['FEMA Visited House? What color tag? Insurance?'], :note => "Category:#{unit['Category']}\nSpoke to Resident:#{unit['Spoke to Resident']}\nSupplies:#{unit['Supplies']}\nLabor:#{unit['Labor?']}\nPartnering with F2F:#{unit['Partnering with F2F']}\nComments:#{unit['Comments']}\nDate:#{unit['Date']}\nTime:#{unit['Time']}\nScheduling:#{unit['Scheduling']}\nHousing Assistance:#{unit['Housing Assistance']}\nCrew Leader:#{unit['Crew Leader']}"
+    # end
+    
+
+    CSV.parse(data, :headers => :first_row) do |survey|
+      if survey['Street'] =~ /(\d+)\s+([\w\s]+)/
         street_number = $1
         street_name = $2
-      else
-        street_number = unit['Address']
       end
-      neighborhood = Neighborhood.find_or_create_by_name(unit['Neighborhood']) if unit['Neighborhood'].present?
       street = Street.find_or_create_by_name street_name
-      address = Address.find_or_create_by_street_number street_number, :street => street, :neighborhood => neighborhood
-      unit['Contact Name'] =~ /([\w\s]+)\s+([\w\-]+)/
-      first_name = $1
-      last_name = $2
-      resident = Resident.create :first_name => first_name, :last_name => last_name, :email => "#{first_name.andand.gsub(/\s/, '')}-#{last_name}-#{SecureRandom.urlsafe_base64(4)}@disasterdispatcher.net", :password => 'password', :password_confirmation => 'password', :primary_phone_number => unit['Phone']
-      unit = Unit.create :address => address, :name => unit['Name'], :resident => resident, :power_on => (unit['Power On?'] == 'Yes'), :legal_needs => unit['Legal Assistance'], :heater_needed => (unit['Is a Heater Needed?'] == 'Yes'), :medical_needs => unit['Healthcare Needs'], :insurance_situation => unit['FEMA Visited House? What color tag? Insurance?'], :note => "Category:#{unit['Category']}\nSpoke to Resident:#{unit['Spoke to Resident']}\nSupplies:#{unit['Supplies']}\nLabor:#{unit['Labor?']}\nPartnering with F2F:#{unit['Partnering with F2F']}\nComments:#{unit['Comments']}\nDate:#{unit['Date']}\nTime:#{unit['Time']}\nScheduling:#{unit['Scheduling']}\nHousing Assistance:#{unit['Housing Assistance']}\nCrew Leader:#{unit['Crew Leader']}"
+      address = Address.find_or_create_by_street_number street_number, :street => street
+      resident = Resident.create :first_name => survey['First Name'], :last_name => survey['Last Name'], :email => survey['Email'], :password => 'password', :password_confirmation => 'password', :primary_phone_number => survey['Phone']
+      Unit.create :address => address, :name => 'Main Unit', :resident => resident, :power_on => (survey['Do you have electricity?'] == 'YES'), :legal_needs => survey['Does anyone need to speak with a lawyer? '], :heater_needed => (survey['Do you have heat?'] == 'NO'), :medical_needs => survey['Does anyone in your household need medical attention? '], :insurance_situation => survey['Name of insurers:']
     end
     redirect_to :action => :index
   end
