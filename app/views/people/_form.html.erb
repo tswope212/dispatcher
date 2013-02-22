@@ -25,7 +25,7 @@
     <%= f.label :date_of_birth, 'Birth Year' %>
   </div>
   <div class="field">
-    <%= image_tag @person.image, :id => 'user_image' %><br>
+    <%= image_tag @person.image, :id => 'user_image' if @person.image.present? %><br>
     <%= f.file_field :image %>
   </div>
 
