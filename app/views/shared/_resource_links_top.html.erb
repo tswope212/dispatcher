@@ -10,7 +10,7 @@
   <%= link_to 'teams', teams_path, :class => 'big tab' %>
   <br>
   <%= link_to 'deployments', deployments_path, :class => 'tab' %>
-  <%= link_to 'dispatches', dispatches_path, :class => 'tab' %>
+  <%= link_to 'dispatches', dispatches_path(:filter => :unscheduled), :class => 'tab' %>
   <%= link_to 'roles', roles_path, :class => 'tab' %>
 </div>
 <div id="homes_tabs" class="tab_group">
