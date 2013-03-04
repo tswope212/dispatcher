@@ -12,6 +12,8 @@ class JobsController < ApplicationController
       else
         Address.find(params[:address_id]).jobs
       end.page(params[:page])
+    elsif params[:unit_id]
+      Unit.find(params[:unit_id]).jobs.page(params[:page])
     elsif current_coordinator
       current_coordinator.jobs.page(params[:page])
     elsif params[:sort] == 'complete'

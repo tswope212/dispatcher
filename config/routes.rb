@@ -134,6 +134,7 @@ Dispatcher::Application.routes.draw do
 
   resources :units do
     resources :residents
+    resources :jobs
     member do
       get :phase
     end
