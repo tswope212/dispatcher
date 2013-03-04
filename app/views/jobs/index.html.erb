@@ -17,7 +17,7 @@
     <td><%= link_to_name job.task %></td>
     <td><%= link_to_name job.unit, :full_name %></td>
     <td><%= job.languages.map(&:name).to_sentence %></td>
-    <td><%= job.completion_state %><%= completion_tools(job)%></td>
+    <td><%= job.completion_state %><br><%= completion_tools(job) %></td>
     <td>
       <%= job.teams.map { |team| link_to_name team }.join.html_safe %>
       <%= link_to 'dispatch a team', new_dispatch_path(:job_id => job.id) %>
