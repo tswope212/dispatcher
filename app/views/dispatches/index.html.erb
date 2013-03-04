@@ -1,11 +1,12 @@
 <h1 class='caps'>Teams dispatched to jobs</h1>
 Click on columns to sort them.  Click on them again to reverse sort them.
 <br><br>
-<%= link_to 'unscheduled', :filter => 'unscheduled' %>
-<%= link_to 'scheduled', :filter => 'scheduled' %>
-<%= link_to 'in progress', :filter => 'started' %>
-<%= link_to 'completed', :filter => 'complete' %>
-
+<div id="status_tabs">
+  <%= link_to 'unscheduled', {:filter => 'unscheduled'}, :class => ('active' if params[:filter] == 'unscheduled') %>
+  <%= link_to 'scheduled', {:filter => 'scheduled'}, :class => ('active' if params[:filter] == 'scheduled') %>
+  <%= link_to 'in progress', {:filter => 'started'}, :class => ('active' if params[:filter] == 'started') %>
+  <%= link_to 'completed', {:filter => 'complete'}, :class => ('active' if params[:filter] == 'complete') %>
+</div>
 <%= button_to 'New Dispatch', new_dispatch_path, :method => :get, :class => 'right new_button' if current_team_admin %>
 
 <table>
@@ -18,22 +19,22 @@ Click on columns to sort them.  Click on them again to reverse sort them.
     <th><%= link_to 'Dispatch Date', :order => :date, :date_direction => (params[:date_direction] == 'asc' ? 'desc' : 'asc') %></th>
     <th><%= link_to 'Last Updated', :order => :updated, :updated_direction => (params[:updated_direction] == 'asc' ? 'desc' : 'asc') %></th>
   </tr>
-<%= paginate @dispatches %>
-<% @dispatches.each do |dispatch| %>
-  <tr class="<%= cycle('light-gray', 'white') %>">
-    <td><%= link_to dispatch.id, dispatch %></td>
-    <td><%= dispatch.job.andand.completion_state %></td>
-    <td><%= link_to_name dispatch.person %></td>
-    <td><%= link_to_name dispatch.team %></td>
-    <td><%= link_to_name dispatch.job %></td>
-    <td><%= dispatch.created_at.strftime("%m/%d/%y %I %P") %></td>
-    <td><%= dispatch.updated_at.strftime("%m/%d/%y %I %P") %></td>
-    <% if current_team_admin %>
-      <td><%= link_to 'Edit', edit_dispatch_path(dispatch) %></td>
-      <td><%= link_to 'Destroy', dispatch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <% end %>
-  </tr>
-<% end %>
+  <%= paginate @dispatches %>
+  <% @dispatches.each do |dispatch| %>
+    <tr class="<%= cycle('light-gray', 'white') %>">
+      <td><%= link_to dispatch.id, dispatch %></td>
+      <td><%= dispatch.job.andand.completion_state %></td>
+      <td><%= link_to_name dispatch.person %></td>
+      <td><%= link_to_name dispatch.team %></td>
+      <td><%= link_to_name dispatch.job %></td>
+      <td><%= dispatch.created_at.strftime("%m/%d/%y %I %P") %></td>
+      <td><%= dispatch.updated_at.strftime("%m/%d/%y %I %P") %></td>
+      <% if current_team_admin %>
+        <td><%= link_to 'Edit', edit_dispatch_path(dispatch) %></td>
+        <td><%= link_to 'Destroy', dispatch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tr>
+  <% end %>
 </table>
 <%= paginate @dispatches %>
 <br />
