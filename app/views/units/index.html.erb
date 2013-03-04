@@ -26,7 +26,8 @@
         <%= link_to 'add resident', new_unit_resident_path(unit) %>
       <% end %>
     </td>
-    <td><%= link_to 'Show', unit %></td>
+    <td><%= link_to pluralize(unit.jobs.incomplete.count, 'job'), unit_jobs_path(unit) %></td>
+    <td><%= link_to 'Show details', unit %></td>
     <td><%= unit.updated_at.strftime("%m/%d/%y %I %p") %></td>
     <td><%= link_to 'Edit', edit_unit_path(unit) %></td>
     <td><%= link_to 'Destroy', unit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
