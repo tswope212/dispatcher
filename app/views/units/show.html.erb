@@ -12,6 +12,7 @@
           <td>
             <% if current_team_admin %>
               <%= link_to_name job %>
+              <%= link_to '[x]', job_path(job), :method => :delete, :confirm => 'Ready to cancel this job?' %>
             <% else %>
               <%= job.name %>
             <% end %>
