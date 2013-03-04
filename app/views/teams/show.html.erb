@@ -17,6 +17,16 @@
   <%= @team.group_me_number %>
 </p>
 
+<p>
+  <b>phone number</b>
+  <%= @team.phone_number %>
+</p>
+
+<p>
+  <b>email</b>
+  <%= @team.email %>
+</p>
+
 <% @team.dispatches.incomplete.each do |dispatch| %>
   <%= div_for dispatch do |dispatch| %>
     <%= dispatch.job.scheduled_start.andand.strftime("%I:%M %p on %A, %b %d") %>

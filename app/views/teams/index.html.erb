@@ -15,7 +15,7 @@
     <th>Team Leader</th>
     <th><%= link_to 'Newest Member Joined', :order => :newest_member, :newest_member_direction => (params[:newest_member_direction] == 'asc' ? 'desc' : 'asc') %></th>
     <th><%= link_to 'Latest Job Completed', :order => :latest_job, :latest_job_direction => (params[:latest_job_direction] == 'asc' ? 'desc' : 'asc') %></th>
-    <td><%= link_to 'Formed', :order => :recent, :recent_direction => (params[:recent_direction] == 'asc' ? 'desc' : 'asc') %></td>
+    <th><%= link_to 'Formed', :order => :recent, :recent_direction => (params[:recent_direction] == 'asc' ? 'desc' : 'asc') %></th>
     <th></th>
     <th></th>
   </tr>
