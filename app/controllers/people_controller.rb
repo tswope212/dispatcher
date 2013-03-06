@@ -1,5 +1,5 @@
 class PeopleController < ApplicationController
-  before_filter :authenticate_team_admin!, :only => [:index, :show, :destroy]
+  before_filter :authenticate_team_admin!, :only => [:index, :show, :destroy, :email_export]
   before_filter :authenticate_person!, :only => [:home, :edit, :update]
 
   def home
@@ -27,6 +27,12 @@ class PeopleController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @people }
     end
+  end
+  
+  def email_export
+    @people = Person.all
+    
+    render :text => @people.map(&:email).compact.join(', ')
   end
 
   # GET /people/1

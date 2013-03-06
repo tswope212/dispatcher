@@ -129,6 +129,7 @@ Dispatcher::Application.routes.draw do
   resources :people do
     collection do
       get :home
+      get :email_export
     end
   end
 
