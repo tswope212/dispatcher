@@ -21,4 +21,4 @@
 </table>
 <%= paginate @people %>
 
-<%= link_to 'export email list', email_export_people_path %>
+<%= link_to 'export email list', email_export_people_path if current_team_admin %>
