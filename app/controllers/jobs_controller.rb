@@ -18,6 +18,8 @@ class JobsController < ApplicationController
       current_coordinator.jobs.page(params[:page])
     elsif params[:sort] == 'complete'
       Job.by_completion.page(params[:page])
+    elsif params[:sort] == 'task'
+      Job.by_task.page(params[:page])
     else
       Job.page(params[:page])
     end

@@ -2,7 +2,7 @@
 <%= button_to 'New Job', new_job_path, :method => :get, :class => 'right new_button' %>
 <table>
   <tr class="caps">
-    <th>Task</th>
+    <th><%= link_to 'Task', :sort => 'task' %></th>
     <th>Unit</th>
     <th>City</th>
     <th>Language(s)</th>

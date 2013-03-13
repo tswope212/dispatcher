@@ -19,6 +19,7 @@ class Job < ActiveRecord::Base
   scope :recent, order('created_at desc')
   scope :future, where("scheduled_end > ?", Time.now)
   scope :impending, order('scheduled_start asc').future
+  scope :by_task, joins(:task).order('tasks.name')
   
   def self.not_dispatched
     all - dispatched
