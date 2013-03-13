@@ -20,6 +20,8 @@ class JobsController < ApplicationController
       Job.by_completion.page(params[:page])
     elsif params[:sort] == 'task'
       Job.by_task.page(params[:page])
+    elsif params[:sort] == 'unit'
+      Kaminari.paginate_array(Address.joins(:street, :units).order("streets.name #{params[:address_direction]}").order("addresses.street_number #{params[:address_direction]}").map(&:units).flatten.map(&:jobs).flatten).page(params[:page])
     else
       Job.page(params[:page])
     end
