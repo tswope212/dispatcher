@@ -4,31 +4,32 @@ class JobsController < ApplicationController
   # GET /jobs
   # GET /jobs.json
   def index
+    params[:completion_scope] ||= 'all'
     @jobs = if params[:address_id]
       if params[:order] == 'impending'
         Address.find(params[:address_id]).jobs.impending
       elsif params[:order] == 'undispatched'
         Address.find(params[:address_id]).jobs.undispatched
       else
-        Address.find(params[:address_id]).jobs
-      end.page(params[:page])
+        scope_for_completion Address.find(params[:address_id]).jobs
+      end
     elsif params[:unit_id]
-      Unit.find(params[:unit_id]).jobs.page(params[:page])
+      scope_for_completion Unit.find(params[:unit_id]).jobs
     elsif current_coordinator
-      current_coordinator.jobs.page(params[:page])
+      scope_for_completion current_coordinator.jobs
     elsif params[:sort] == 'complete'
-      Job.by_completion.page(params[:page])
+      Job.by_completion
     elsif params[:sort] == 'task'
-      Job.by_task.page(params[:page])
+      scope_for_completion Job.by_task
     elsif params[:sort] == 'unit'
-      Kaminari.paginate_array(Address.joins(:street, :units).order("streets.name #{params[:address_direction]}").order("addresses.street_number #{params[:address_direction]}").map(&:units).flatten.map(&:jobs).flatten).page(params[:page])
+      Kaminari.paginate_array(Address.joins(:street, :units).order("streets.name #{params[:address_direction]}").order("addresses.street_number #{params[:address_direction]}").map(&:units).flatten.map(&:jobs).flatten)
     elsif params[:sort] == 'city'
-      Job.by_city.page(params[:page])
+      scope_for_completion Job.by_city
     elsif params[:sort] == 'team'
-      Kaminari.paginate_array(Team.alphabetical.map(&:jobs).flatten).page(params[:page])
+      Kaminari.paginate_array(Team.alphabetical.map(&:jobs).flatten)
     else
-      Job.page(params[:page])
-    end
+      scope_for_completion Job
+    end.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -138,6 +139,16 @@ class JobsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to jobs_url }
       format.json { head :no_content }
+    end
+  end
+  
+  protected
+  
+  def scope_for_completion collection
+    if params[:completion_scope].present?
+      collection.send params[:completion_scope]
+    else
+      collection
     end
   end
 end

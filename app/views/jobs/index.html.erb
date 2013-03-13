@@ -1,13 +1,20 @@
 <h1 class='caps'>Jobs</h1>
 <%= button_to 'New Job', new_job_path, :method => :get, :class => 'right new_button' %>
+<nav id="jobs_completion">
+  <%= link_to 'unstarted', :completion_scope => 'unstarted' %>
+  <%= link_to 'undispatched', :completion_scope => 'undispatched' %>
+  <%= link_to 'dispatched', :completion_scope => 'dispatched' %>
+  <%= link_to 'incomplete', :completion_scope => 'incomplete' %>
+  <%= link_to 'complete', :completion_scope => 'complete' %>
+</nav>
 <table>
   <tr class="caps">
-    <th><%= link_to 'Task', :sort => 'task' %></th>
-    <th><%= link_to 'Unit', :sort => 'unit' %></th>
-    <th><%= link_to 'City', :sort => 'city' %></th>
+    <th><%= link_to 'Task', :sort => 'task', :completion_scope => params[:completion_scope] %></th>
+    <th><%= link_to 'Unit', :sort => 'unit', :completion_scope => params[:completion_scope] %></th>
+    <th><%= link_to 'City', :sort => 'city', :completion_scope => params[:completion_scope] %></th>
     <th>Language(s)</th>
     <th><%= link_to 'Status', :sort => 'complete' %></th>
-    <th><%= link_to 'Team(s)', :sort => 'team' %></th>
+    <th><%= link_to 'Team(s)', :sort => 'team', :completion_scope => params[:completion_scope] %></th>
     <th>Waivers Signed?</th>
     <th></th>
     <th></th>
