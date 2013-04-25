@@ -25,7 +25,7 @@ class UnitsController < ApplicationController
     elsif params[:order] == 'address'
       Kaminari.paginate_array(Address.joins(:street, :units).order("streets.name #{params[:address_direction]}").order("addresses.street_number #{params[:address_direction]}").map(&:units).flatten)
     else
-      Unit
+      Unit.order('created_at desc')
     end.page(params[:page])
 
     respond_to do |format|
