@@ -16,8 +16,8 @@
     <th><%= link_to 'Status', :sort => 'complete' %></th>
     <th><%= link_to 'Team(s)', :sort => 'team', :completion_scope => params[:completion_scope] %></th>
     <th>Waivers Signed?</th>
-    <th>Created</th>
-    <th>Updated</th>
+    <th><%= link_to 'Created', :sort => 'created', :completion_scope => params[:completion_scope] %></th>
+    <th><%= link_to 'Updated', :sort => 'updated', :completion_scope => params[:completion_scope] %></th>
     <th></th>
   </tr>
 <%= paginate @jobs %>

@@ -27,6 +27,10 @@ class JobsController < ApplicationController
       scope_for_completion Job.by_city.page(params[:page])
     elsif params[:sort] == 'team'
       Kaminari.paginate_array(Team.alphabetical.map(&:jobs).flatten).page(params[:page])
+    elsif params[:sort] == 'created'
+      scope_for_completion Job.order('created_at desc').page(params[:page])
+    elsif params[:sort] == 'updated'
+      scope_for_completion Job.order('updated_at desc').page(params[:page])
     else
       scope_for_completion Job.page(params[:page])
     end
