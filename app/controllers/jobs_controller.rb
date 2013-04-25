@@ -4,7 +4,7 @@ class JobsController < ApplicationController
   # GET /jobs
   # GET /jobs.json
   def index
-    params[:completion_scope] ||= 'all'
+    # params[:completion_scope] ||= 'all'
     @jobs = if params[:address_id]
       if params[:order] == 'impending'
         Address.find(params[:address_id]).jobs.impending.page(params[:page])
