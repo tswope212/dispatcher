@@ -16,7 +16,8 @@
     <th><%= link_to 'Status', :sort => 'complete' %></th>
     <th><%= link_to 'Team(s)', :sort => 'team', :completion_scope => params[:completion_scope] %></th>
     <th>Waivers Signed?</th>
-    <th></th>
+    <th>Created</th>
+    <th>Updated</th>
     <th></th>
   </tr>
 <%= paginate @jobs %>
@@ -32,6 +33,8 @@
       <%= link_to 'dispatch a team', new_dispatch_path(:job_id => job.id) %>
     </td>
     <td><%= job.waived? %></td>
+    <td><%= job.created_at.strftime("%m/%d/%y") %></td>
+    <td><%= job.updated_at.strftime("%m/%d/%y") %></td>
     <td><%= link_to 'Show', job %></td>
     <% if current_team_admin %>
       <td><%= link_to 'Edit', edit_job_path(job) %></td>
