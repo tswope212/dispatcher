@@ -12,6 +12,8 @@ class UnitsController < ApplicationController
   def index
     @units = if params[:order] == 'updated'
       Unit.order('updated_at ' + params[:updated_direction])
+    elsif params[:order] == 'created'
+      Unit.order('created_at ' + params[:created_direction])
     elsif params[:order] == 'first_name'
       Unit.joins(:resident).order('residents.first_name ' + params[:first_name_direction])
     elsif params[:order] == 'last_name'

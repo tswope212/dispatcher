@@ -7,29 +7,29 @@ class JobsController < ApplicationController
     params[:completion_scope] ||= 'all'
     @jobs = if params[:address_id]
       if params[:order] == 'impending'
-        Address.find(params[:address_id]).jobs.impending
+        Address.find(params[:address_id]).jobs.impending.page(params[:page])
       elsif params[:order] == 'undispatched'
-        Address.find(params[:address_id]).jobs.undispatched
+        Address.find(params[:address_id]).jobs.undispatched.page(params[:page])
       else
-        scope_for_completion Address.find(params[:address_id]).jobs
+        scope_for_completion Address.find(params[:address_id]).jobs.page(params[:page])
       end
     elsif params[:unit_id]
-      scope_for_completion Unit.find(params[:unit_id]).jobs
+      scope_for_completion Unit.find(params[:unit_id]).jobs.page(params[:page])
     elsif current_coordinator
-      scope_for_completion current_coordinator.jobs
+      scope_for_completion current_coordinator.jobs.page(params[:page])
     elsif params[:sort] == 'complete'
-      Job.by_completion
+      Job.by_completion.page(params[:page])
     elsif params[:sort] == 'task'
-      scope_for_completion Job.by_task
+      scope_for_completion Job.by_task.page(params[:page])
     elsif params[:sort] == 'unit'
-      Kaminari.paginate_array(Address.joins(:street, :units).order("streets.name #{params[:address_direction]}").order("addresses.street_number #{params[:address_direction]}").map(&:units).flatten.map(&:jobs).flatten)
+      Kaminari.paginate_array(Address.joins(:street, :units).order("streets.name #{params[:address_direction]}").order("addresses.street_number #{params[:address_direction]}").map(&:units).flatten.map(&:jobs).flatten).page(params[:page])
     elsif params[:sort] == 'city'
-      scope_for_completion Job.by_city
+      scope_for_completion Job.by_city.page(params[:page])
     elsif params[:sort] == 'team'
-      Kaminari.paginate_array(Team.alphabetical.map(&:jobs).flatten)
+      Kaminari.paginate_array(Team.alphabetical.map(&:jobs).flatten).page(params[:page])
     else
-      scope_for_completion Job
-    end.page(params[:page])
+      scope_for_completion Job.page(params[:page])
+    end
 
     respond_to do |format|
       format.html # index.html.erb
