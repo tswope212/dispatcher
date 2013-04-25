@@ -30,7 +30,11 @@
     <td><%= job.completion_state %><br><%= completion_tools(job) %></td>
     <td>
       <%= job.teams.map { |team| link_to_name team }.join.html_safe %>
-      <%= link_to 'dispatch a team', new_dispatch_path(:job_id => job.id) %>
+      <%= form_for job.dispatches.new, :remote => true do |f| %>
+        <%= f.select :team_id, options_from_collection_for_select(Team.alphabetical, :id, :name), :include_blank => true %>
+        <%= f.submit :dispatch %>
+        <%= f.hidden_field :job_id %>
+      <% end %>
     </td>
     <td><%= job.waived? %></td>
     <td><%= job.created_at.strftime("%m/%d/%y") %></td>
