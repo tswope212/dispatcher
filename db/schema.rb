@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130304061002) do
+ActiveRecord::Schema.define(:version => 20130425231044) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "street_number"
@@ -414,6 +414,8 @@ ActiveRecord::Schema.define(:version => 20130304061002) do
     t.boolean  "need_carbon_monoxide_detector"
     t.boolean  "plan_to_return"
     t.boolean  "will_not_be_helped"
+    t.integer  "note_updated_by"
+    t.datetime "note_updated_at"
   end
 
   add_index "units", ["address_id"], :name => "index_units_on_address_id"

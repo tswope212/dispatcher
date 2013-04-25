@@ -13,7 +13,10 @@
       <%= link_to 'Last', :order => :last_name, :last_name_direction => (params[:last_name_direction] == 'asc' ? 'desc' : 'asc') %></th>
     <th></th>
     <th></th>
+    
     <th style="width:200px;"></th>
+    <th><%= link_to 'Note Update', :order => :note_updated, :note_updated_direction => (params[:note_updated_direction] == 'asc' ? 'desc' : 'asc') %></th>
+    
     <th><%= link_to 'Updated', :order => :updated, :updated_direction => (params[:updated_direction] == 'asc' ? 'desc' : 'asc') %></th>
     <th><%= link_to 'Date Created', :order => :created, :created_direction => (params[:created_direction] == 'asc' ? 'desc' : 'asc') %></th>
   </tr>
@@ -32,6 +35,7 @@
     <td><%= link_to pluralize(unit.jobs.incomplete.count, 'job'), unit_jobs_path(unit) %></td>
     <td><%= link_to 'Show details', unit %></td>
     <td><%= unit.note %></td>
+    <td><%= "updated #{time_ago_in_words unit.note_updated_at} ago by #{unit.note_updated_by.name}" if unit.note_updated_by %></td>
     <td><%= unit.updated_at.strftime("%m/%d/%y %I %p") %></td>
     <td><%= unit.created_at.strftime("%m/%d/%y") %></td>
     <td><%= link_to 'Edit', edit_unit_path(unit) %></td>

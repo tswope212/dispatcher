@@ -14,6 +14,8 @@ class UnitsController < ApplicationController
       Unit.order('updated_at ' + params[:updated_direction])
     elsif params[:order] == 'created'
       Unit.order('created_at ' + params[:created_direction])
+    elsif params[:order] == 'note_updated'
+      Unit.order('note_updated_at ' + params[:note_updated_direction])
     elsif params[:order] == 'first_name'
       Unit.joins(:resident).order('residents.first_name ' + params[:first_name_direction])
     elsif params[:order] == 'last_name'
@@ -96,6 +98,11 @@ class UnitsController < ApplicationController
   # PUT /units/1.json
   def update
     @unit = Unit.find(params[:id])
+    
+    if params[:unit].andand[:note].present? && (@unit.note.blank? || (@unit.note != params[:unit][:note]))
+      @unit.note_updated_by = current_person
+      @unit.note_updated_at = Time.now
+    end
 
     respond_to do |format|
       if @unit.update_attributes(params[:unit])

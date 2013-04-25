@@ -132,6 +132,12 @@
   <%= text_to_html @unit.note.to_s %>
 </p>
 
+<% if @unit.note_updated_by %>
+  <p>
+    last updated by <%= @unit.note_updated_by.name %> <%= time_ago_in_words(@unit.note_updated_at) %>
+  </p>
+<% end %>
+
 <p>
   updated on <%= @unit.updated_at.strftime("%m/%d/%y") %>
 </p>

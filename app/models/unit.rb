@@ -1,6 +1,7 @@
 class Unit < ActiveRecord::Base
   belongs_to :address
   belongs_to :resident
+  belongs_to :note_updated_by, :class_name => 'Person', :foreign_key => :note_updated_by
 
   has_one :city, :through => :address
   has_one :neighborhood, :through => :address
