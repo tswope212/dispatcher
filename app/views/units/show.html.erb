@@ -13,6 +13,12 @@
           <td>
             <% if current_team_admin %>
               <%= link_to_name job %>
+              <%= job.teams.map { |team| link_to_name team }.join.html_safe %>
+              <%= form_for job.dispatches.new, :remote => true do |f| %>
+                <%= f.select :team_id, options_from_collection_for_select(Team.alphabetical, :id, :name), :include_blank => true %>
+                <%= f.submit :dispatch %>
+                <%= f.hidden_field :job_id %>
+              <% end %>
               <%= button_to '[x]', job_path(job), :method => :delete, :confirm => 'Ready to cancel this job?' %>
             <% else %>
               <%= job.name %>
