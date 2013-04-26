@@ -1,24 +1,24 @@
 <div id="people_tabs" class="tab_group">
-  <%= link_to 'people', '',  :class => 'big tab' %>
+  <%= link_to 'people', '',  :class => 'big tab top_links' %>
   <br>
-  <%= link_to 'volunteers', people_path, :class => 'tab' %>
-  <%= link_to 'admins', team_admins_path, :class => 'tab' %>
-  <%= link_to 'residents', residents_path, :class => 'tab' %>
-  <%= link_to 'coordinators', coordinators_path, :class => 'tab' %>
+  <%= link_to 'volunteers', people_path, :class => 'tab top_links' %>
+  <%= link_to 'admins', team_admins_path, :class => 'tab top_links' %>
+  <%= link_to 'residents', residents_path, :class => 'tab top_links' %>
+  <%= link_to 'coordinators', coordinators_path, :class => 'tab top_links' %>
 </div>
 <div id="teams_tabs" class="tab_group">
-  <%= link_to 'teams', teams_path, :class => 'big tab' %>
+  <%= link_to 'teams', teams_path, :class => 'big tab top_links' %>
   <br>
-  <%= link_to 'deployments', deployments_path, :class => 'tab' %>
-  <%= link_to 'dispatches', dispatches_path(:filter => :unscheduled), :class => 'tab' %>
-  <%= link_to 'roles', roles_path, :class => 'tab' %>
+  <%= link_to 'deployments', deployments_path, :class => 'tab top_links' %>
+  <%= link_to 'dispatches', dispatches_path(:filter => :unscheduled), :class => 'tab top_links' %>
+  <%= link_to 'roles', roles_path, :class => 'tab top_links' %>
 </div>
 <div id="homes_tabs" class="tab_group">
-  <%= link_to 'homes', units_path, :class => 'big tab' %>
+  <%= link_to 'homes', units_path, :class => 'big tab top_links' %>
   <br>
-  <%= link_to 'tasks', tasks_path, :class => 'tab' %>
-  <%= link_to 'phases', phase_templates_path, :class => 'tab' %>
-  <%= link_to 'jobs', jobs_path, :class => 'tab' %>
+  <%= link_to 'tasks', tasks_path, :class => 'tab top_links' %>
+  <%= link_to 'phases', phase_templates_path, :class => 'tab top_links' %>
+  <%= link_to 'jobs', jobs_path, :class => 'tab top_links' %>
 </div>
 
-<%= link_to 'add resident', new_resident_path, :class => 'right tab' %>
+<%= link_to 'add resident', new_resident_path, :class => 'right tab top_links', :id => 'add_resident' %>

@@ -1,5 +1,4 @@
 .new_button {
-	margin-right: 30px;
 	margin-top: -40px;
 	text-transform: uppercase;
 	font-size: 1.2em;
@@ -10,35 +9,51 @@
 }
 
 a.big.tab {
-	padding: 10px 60px 10px 60px;
+	padding: 5px 60px 27px 60px;
 }
 
 #people_tabs a.big.tab {
-	padding-left: 110px;
-	padding-right: 110px;
+	padding-left: 116px;
+	padding-right: 116px;
+	margin-left: 10px;
+	text-transform: uppercase;
+	line-height: 28px;
+
 }
 
 #teams_tabs a.big.tab {
-	padding-left: 75px;
-	padding-right: 75px;
+	padding-left: 77px;
+	padding-right: 80px;
+	margin-left: 10px;
+	text-transform: uppercase;
+	line-height: 28px;
 }
 
 #homes_tabs a.big.tab {
 	padding-left: 40px;
 	padding-right: 40px;
+	margin-left: 10px;
+	text-transform: uppercase;
+	line-height: 28px;
 }
 
 #addresses_tabs a.big.tab {
-	padding-left: 45px;
-	padding-right: 45px;
+	padding-left: 52px;
+	padding-right: 60px;
+	text-transform: uppercase;
+	line-height: 28px;
 }
 
 #waivers_tabs a.big.tab {
-	padding-left: 40px;
-	padding-right: 40px;
+	padding-left: 46px;
+	padding-right: 46px;
+	text-transform: uppercase;
+	line-height: 28px;
 }
 
 #centers_tabs a.big.tab {
-	padding-left: 40px;
-	padding-right: 40px;
+	padding-left: 58px;
+	padding-right: 54px;
+	text-transform: uppercase;
+	line-height: 28px;
 }

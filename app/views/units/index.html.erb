@@ -1,10 +1,10 @@
 <h1>Homes</h1>
 
-<%= form_tag search_units_path, :method => :get do %>
+<%= button_to 'New Unit', new_unit_path, :method => :get, :class => 'right new_button' %>
+<%= form_tag search_units_path, :method => :get, :class => 'search_bar' do %>
   <%= text_field_tag :query, params[:query] %>
   <%= submit_tag :search %>
 <% end %>
-<%= button_to 'New Unit', new_unit_path, :method => :get, :class => 'right new_button' %>
 <table>
   <tr>
     <th><%= link_to 'Name', :order => :name, :name_direction => (params[:name_direction] == 'asc' ? 'desc' : 'asc') %></th>
@@ -29,7 +29,7 @@
       <% if unit.resident.present? %>
         <%= link_to_name unit.resident %>
       <% else %>
-        <%= link_to 'add resident', new_unit_resident_path(unit) %>
+        <%= link_to 'xadd resident', new_unit_resident_path(unit) %>
       <% end %>
     </td>
     <td><%= link_to pluralize(unit.jobs.incomplete.count, 'job'), unit_jobs_path(unit) %></td>

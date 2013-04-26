@@ -1,5 +1,6 @@
 .right {
 	float: right;
+	padding-left: 10px;
 }
 
 .clearboth {
@@ -10,28 +11,34 @@
 	border: 2px solid black;
 	border-top-left-radius: 8px;
 	border-top-right-radius: 8px;
-	padding: 2px;
+	padding: 4px;
 	font-weight: bold;
+	font-size: 13px;
 	text-decoration: none;
 	background-color: #f7f6f2;
 	position: relative;
-	bottom: -18px;
-	right: 28px;
+	bottom: -16px;
+	margin-left: 5px;
+	margin-right: -7px;
 	&:hover {
 		background-color: #2a2a2a;
 	}
 }
 
+.tab.bottom_links {
+	margin-left: 1px;
+}
+
 #content-area {
-	margin: 20px;
+	margin: 5px;
 	margin-bottom: 3px;
 	margin-top: 0px;
 	background-color: rgb(255, 255, 255);
 	border: 2px solid black;
 	border-radius: 9px;
-	max-width: 800px;
+	max-width: 940px;
 	min-height: 240px;
-	padding: 20px;
+	padding: 5px;
 	text-align:justify;
 }
 
@@ -41,6 +48,9 @@
 	}
 }
 
+#settings_link {
+	
+}
 @media all and (min-width:30em) and (max-width:48em) {
 	#frame {
 		width: 80%;
@@ -49,7 +59,7 @@
 
 @media all and (min-width:48em) {
 	#frame {
-		min-width: 800px;
+		min-width: 940px;
 		width: 50%;
 	}
 }
@@ -78,6 +88,7 @@ footer {
   text-align: center;
 	margin-bottom: 5px;
 	font-size: 10px;
+	height: 105px;
 	
 	.tagline {
 		width: 95%;
@@ -86,16 +97,43 @@ footer {
 	}
 }
 
-.header {
-  padding: 20px;
+#header {
+  padding: 5px;
+  padding-top: 2px;
+  padding-bottom: 0px;
   margin-bottom:0px;
-  margin: 20px;
 }
 
 #settings_link {
 	height: 15px;
+	padding-right: 2px;
 }
 
 body {
 	margin: 0px;
 }
+
+.search_bar {
+	float: right;
+	margin-top: -10px;	
+}
+
+.pagination {
+	margin-top: -10px;
+	margin-bottom: 10px;
+}
+
+#DD_logo {
+	margin-left: -18px;
+	margin-top: -8px;
+	margin-bottom: 25px;
+}
+
+#add_resident {
+	margin-right: 20px;
+	margin-top: 16px;
+}
+
+.bottom_links {
+	text-align: left;
+	}

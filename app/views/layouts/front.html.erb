@@ -10,32 +10,32 @@
     <div id="background-holder">
       <div id="frame">
         <div id="header">
-        	<%= image_tag 'disasterdispatcher_logo3.gif' %>
+        	<%= image_tag 'disasterdispatcher_logo3.gif', :id => "DD_logo" %>
           <% if current_coordinator %>
             <div class="right">
               You are signed in as a coordinator.<br>
-              <%= link_to image_tag('black_gear.png', :class => 'right', :id => 'settings_link') +current_coordinator.email, edit_coordinator_path(current_coordinator), :class => 'right' %> <br>
+              <%= link_to image_tag('black_gear.png', :id => 'settings_link') +current_coordinator.email, edit_coordinator_path(current_coordinator), :class => 'right' %> <br>
               <%= link_to 'sign out', destroy_coordinator_session_path, :method => :delete, :class => 'right' %>
             </div>
           <% end %>
           <% if current_person %>
             <div class="right">
               You are signed in as a volunteer.<br>
-              <%= link_to image_tag('black_gear.png', :class => 'right', :id => 'settings_link') +current_person.email, edit_person_path(current_person), :class => 'right' %> <br>
+              <%= link_to image_tag('black_gear.png', :id => 'settings_link') +current_person.email, edit_person_path(current_person), :class => 'right' %> <br>
               <%= link_to 'sign out', destroy_person_session_path, :method => :delete, :class => 'right' %>
             </div>
           <% end %>
           <% if current_resident %>
             <div class="right">
               You are signed in as a resident.<br>
-              <%= link_to image_tag('black_gear.png', :class => 'right', :id => 'settings_link') + current_resident.email, current_resident, :class => 'right' %> <br>
+              <%= link_to image_tag('black_gear.png', :id => 'settings_link') + current_resident.email, current_resident, :class => 'right' %> <br>
               <%= link_to 'sign out', destroy_resident_session_path, :method => :delete, :class => 'right' %>
             </div>
           <% end %>
           <% if current_team_admin %>
             <div class="right">
               You are signed in as an admin.<br>
-              <%= link_to image_tag('black_gear.png', :class => 'right', :id => 'settings_link') +current_team_admin.email, current_team_admin, :class => 'right' %> <br>
+              <%= link_to image_tag('black_gear.png', :id => 'settings_link') +current_team_admin.email, current_team_admin, :class => 'right' %> <br>
               <%= link_to 'sign out', destroy_team_admin_session_path, :method => :delete, :class => 'right' %>
             </div>
           <% end %>
